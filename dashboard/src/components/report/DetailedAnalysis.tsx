@@ -6,7 +6,10 @@ import { useLanguage } from "@/hooks/use-language"
 import type { SectorData, Asset } from "@/types/report"
 import { SECTOR_COLORS, SECTORS } from "@/lib/constants"
 
-function parseNumeric(val: string): number { return parseFloat(val.replace(/[^0-9.\-]/g, "")) || 0 }
+function parseNumeric(val: string | number): number {
+  if (typeof val === "number") return val
+  return parseFloat(String(val).replace(/[^0-9.,\-]/g, "").replace(/,/g, "")) || 0
+}
 
 function ChangeCell({ value }: { value: string }) {
   const cls = value.startsWith("+") ? "text-green-600" : value.startsWith("-") ? "text-red-600" : "text-[#8B8B85]"
