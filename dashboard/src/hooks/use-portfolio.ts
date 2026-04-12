@@ -20,7 +20,7 @@ export interface Portfolio {
   categories: PortfolioCategory[]
 }
 
-const STORAGE_KEY = "tododeia_portfolio"
+const STORAGE_KEY = "finance_ia_portfolio"
 
 const DEFAULT_PORTFOLIO: Portfolio = {
   categories: [

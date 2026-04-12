@@ -80,18 +80,24 @@ export function ReportHeader({ data }: { data: ReportData }) {
     const reader = res.body.getReader()
     const decoder = new TextDecoder()
 
+    let buffer = ""
     while (true) {
       const { done, value } = await reader.read()
       if (done) break
-      const text = decoder.decode(value)
-      const lines = text.split("\n").filter(l => l.startsWith("data: "))
-      for (const line of lines) {
-        const payload = JSON.parse(line.replace("data: ", ""))
-        setGenStatus(payload)
-        if (payload.step === "done") {
-          setGenDone(true)
-          setTimeout(() => window.location.reload(), 1500)
-        }
+      buffer += decoder.decode(value, { stream: true })
+      const parts = buffer.split("\n\n")
+      buffer = parts.pop() ?? ""           // el último puede estar incompleto
+      for (const part of parts) {
+        const line = part.split("\n").find(l => l.startsWith("data: "))
+        if (!line) continue
+        try {
+          const payload = JSON.parse(line.slice(6))
+          setGenStatus(payload)
+          if (payload.step === "done") {
+            setGenDone(true)
+            setTimeout(() => window.location.reload(), 1500)
+          }
+        } catch { /* chunk incompleto, ignorar */ }
       }
     }
   }

@@ -30,7 +30,7 @@ export function LanguagePicker() {
           >
             <div className="text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8B8B85]">
-                tododeia.
+                Finance.ia
               </p>
               <h2 className="mt-4 text-xl font-semibold tracking-tight text-[#252420]">
                 Choose your language

@@ -20,7 +20,7 @@ export function NavBar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <TrendingUp size={18} className="text-zinc-700" />
-          <span className="text-base font-bold tracking-tight text-zinc-900">tododeia.</span>
+          <span className="text-base font-bold tracking-tight text-zinc-900">Finance.ia</span>
         </Link>
 
         {/* Links */}

@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react"
 import { TRANSLATIONS, type Language } from "@/lib/translations"
 
-const STORAGE_KEY = "tododeia-lang-v2"
+const STORAGE_KEY = "finance-ia-lang-v2"
 
 interface LanguageContextValue {
   lang: Language

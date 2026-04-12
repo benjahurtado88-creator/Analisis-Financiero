@@ -46,7 +46,7 @@ function ReportContent() {
         />
         <div className="text-center">
           <h1 className="text-3xl font-semibold tracking-tight text-[#252420]">
-            tododeia.
+            Finance.ia
           </h1>
           <p className="mt-3 text-sm text-[#8B8B85]">
             {error ?? "No report data found."}
