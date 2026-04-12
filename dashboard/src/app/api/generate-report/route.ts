@@ -223,10 +223,21 @@ Solo JSON, sin texto adicional.`
 }
 
 function extractJson(text: string): Record<string, unknown> {
-  const cleaned = text
+  // 1. Limpiar markdown
+  let cleaned = text
     .replace(/^```json\s*/i, "").replace(/^```\s*/i, "")
     .replace(/\s*```$/i, "").trim()
-  return JSON.parse(cleaned)
+
+  // 2. Extraer el bloque JSON más externo si hay texto alrededor
+  const match = cleaned.match(/\{[\s\S]*\}/)
+  if (match) cleaned = match[0]
+
+  // 3. Primer intento: JSON estricto
+  try { return JSON.parse(cleaned) } catch { /* sigue */ }
+
+  // 4. Segundo intento: eliminar trailing commas (bug más común de Gemini)
+  const fixed = cleaned.replace(/,\s*([}\]])/g, "$1")
+  return JSON.parse(fixed)
 }
 
 export async function POST(request: Request) {
