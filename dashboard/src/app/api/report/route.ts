@@ -88,6 +88,7 @@ async function fetchYahooPrice(yfTicker: string): Promise<{
     const res = await fetch(url, {
       headers: { "User-Agent": "Mozilla/5.0" },
       next: { revalidate: 60 },  // Next.js cache 60s
+      signal: AbortSignal.timeout(8000),  // 8s max por ticker
     })
     if (!res.ok) return null
 

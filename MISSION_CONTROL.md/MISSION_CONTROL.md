@@ -17,3 +17,12 @@
 - Nunca des información basada en datos viejos; busca siempre noticias de las últimas 24h.
 - Comportate como un Ingeniero: si un dato no es claro, indica la incertidumbre.
 - No olvides la dualidad: Somos agresivos para crecer, pero disciplinados para los dividendos.
+
+## 🚀 Financial Analysis Capability (FinanceToolkit)
+- **Local Tool**: `analisis_maia.py` (Ubicado en la raíz o en `.claude/skills/`).
+- **Trigger**: Siempre que el usuario pregunte por "Dividendos", "Yield", "Payout Ratio" o "Análisis de [Ticker]".
+- **Standard Operating Procedure (SOP)**:
+  1. No alucinar datos financieros.
+  2. Ejecutar `python analisis_maia.py [TICKER]` para obtener métricas reales.
+  3. Cruzar los datos obtenidos (Yield vs Payout) para dar una recomendación basada en la meta de Benja: **Vivir de dividendos a largo plazo**.
+  4. Si el Payout Ratio es > 80%, advertir sobre el riesgo de sostenibilidad.

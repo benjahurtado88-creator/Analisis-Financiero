@@ -8,8 +8,22 @@ import pandas as pd
 import urllib.request
 import re
 import json
+import math
 import os
 from datetime import datetime
+
+
+def _sanitize(obj):
+    """Reemplaza NaN/Infinity con None para producir JSON válido."""
+    if isinstance(obj, float):
+        if math.isnan(obj) or math.isinf(obj):
+            return None
+        return obj
+    if isinstance(obj, dict):
+        return {k: _sanitize(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_sanitize(v) for v in obj]
+    return obj
 
 # CONFIGURACION — usa variables de entorno si están disponibles, fallback a hardcoded
 import os
@@ -933,7 +947,7 @@ def guardar_historico(ticker, datos_completos):
         fecha    = datetime.now().strftime("%Y-%m-%d")
         filename = os.path.join(historia_dir, f"analisis_{fecha}_{ticker}.json")
         with open(filename, "w", encoding="utf-8") as f:
-            json.dump(datos_completos, f, indent=2, ensure_ascii=False, default=str)
+            json.dump(_sanitize(datos_completos), f, indent=2, ensure_ascii=False)
         print(f"  Guardado en: output/history/analisis_{fecha}_{ticker}.json", file=sys.stderr)
 
         # Limpiar archivos viejos del mismo ticker (mantener los últimos 30)
@@ -952,7 +966,7 @@ def guardar_historico(ticker, datos_completos):
         os.makedirs(ticker_dir, exist_ok=True)
         dashboard_file = os.path.join(ticker_dir, f"{ticker.upper()}.json")
         with open(dashboard_file, "w", encoding="utf-8") as f:
-            json.dump(datos_completos, f, indent=2, ensure_ascii=False, default=str)
+            json.dump(_sanitize(datos_completos), f, indent=2, ensure_ascii=False)
         print(f"  Dashboard: dashboard/public/data/ticker/{ticker.upper()}.json", file=sys.stderr)
     except Exception as e:
         print(f"  [Dashboard] No se pudo guardar: {e}", file=sys.stderr)
