@@ -1,48 +1,49 @@
 {
   "ticker": "MELI",
-  "fecha": "2026-04-06T09:59:29.953830",
+  "fecha": "2026-04-12T00:01:04.589870",
   "es_cripto": false,
-  "veredicto": "COMPRA",
-  "score": 4,
+  "veredicto": "MANTENER / ESPERAR",
+  "score": 3,
   "precio": {
-    "precio_actual": 1721.12,
-    "cambio_24h": 0.33,
-    "cambio_7d": 4.98,
-    "cambio_30d": -3.33,
+    "precio_actual": 1773.96,
+    "cambio_24h": -1.07,
+    "cambio_7d": 2.6,
+    "cambio_30d": 0.45,
     "high_52w": 2613.6299,
     "low_52w": 1599.52,
-    "vol_hoy": 25282,
-    "vol_20d_avg": 490409,
-    "vol_relativo": 0.05,
-    "cambio_ytd": -12.8,
-    "sma_20": 1686.652,
-    "sma_50": 1865.0214,
-    "sma_200": 2154.743,
+    "vol_hoy": 366500,
+    "vol_20d_avg": 447050,
+    "vol_relativo": 0.82,
+    "cambio_ytd": -10.12,
+    "sma_20": 1692.4895,
+    "sma_50": 1828.2404,
+    "sma_200": 2141.1733,
     "soporte": 1599.52,
     "resistencia": 2295.0,
     "tendencia_sma": "BAJISTA",
-    "rsi": 48.59,
-    "macd_line": -41.6389,
-    "macd_signal": -61.5654,
+    "rsi": 67.19,
+    "macd_line": -11.7345,
+    "macd_signal": -37.2928,
     "macd_bullish": true
   },
   "info": {
-    "market_cap": 87255941120.0,
+    "market_cap": 89934774272.0,
     "sector": "Consumer Cyclical",
     "sector_key": "consumer-cyclical",
     "industria": "Internet Retail",
-    "analyst_target": 2544.5,
+    "analyst_target": 2490.2693,
     "analyst_low": 1827.0,
     "analyst_high": 3500.0,
     "analyst_rec": "STRONG_BUY",
     "analyst_count": 26,
     "revenue_growth": 0.446,
     "earnings_growth": -0.125,
-    "ev": 92079030272.0,
-    "ev_ebitda": 22.911,
+    "ev": 95041773568.0,
+    "ev_ebitda": 23.648,
     "beta": 1.492,
-    "forward_eps": 73.1128,
-    "forward_pe": 23.540611
+    "forward_eps": 71.98927,
+    "forward_pe": 24.642004,
+    "short_ratio": 1.51
   },
   "fundamentales": {
     "yield": 0.0,
@@ -62,33 +63,33 @@
   "fair_value": {
     "tipo_empresa": "high_growth",
     "pe_benchmark": 50,
-    "fair_value_pe": 1682.9,
-    "fair_ev": 2253.66,
+    "fair_value_pe": 1734.56,
+    "fair_ev": 2250.46,
     "nota": "P/E benchmark x50 (hipercrecimiento)",
     "graham": 0.0
   },
   "dcf": {
     "metodo": "FCF-DCF (Flujo de Caja Descontado)",
-    "bear": 6172.41,
-    "base": 7194.96,
-    "bull": 10233.88,
+    "bear": 6361.91,
+    "base": 7415.85,
+    "bull": 10548.07,
     "bear_upside": 258.6,
     "base_upside": 318.0,
     "bull_upside": 494.6,
     "wacc": 11.7,
     "terminal_g": 3.0,
-    "fcf_ps": 181.58
+    "fcf_ps": 187.15
   },
   "escenarios": {
-    "base": 2544.5,
+    "base": 2490.27,
     "base_fuente": "Consenso analistas (target medio)",
     "bear": 1827.0,
     "bear_fuente": "Target mínimo analistas",
     "bull": 3500.0,
     "bull_fuente": "Target máximo analistas",
-    "bear_upside": 6.2,
-    "base_upside": 47.8,
-    "bull_upside": 103.4
+    "bear_upside": 3.0,
+    "base_upside": 40.4,
+    "bull_upside": 97.3
   },
   "moat": {
     "score": 4,
@@ -99,7 +100,7 @@
       "[+] ROE 36% > 20% — eficiencia de capital superior",
       "[+] Cobertura intereses 25.1x — fortaleza de balance",
       "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
-      "[-] Retrasado vs sector YTD en -4.9%"
+      "[-] Retrasado vs sector YTD en -5.7%"
     ]
   },
   "riesgos": [
@@ -126,33 +127,80 @@
   ],
   "eventos": {
     "earnings_fecha": "2026-05-07",
-    "earnings_eps_est": 9.9918,
+    "earnings_eps_est": 9.8056,
     "earnings_eps_low": 7.24,
     "earnings_eps_high": 11.64,
-    "earnings_rev_est": 8312878049.0,
+    "earnings_rev_est": 8310821679.0,
     "ex_dividendo": "2017-12-27",
     "pago_dividendo": "2018-01-15"
   },
   "sector_contexto": {
     "etf_ticker": "XLY",
-    "etf_precio": 108.77,
-    "etf_ytd": -7.91,
+    "etf_precio": 112.89,
+    "etf_ytd": -4.42,
     "sector_nombre": "Consumer Cyclical"
   },
   "sentimiento": {
-    "_error": "HTTP Error 401: Unauthorized"
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 1,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "67",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "STRONG_BUY (26)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "26 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "1.5d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "17%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
   },
   "noticias_ticker": [
-    "[2026-04-01] Simply Wall St. (score:11): 3 Stocks Estimated To Be Trading At A Discount Of Up To 36.2% — Over the last 7 days, the United States market has remained flat, yet it is up 16% over the past year with earnings forecast to grow by 15% annually. ",
-    "[2026-04-04] MarketBeat (score:10): MarketBeat Week in Review – 03/30 - 04/03 — Stocks and the price of oil continue to be inversely linked, and that's likely to remain the case heading into a new earnings season",
-    "[2026-04-02] Motley Fool (score:6): The Nasdaq Has Entered a Correction: Here Are 2 Stocks That Are Can't-Miss Buys — Buy these dirt-cheap stocks for potential market outperformance in the years ahead.",
-    "[2026-04-05] Motley Fool (score:6): The Market Is Down -- Here's Which Stock Between Amazon and MercadoLibre to Buy First — Both companies found success as e-commerce conglomerates in their respective home regions.",
-    "[2026-04-02] Motley Fool (score:5): Nasdaq Correction: 2 Outstanding Growth Stocks to Buy on the Dip — For contrarian investors, now is a great time to go shopping."
+    "[2026-04-09] Motley Fool (score:13): Stock Market Today, April 9: Amazon Surges After CEO Details AI and AWS Growth Plans — Wall Street is parsing bold AI, cloud, and chip expansion plans that are reshaping this tech giant's growth profile today, April 9, 2026.",
+    "[2026-04-08] Simply Wall St. (score:11): The Bull Case For MercadoLibre (MELI) Could Change Following Jefferies’ Upgrade On Investment Strategy - Learn Why — In recent days, Jefferies upgraded MercadoLibre to Buy from Hold, citing that heavier investment is now supporting stronger revenue drivers across its",
+    "[2026-04-09] Zacks (score:9): MELI's Shipping Investments Accelerate Volume: Is Growth Sustainable? — MercadoLibre's logistics push is driving faster deliveries and stronger platform activity, but margin pressure clouds the sustainability of its growth",
+    "[2026-04-07] Zacks (score:6): MercadoLibre (MELI) Beats Stock Market Upswing: What Investors Need to Know — MercadoLibre (MELI) concluded the recent trading session at $1, signifying a +1.87% move from its prior day's close.",
+    "[2026-04-08] Motley Fool (score:6): Market Crash: 2 Stocks I'd Buy Without Hesitation — These stocks could turn into market beaters at substantially lower valuations."
   ],
   "noticias_macro": [
-    "Multimillion-dollar CEO pay at these 20 low-wage companies is costing you. This is the only fix.",
-    "April is usually a strong month for stocks — but three factors now jeopardize the market rebound",
-    "U.S. oil prices stay above $110 a barrel after Iran pushes back against Trump’s deadline for Tehran to reopen Strait of Hormuz",
-    "Individual investors are shifting from ‘buying dips’ to ‘selling rips’ as they favor bonds and other defensive bets"
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
   ]
 }

@@ -2,7 +2,7 @@ import { exec } from "child_process"
 import { promisify } from "util"
 import path from "path"
 import fs from "fs"
-import { GoogleGenerativeAI } from "@google/generative-ai"
+import Groq from "groq-sdk"
 
 const execAsync = promisify(exec)
 export const maxDuration = 300
@@ -282,8 +282,7 @@ export async function POST(request: Request) {
 
         const macroTickers = pickTickers(sectors, excluded)
 
-        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" })
+        const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
         // ── PASO 1: Contexto macro real (VIX, yields, sector rotation) ─────────
         send("macro", "Obteniendo VIX, yields y rotación sectorial...")
@@ -321,19 +320,29 @@ export async function POST(request: Request) {
           }
         }
 
-        // ── PASO 4: Gemini — generación principal ──────────────────────────────
-        send("gemini", "Gemini buscando oportunidades (análisis cuantitativo + contexto)...")
+        // ── PASO 4: Groq — generación principal ───────────────────────────────
+        send("gemini", "Buscando oportunidades con Groq (llama-3.3-70b)...")
         const mainPrompt = buildMainPrompt(tickerDeep, marketCtx, riskProfile, sectors, excluded)
-        const mainResult = await model.generateContent(mainPrompt)
-        const mainText   = mainResult.response.text()
+        const mainResult = await groq.chat.completions.create({
+          model: "llama-3.3-70b-versatile",
+          messages: [{ role: "user", content: mainPrompt }],
+          temperature: 0.3,
+          max_tokens: 8000,
+        })
+        const mainText   = mainResult.choices[0]?.message?.content ?? ""
         const reportJson = extractJson(mainText) as Record<string, unknown>
 
-        // ── PASO 5: Gemini — crítico (abogado del diablo) ──────────────────────
+        // ── PASO 5: Groq — crítico (abogado del diablo) ───────────────────────
         send("critic", "Pasada crítica — verificando sesgos y advertencias...")
         let criticOutput: Record<string, unknown> = {}
         try {
-          const criticResult = await model.generateContent(buildCriticPrompt(mainText))
-          criticOutput = extractJson(criticResult.response.text())
+          const criticResult = await groq.chat.completions.create({
+            model: "llama-3.3-70b-versatile",
+            messages: [{ role: "user", content: buildCriticPrompt(mainText) }],
+            temperature: 0.2,
+            max_tokens: 1000,
+          })
+          criticOutput = extractJson(criticResult.choices[0]?.message?.content ?? "")
         } catch {
           /* crítico falla silenciosamente — no bloquea el reporte */
         }

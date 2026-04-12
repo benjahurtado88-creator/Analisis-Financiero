@@ -1,0 +1,199 @@
+{
+  "ticker": "PLTR",
+  "fecha": "2026-04-12T00:01:19.256802",
+  "es_cripto": false,
+  "veredicto": "COMPRA",
+  "score": 5,
+  "precio": {
+    "precio_actual": 128.06,
+    "cambio_24h": -1.86,
+    "cambio_7d": -12.46,
+    "cambio_30d": -15.53,
+    "high_52w": 207.18,
+    "low_52w": 88.55,
+    "vol_hoy": 116250900,
+    "vol_20d_avg": 46865790,
+    "vol_relativo": 2.48,
+    "cambio_ytd": -23.71,
+    "sma_20": 147.7585,
+    "sma_50": 144.3344,
+    "sma_200": 164.1583,
+    "soporte": 128.06,
+    "resistencia": 178.4,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 33.7,
+    "macd_line": -3.4368,
+    "macd_signal": -1.1965,
+    "macd_bullish": false
+  },
+  "info": {
+    "market_cap": 306277974016.0,
+    "sector": "Technology",
+    "sector_key": "technology",
+    "industria": "Software - Infrastructure",
+    "analyst_target": 185.2474,
+    "analyst_low": 70.0,
+    "analyst_high": 260.0,
+    "analyst_rec": "BUY",
+    "analyst_count": 27,
+    "revenue_growth": 0.7,
+    "earnings_growth": 6.476,
+    "ev": 299431034880.0,
+    "ev_ebitda": 207.915,
+    "beta": 1.674,
+    "forward_eps": 1.86141,
+    "forward_pe": 68.79731,
+    "short_ratio": 1.0
+  },
+  "fundamentales": {
+    "yield": 0.0,
+    "payout": 0.0,
+    "pe": 280.5841,
+    "pb": 61.723,
+    "pfcf": 217.0645,
+    "fcf_yield": 0.0046,
+    "margin": 0.3631,
+    "gross": 0.8237,
+    "roe": 0.2583,
+    "de": 0.0306,
+    "int_cov": null,
+    "eps": 0.6335,
+    "graham": 6.41
+  },
+  "fair_value": {
+    "tipo_empresa": "high_growth",
+    "pe_benchmark": 50,
+    "fair_value_pe": 22.82,
+    "fair_ev": 18.48,
+    "nota": "P/E benchmark x50 (hipercrecimiento)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 35.68,
+    "base": 20.53,
+    "bull": 29.03,
+    "bear_upside": -72.1,
+    "base_upside": -84.0,
+    "bull_upside": -77.3,
+    "wacc": 12.6,
+    "terminal_g": 3.0,
+    "fcf_ps": 0.59
+  },
+  "escenarios": {
+    "base": 185.25,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 70.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 260.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -45.3,
+    "base_upside": 44.7,
+    "bull_upside": 103.0
+  },
+  "moat": {
+    "score": 4,
+    "max": 5,
+    "nivel": "FOSO MODERADO",
+    "factores": [
+      "[+] Margen bruto 82% > 40% — pricing power",
+      "[+] ROE 26% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses infx — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[-] Retrasado vs sector YTD en -22.7%"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "VALORACION",
+      "nivel": "HIGH",
+      "desc": "Precio +461% sobre Fair Value P/E ($23) — riesgo de corrección"
+    },
+    {
+      "tipo": "MERCADO",
+      "nivel": "MEDIUM",
+      "desc": "Beta 1.67 — más volátil que el S&P 500"
+    },
+    {
+      "tipo": "TECNICO",
+      "nivel": "MEDIUM",
+      "desc": "Precio bajo SMA 50 y SMA 200 — tendencia bajista activa, momentum negativo"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-05-04",
+    "earnings_eps_est": 0.2789,
+    "earnings_eps_low": 0.27,
+    "earnings_eps_high": 0.32,
+    "earnings_rev_est": 1538419820.0
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLK",
+    "etf_precio": 142.62,
+    "etf_ytd": -1.04,
+    "sector_nombre": "Technology"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 0,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Bajo",
+        "valor": "34",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Por debajo de zona neutral — presión vendedora moderada"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Bajista",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "MACD por debajo de señal — momentum de corto plazo negativo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "BUY (27)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "27 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "1.0d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "33%",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "En zona media del rango anual"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-11] Benzinga (score:10): Michael Burry Saying Anthropic Eating Palantir's Lunch Is 'The Wrong Take And Fictional Narrative,' Says Top Analyst — On Thursday, Wedbush Securities analyst Dan Ives dismissed statements made by famed investor Michael Burry that Anthropic is overtaking Palantir Techn",
+    "[2026-04-12] Motley Fool (score:9): 2 AI Stocks I Don't Like (Including Palantir) and 1 I Love — Software and AI stocks have taken a beating recently. But that doesn't mean investors should rush in to buy just because shares are down.",
+    "[2026-04-10] Motley Fool (score:7): Stock Market Today, April 10: Palantir Falls as AI Competition Pressures Valuation — Palantir fell as rising competition in AI software weighed on its premium valuation, with recent commentary highlighting pressure on its ability to ex",
+    "[2026-04-11] TheStreet (score:6): Palantir stock caught in a battle over pension billions — Palantir Technologies (PLTR) is currently one of the most powerful AI companies on Wall Street, owing to a strong surge of hope around AI, national se",
+    "[2026-04-11] Moneywise (score:5): Trump name-drops Palantir by ticker symbol, 1st president to hype a stock. It surged $10B in minutes amid a 16% freefall — Critics are calling it market manipulation. Michael Burry is betting against it. Here's what investors should know."
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}
