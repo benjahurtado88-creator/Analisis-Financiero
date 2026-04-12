@@ -1,6 +1,6 @@
 {
   "ticker": "MSFT",
-  "fecha": "2026-04-11T23:18:56.497039",
+  "fecha": "2026-04-11T23:26:53.777461",
   "es_cripto": false,
   "veredicto": "COMPRA",
   "score": 4,
@@ -9,7 +9,7 @@
     "cambio_24h": -0.59,
     "cambio_7d": 0.19,
     "cambio_30d": -8.4,
-    "high_52w": 539.8253,
+    "high_52w": 539.8252,
     "low_52w": 356.3916,
     "vol_hoy": 28038000,
     "vol_20d_avg": 31685555,

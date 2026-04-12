@@ -1,33 +1,33 @@
 {
   "ticker": "BTC",
-  "fecha": "2026-04-11T23:17:48.709751",
+  "fecha": "2026-04-11T23:25:50.877369",
   "es_cripto": true,
   "veredicto": "PRECAUCION",
   "score": 0,
   "precio": {
-    "precio_actual": 71764.5234,
-    "cambio_24h": -1.66,
-    "cambio_7d": 6.65,
-    "cambio_30d": 4.44,
+    "precio_actual": 71675.3828,
+    "cambio_24h": -1.79,
+    "cambio_7d": 6.52,
+    "cambio_30d": 4.31,
     "high_52w": 124752.5312,
     "low_52w": 62702.0977,
-    "vol_hoy": 25792532480,
-    "vol_20d_avg": 35110837364,
-    "vol_relativo": 0.73,
-    "cambio_ytd": -19.12,
-    "sma_20": 69083.8953,
-    "sma_50": 69061.7855,
-    "sma_200": 88078.6617,
+    "vol_hoy": 25874907136,
+    "vol_20d_avg": 35114956097,
+    "vol_relativo": 0.74,
+    "cambio_ytd": -19.22,
+    "sma_20": 69079.4383,
+    "sma_50": 69060.0027,
+    "sma_200": 88078.216,
     "soporte": 64080.043,
     "resistencia": 74861.0859,
     "tendencia_sma": "MIXTA",
-    "rsi": 70.67,
-    "macd_line": 570.6707,
-    "macd_signal": -21.6507,
+    "rsi": 70.19,
+    "macd_line": 563.5598,
+    "macd_signal": -23.0729,
     "macd_bullish": true
   },
   "info": {
-    "market_cap": 1436337700864.0,
+    "market_cap": 1434553548800.0,
     "circulating": 20014592.0
   },
   "fundamentales": {},
@@ -46,7 +46,7 @@
     "señales": [
       {
         "factor": "RSI Sobrecompra",
-        "valor": "71",
+        "valor": "70",
         "señal": "BEARISH",
         "peso": "-2",
         "desc": "Zona de sobrecompra — riesgo de corrección"
@@ -67,7 +67,7 @@
       },
       {
         "factor": "Posición 52s",
-        "valor": "15%",
+        "valor": "14%",
         "señal": "BULLISH",
         "peso": "+1",
         "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
