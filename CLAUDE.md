@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Project Is
 
-**Tododeia** is a Claude Code skill that orchestrates 6 AI agents to produce a bilingual (EN/ES) investment research report. The skill is invoked through Claude Code, runs parallel market research, and serves an interactive Next.js dashboard at `localhost:3420`.
+**Finance.ia** is a Claude Code skill that orchestrates 6 AI agents to produce a bilingual (EN/ES) investment research report. The skill is invoked through Claude Code, runs parallel market research, and serves an interactive Next.js dashboard at `localhost:3420`.
 
 **Investor profile (hardcoded — do not ask the user):**
 - **65% Growth bucket**: x5–x10 targets, disruptive tech, crypto, small caps, AI, revenue growth >15% YoY

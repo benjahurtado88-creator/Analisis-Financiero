@@ -1,0 +1,199 @@
+{
+  "ticker": "AMZN",
+  "fecha": "2026-04-11T23:18:26.511794",
+  "es_cripto": false,
+  "veredicto": "MANTENER / ESPERAR",
+  "score": 3,
+  "precio": {
+    "precio_actual": 238.38,
+    "cambio_24h": 2.02,
+    "cambio_7d": 14.46,
+    "cambio_30d": 12.1,
+    "high_52w": 254.0,
+    "low_52w": 167.32,
+    "vol_hoy": 56842200,
+    "vol_20d_avg": 44464400,
+    "vol_relativo": 1.28,
+    "cambio_ytd": 5.25,
+    "sma_20": 212.199,
+    "sma_50": 213.4026,
+    "sma_200": 224.8575,
+    "soporte": 198.79,
+    "resistencia": 244.68,
+    "tendencia_sma": "MIXTA",
+    "rsi": 75.33,
+    "macd_line": 3.6215,
+    "macd_signal": 0.0637,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 2563598712832.0,
+    "sector": "Consumer Cyclical",
+    "sector_key": "consumer-cyclical",
+    "industria": "Internet Retail",
+    "analyst_target": 281.27344,
+    "analyst_low": 175.0,
+    "analyst_high": 360.0,
+    "analyst_rec": "STRONG_BUY",
+    "analyst_count": 64,
+    "revenue_growth": 0.136,
+    "earnings_growth": 0.05,
+    "ev": 2614508388352.0,
+    "ev_ebitda": 17.941,
+    "beta": 1.383,
+    "forward_eps": 9.39291,
+    "forward_pe": 25.378717,
+    "short_ratio": 1.82
+  },
+  "fundamentales": {
+    "yield": 0.0,
+    "payout": 0.0,
+    "pe": 32.1759,
+    "pb": 6.0795,
+    "pfcf": 324.7678,
+    "fcf_yield": 0.0031,
+    "margin": 0.1083,
+    "gross": 0.5029,
+    "roe": 0.2229,
+    "de": 0.3722,
+    "int_cov": 64.0858,
+    "eps": 7.1737,
+    "graham": 78.28
+  },
+  "fair_value": {
+    "tipo_empresa": "blend",
+    "pe_benchmark": 25,
+    "fair_value_pe": 185.22,
+    "fair_ev": 199.3,
+    "nota": "P/E benchmark x25 (blend)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 11.15,
+    "base": 14.95,
+    "bull": 20.06,
+    "bear_upside": -95.3,
+    "base_upside": -93.7,
+    "bull_upside": -91.6,
+    "wacc": 11.1,
+    "terminal_g": 3.0,
+    "fcf_ps": 0.74
+  },
+  "escenarios": {
+    "base": 281.27,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 175.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 360.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -26.6,
+    "base_upside": 18.0,
+    "bull_upside": 51.0
+  },
+  "moat": {
+    "score": 5,
+    "max": 5,
+    "nivel": "FOSO ANCHO",
+    "factores": [
+      "[+] Margen bruto 50% > 40% — pricing power",
+      "[+] ROE 22% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses 64.1x — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[+] Supera sector YTD en +9.7% — ejecución superior"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "VALORACION",
+      "nivel": "MEDIUM",
+      "desc": "Precio +29% sobre Fair Value P/E — premium elevado, exige ejecución perfecta"
+    },
+    {
+      "tipo": "MERCADO",
+      "nivel": "MEDIUM",
+      "desc": "Beta 1.38 — más volátil que el S&P 500"
+    },
+    {
+      "tipo": "TECNICO",
+      "nivel": "MEDIUM",
+      "desc": "RSI 75 — sobrecompra técnica, posible consolidación o pullback"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-04-30",
+    "earnings_eps_est": 1.6437,
+    "earnings_eps_low": 1.38,
+    "earnings_eps_high": 2.75,
+    "earnings_rev_est": 177061256710.0
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLY",
+    "etf_precio": 112.89,
+    "etf_ytd": -4.42,
+    "sector_nombre": "Consumer Cyclical"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 0,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Sobrecompra",
+        "valor": "75",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Zona de sobrecompra — riesgo de corrección"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "STRONG_BUY (64)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "64 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "1.8d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "82%",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "Cerca del máximo anual — poco margen al alza sin nuevo catalizador"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-11] 24/7 Wall St. (score:9): Nvidia Just Posted Its Longest Winning Streak Since 2023. Is This Time for Real? — The S&P 500 is mixed after March inflation came in just below forecasts and uncertainty over a peaceful resolution to the Iran war. Tech stocks, thoug",
+    "[2026-04-11] 24/7 Wall St. (score:9): Amazon vs. Walmart: The Retail War Just Picked a Winner — Amazon (NASDAQ:AMZN) and Walmart (NYSE:WMT) reported earnings revealing two companies of nearly identical scale but radically different profit archite",
+    "[2026-04-11] Simply Wall St. (score:7): Rigetti’s 108 Qubit Launch Tests Quantum Ambitions And Valuation Gap — Rigetti Computing has released its 108 qubit modular quantum system, Cepheus-1-108Q, for general availability. The system is now accessible through Ri",
+    "[2026-04-11] Bloomberg (score:6): AI Juggernaut Rumbles on Even as Markets Whipsaw — (Bloomberg) -- The artificial intelligence credit juggernaut keeps pushing forward as the relentless demand for exposure to the industry trumps fears ",
+    "[2026-04-11] TipRanks (score:4): VTSAX vs VOO ETF: Which Vanguard Fund Should You Buy in 2026? — For investors seeking low-cost U.S. stock market exposure, two Vanguard funds dominate the conversation: the Vanguard Total Stock Market Index Fund Ad"
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

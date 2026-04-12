@@ -1,0 +1,71 @@
+{
+  "ticker": "VOO",
+  "fecha": "2026-04-06T10:01:47.247443",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 605.06,
+    "cambio_24h": 0.34,
+    "cambio_7d": 0.22,
+    "cambio_30d": -3.17,
+    "high_52w": 637.6871,
+    "low_52w": 451.3298,
+    "vol_hoy": 1546597,
+    "vol_20d_avg": 13622969,
+    "vol_relativo": 0.11,
+    "cambio_ytd": -3.39,
+    "sma_20": 604.3795,
+    "sma_50": 619.9512,
+    "sma_200": 606.0382,
+    "soporte": 580.93,
+    "resistencia": 637.6871,
+    "tendencia_sma": "MIXTA",
+    "rsi": 44.83,
+    "macd_line": -6.5761,
+    "macd_signal": -7.6311,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "_error": "HTTP Error 401: Unauthorized"
+  },
+  "noticias_ticker": [
+    "[2026-04-02] 24/7 Wall St. (score:8): Why Investors Own VOOG for Growth Not Its Tiny 0.46% Dividend — Vanguard S&P 500 Growth Index Fund ETF Shares (NYSEARCA:VOOG) offers a yield of just 0.46%, a byproduct of owning growth companies rather than a reaso",
+    "[2026-04-01] Motley Fool (score:7): Meet the Vanguard Index Fund Beating the S&P 500 in 2026 — It's not a name usually known for market leadership, but it certainly makes sense right now.",
+    "[2026-04-04] Motley Fool (score:5): VOO Costs Just 0.03% a Year and Tracks 500 of America's Largest Companies. A Tough Market Does Not Change That Value Proposition. — As the S&P 500 index trades 5% off its peak with heightened volatility, investors need to maintain the right perspective.",
+    "[2026-04-02] Motley Fool (score:4): Meet the 2 Vanguard ETFs That Are Issuing 6-for-1 Stock Splits in April. Here's Why Both Are Buys Now. — These splits will make it significantly less expensive to own a full share of these low-cost growth ETFs.",
+    "[2026-04-01] etf.com (score:3): ETF Inflows Hit $462 Billion in Q1 as Investors Ignore Market Drop — <p>Stocks slid in March, but ETF investors kept buying. Now inflows are on pace for nearly $2 trillion this year.</p>"
+  ],
+  "noticias_macro": [
+    "Multimillion-dollar CEO pay at these 20 low-wage companies is costing you. This is the only fix.",
+    "April is usually a strong month for stocks — but three factors now jeopardize the market rebound",
+    "U.S. oil prices stay above $110 a barrel after Iran pushes back against Trump’s deadline for Tehran to reopen Strait of Hormuz",
+    "Individual investors are shifting from ‘buying dips’ to ‘selling rips’ as they favor bonds and other defensive bets"
+  ]
+}

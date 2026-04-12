@@ -1,7 +1,7 @@
 {
   "name": "maia-skill",
   "version": "1.0.0",
-  "description": "Tododeia — Multi-agent investment analysis system for market research, portfolio recommendations, and interactive reporting across crypto, stocks, forex, and commodities.",
+  "description": "Finance.ia — Multi-agent investment analysis system for market research, portfolio recommendations, and interactive reporting across crypto, stocks, forex, and commodities.",
   "author": {
     "name": "soyenriquerocha",
     "url": "https://github.com/Hainrixz"
@@ -9,6 +9,6 @@
   "homepage": "https://github.com/Hainrixz/maia-skill#readme",
   "repository": "https://github.com/Hainrixz/maia-skill",
   "license": "MIT",
-  "keywords": ["investment", "analysis", "trading", "market-research", "finance", "crypto", "stocks", "forex", "commodities", "tododeia"],
+  "keywords": ["investment", "analysis", "trading", "market-research", "finance", "crypto", "stocks", "forex", "commodities", "finance-ia"],
   "skills": "./.claude/skills/"
 }

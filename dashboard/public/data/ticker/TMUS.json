@@ -1,0 +1,206 @@
+{
+  "ticker": "TMUS",
+  "fecha": "2026-04-11T22:59:50.951472",
+  "es_cripto": false,
+  "veredicto": "COMPRA FUERTE",
+  "score": 6,
+  "precio": {
+    "precio_actual": 195.71,
+    "cambio_24h": -0.93,
+    "cambio_7d": -6.82,
+    "cambio_30d": -8.31,
+    "high_52w": 262.2296,
+    "low_52w": 182.7214,
+    "vol_hoy": 3995300,
+    "vol_20d_avg": 5684175,
+    "vol_relativo": 0.7,
+    "cambio_ytd": -1.47,
+    "sma_20": 207.034,
+    "sma_50": 209.1358,
+    "sma_200": 217.8929,
+    "soporte": 182.7214,
+    "resistencia": 221.57,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 28.08,
+    "macd_line": -3.6845,
+    "macd_signal": -1.9948,
+    "macd_bullish": false
+  },
+  "info": {
+    "market_cap": 218902937600.0,
+    "sector": "Communication Services",
+    "sector_key": "communication-services",
+    "industria": "Telecom Services",
+    "analyst_target": 268.68,
+    "analyst_low": 225.0,
+    "analyst_high": 310.0,
+    "analyst_rec": "BUY",
+    "analyst_count": 25,
+    "revenue_growth": 0.113,
+    "earnings_growth": -0.266,
+    "ev": 333693550592.0,
+    "ev_ebitda": 10.167,
+    "beta": 0.422,
+    "forward_eps": 13.92555,
+    "forward_pe": 14.054023,
+    "short_ratio": 2.24
+  },
+  "fundamentales": {
+    "yield": 0.019416483572632974,
+    "payout": 0.3749,
+    "pe": 20.7928,
+    "pb": 3.8605,
+    "pfcf": 14.8152,
+    "fcf_yield": 0.0675,
+    "margin": 0.1245,
+    "gross": 0.6289,
+    "roe": 0.1818,
+    "de": 2.0653,
+    "int_cov": 8.4963,
+    "eps": 9.7182,
+    "graham": 106.98
+  },
+  "fair_value": {
+    "tipo_empresa": "blend",
+    "pe_benchmark": 25,
+    "fair_value_pe": 235.31,
+    "fair_ev": 288.74,
+    "nota": "P/E benchmark x25 (blend)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 385.44,
+    "base": 508.68,
+    "bull": 669.56,
+    "bear_upside": 96.9,
+    "base_upside": 159.9,
+    "bull_upside": 242.1,
+    "wacc": 7.0,
+    "terminal_g": 3.0,
+    "fcf_ps": 13.21
+  },
+  "escenarios": {
+    "base": 268.68,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 225.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 310.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": 15.0,
+    "base_upside": 37.3,
+    "bull_upside": 58.4
+  },
+  "moat": {
+    "score": 4,
+    "max": 5,
+    "nivel": "FOSO MODERADO",
+    "factores": [
+      "[+] Margen bruto 63% > 40% — pricing power",
+      "[~] ROE 18% — adecuado pero no diferenciador",
+      "[+] Cobertura intereses 8.5x — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[+] Supera sector YTD en +0.7% — ejecución superior"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "VALORACION",
+      "nivel": "LOW",
+      "desc": "Precio 17% bajo Fair Value — descuento ofrece margen de seguridad"
+    },
+    {
+      "tipo": "FINANCIERO",
+      "nivel": "MEDIUM",
+      "desc": "Deuda/Equity 2.1x moderada — monitorear refinanciamiento"
+    },
+    {
+      "tipo": "TECNICO",
+      "nivel": "MEDIUM",
+      "desc": "Precio bajo SMA 50 y SMA 200 — tendencia bajista activa, momentum negativo"
+    },
+    {
+      "tipo": "CRECIMIENTO",
+      "nivel": "HIGH",
+      "desc": "Earnings YoY -27% — contracción de ganancias, cuestionable valoración actual"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-04-28",
+    "earnings_eps_est": 2.116,
+    "earnings_eps_low": 1.45,
+    "earnings_eps_high": 2.73,
+    "earnings_rev_est": 22988820000.0,
+    "ex_dividendo": "2026-05-28",
+    "pago_dividendo": "2026-06-10"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLC",
+    "etf_precio": 113.95,
+    "etf_ytd": -2.21,
+    "sector_nombre": "Communication Services"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 2,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Sobreventa",
+        "valor": "28",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "Zona de sobreventa — históricamente señal de rebote"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Bajista",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "MACD por debajo de señal — momentum de corto plazo negativo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "BUY (25)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "25 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "2.2d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "16%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-08] Bloomberg (score:10): Global Chaos, AI Fears Help Tech’s Dividend Stocks — (Bloomberg) -- An uncertain economy and dangerous geopolitical backdrop have investors buying into technology’s most popular haven trade: dividend-ric",
+    "[2026-04-09] Insider Monkey (score:9): Is Uniti Group (UNIT) the Next Big Fiber Acquisition? — Uniti Group Inc. (NASDAQ:UNIT) is among the most profitable stocks in each sector so far in 2026. On April 1, Raymond James reaffirmed a Strong Buy ra",
+    "[2026-04-09] Zacks (score:8): Verizon Shares Rise 20.6% in Three Months: How to Play the Stock — VZ rides fiber growth, Frontier deal and bundling push to drive gains, but rising costs, fierce telecom competition and heavy spending weigh on margin",
+    "[2026-04-10] Insider Monkey (score:8): T-Mobile (TMUS), Nvidia (NVDA) Integrate AI Applications on AI-RAN Infrastructure — T-Mobile US Inc. (NASDAQ:TMUS) is one of the 10 Best Growth Stocks to Buy for the Next Decade. T-Mobile US Inc. (NASDAQ:TMUS) is one of the best growt",
+    "[2026-04-09] Yahoo Finance Video (score:7): What SpaceX's expanded Starlink coverage means for the IPO — SpaceX (SPAX.PVT) has expanded Starlink's coverage with a new partnership with US Mobile. Yahoo Finance Senior Autos Reporter Pras Subramanian goes ov"
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

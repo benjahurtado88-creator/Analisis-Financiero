@@ -1,0 +1,191 @@
+{
+  "ticker": "MSFT",
+  "fecha": "2026-04-11T23:18:56.497039",
+  "es_cripto": false,
+  "veredicto": "COMPRA",
+  "score": 4,
+  "precio": {
+    "precio_actual": 370.87,
+    "cambio_24h": -0.59,
+    "cambio_7d": 0.19,
+    "cambio_30d": -8.4,
+    "high_52w": 539.8253,
+    "low_52w": 356.3916,
+    "vol_hoy": 28038000,
+    "vol_20d_avg": 31685555,
+    "vol_relativo": 0.88,
+    "cambio_ytd": -21.4,
+    "sma_20": 377.1255,
+    "sma_50": 393.6225,
+    "sma_200": 472.5899,
+    "soporte": 356.77,
+    "resistencia": 480.5332,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 39.49,
+    "macd_line": -8.3154,
+    "macd_signal": -9.7783,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 2756445995008.0,
+    "sector": "Technology",
+    "sector_key": "technology",
+    "industria": "Software - Infrastructure",
+    "analyst_target": 587.3139,
+    "analyst_low": 392.0,
+    "analyst_high": 730.0,
+    "analyst_rec": "STRONG_BUY",
+    "analyst_count": 54,
+    "revenue_growth": 0.167,
+    "earnings_growth": 0.598,
+    "ev": 2787759095808.0,
+    "ev_ebitda": 15.907,
+    "beta": 1.107,
+    "forward_eps": 18.83989,
+    "forward_pe": 19.68536,
+    "short_ratio": 2.5
+  },
+  "fundamentales": {
+    "yield": 0.009383341871814922,
+    "payout": 0.2365,
+    "pe": 35.3719,
+    "pb": 10.4868,
+    "pfcf": 50.2996,
+    "fcf_yield": 0.0199,
+    "margin": 0.3615,
+    "gross": 0.6882,
+    "roe": 0.3328,
+    "de": 0.1764,
+    "int_cov": 68.2101,
+    "eps": 13.6413,
+    "graham": 118.84
+  },
+  "fair_value": {
+    "tipo_empresa": "growth",
+    "pe_benchmark": 35,
+    "fair_value_pe": 366.97,
+    "fair_ev": 466.3,
+    "nota": "P/E benchmark x35 (growth)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 148.5,
+    "base": 216.1,
+    "bull": 314.0,
+    "bear_upside": -60.0,
+    "base_upside": -41.7,
+    "bull_upside": -15.3,
+    "wacc": 9.7,
+    "terminal_g": 3.0,
+    "fcf_ps": 7.38
+  },
+  "escenarios": {
+    "base": 587.31,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 392.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 730.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": 5.7,
+    "base_upside": 58.4,
+    "bull_upside": 96.8
+  },
+  "moat": {
+    "score": 4,
+    "max": 5,
+    "nivel": "FOSO MODERADO",
+    "factores": [
+      "[+] Margen bruto 69% > 40% — pricing power",
+      "[+] ROE 33% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses 68.2x — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[-] Retrasado vs sector YTD en -20.4%"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "TECNICO",
+      "nivel": "MEDIUM",
+      "desc": "Precio bajo SMA 50 y SMA 200 — tendencia bajista activa, momentum negativo"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-04-29",
+    "earnings_eps_est": 4.0623,
+    "earnings_eps_low": 3.943,
+    "earnings_eps_high": 4.2296,
+    "earnings_rev_est": 81364996490.0,
+    "ex_dividendo": "2026-05-20",
+    "pago_dividendo": "2026-06-10"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLK",
+    "etf_precio": 142.62,
+    "etf_ytd": -1.04,
+    "sector_nombre": "Technology"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 3,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Bajo",
+        "valor": "39",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Por debajo de zona neutral — presión vendedora moderada"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "STRONG_BUY (54)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "54 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "2.5d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "8%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-11] Benzinga (score:13): Microsoft's 'Copilot Code Red': CEO Nadella Deploys Emergency Overhaul To Crush AI Rivals — Microsoft Corp stock could regain momentum as improving AI execution, cloud growth and financial balance address investor concerns, according to BNP P",
+    "[2026-04-11] TheStreet (score:10): Goldman Sachs drops a bombshell on software stocks — Software stocks just recorded the worst relative performance against the S&P 500 in the sector’s entire recorded history. The iShares Expanded Tech-So",
+    "[2026-04-11] 24/7 Wall St. (score:9): Nvidia Just Posted Its Longest Winning Streak Since 2023. Is This Time for Real? — The S&P 500 is mixed after March inflation came in just below forecasts and uncertainty over a peaceful resolution to the Iran war. Tech stocks, thoug",
+    "[2026-04-11] 24/7 Wall St. (score:7): Not All the Signals Are Bearish Under President Donald Trump — Here’s What Bulls Are Watching — The S&P 500 returned 12.8% from Election Day 2024 through April 10, 2026, according to FactSet market data. Higher oil prices and tariff headlines cre",
+    "[2026-04-11] Motley Fool (score:5): Here's My Top Artificial Intelligence (AI) Stock for Retirees (Hint: It's Not Nvidia) — This company can appeal to investors with different goals and styles."
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

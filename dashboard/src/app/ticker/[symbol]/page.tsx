@@ -148,7 +148,7 @@ export default async function TickerPage({ params }: { params: Promise<{ symbol:
 
         {/* Footer */}
         <div className="mt-10 border-t border-zinc-200 pt-6 text-center text-xs text-zinc-400">
-          <p>Análisis generado por <strong>Tododeia</strong> — Solo con fines educativos. No es asesoría financiera.</p>
+          <p>Análisis generado por <strong>Finance.ia</strong> — Solo con fines educativos. No es asesoría financiera.</p>
           <p className="mt-1">Los datos provienen de yfinance y FinanceToolkit. Siempre verifica antes de invertir.</p>
         </div>
       </div>
@@ -158,5 +158,5 @@ export default async function TickerPage({ params }: { params: Promise<{ symbol:
 
 export async function generateMetadata({ params }: { params: Promise<{ symbol: string }> }) {
   const { symbol } = await params
-  return { title: `${symbol.toUpperCase()} — Análisis Experto | Tododeia` }
+  return { title: `${symbol.toUpperCase()} — Análisis Experto | Finance.ia` }
 }

@@ -1,0 +1,105 @@
+{
+  "ticker": "GLD",
+  "fecha": "2026-04-11T23:19:26.385657",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 437.13,
+    "cambio_24h": -0.18,
+    "cambio_7d": 1.59,
+    "cambio_30d": -8.21,
+    "high_52w": 495.9,
+    "low_52w": 285.38,
+    "vol_hoy": 6175600,
+    "vol_20d_avg": 14720025,
+    "vol_relativo": 0.42,
+    "cambio_ytd": 9.75,
+    "sma_20": 429.3,
+    "sma_50": 451.1788,
+    "sma_200": 382.0566,
+    "soporte": 400.64,
+    "resistencia": 495.9,
+    "tendencia_sma": "MIXTA",
+    "rsi": 62.39,
+    "macd_line": -5.101,
+    "macd_signal": -7.924,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 113784938496.0,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null,
+    "short_ratio": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 0,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "62",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "72%",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "En zona media del rango anual"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-10] GuruFocus.com (score:12): Gold Falls Nearly 10% As Banks Maintain $5,800 Price Outlook — Central bank demand, Fed rate cut expectations, and geopolitical risks continue to shape long-term gold forecasts despite recent declines.",
+    "[2026-04-10] MarketBeat (score:6): Golden Ceasefires: Forget Fear, It's About the Global Reset — Global gold prices are climbing higher as sovereign de-dollarization and inflation create a structural floor for major sector leaders such as Newmont.",
+    "[2026-04-09] MT Newswires (score:3): Update: Gold Climbs as a U.S. Inflation Measure Rose in February, While the U.S. and Iran Dispute Ceasefire Terms — (Updates prices.) Gold traded higher midafternoon on Thursday as the dollar weakened after the Un",
+    "[2026-04-09] MT Newswires (score:3): Gold Steady as U.S. Inflation Measure Rose in February, While U.S. and Iran Dispute Ceasefire Terms — Gold was steady early Thursday despite a weakening dollar, after the United States reported a key in",
+    "[2026-04-10] MT Newswires (score:3): Update: Gold Trading Lower as U.S. Inflation Surged in March on Higher Gasoline Prices — (Updates prices.) Gold futures eased midafternoon on Friday even as the dollar weakened after a r"
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

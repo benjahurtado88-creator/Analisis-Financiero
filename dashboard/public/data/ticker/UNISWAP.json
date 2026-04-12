@@ -1,0 +1,44 @@
+{
+  "ticker": "UNISWAP",
+  "fecha": "2026-04-06T09:56:13.813605",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {},
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "_error": "HTTP Error 401: Unauthorized"
+  },
+  "noticias_ticker": [],
+  "noticias_macro": [
+    "Multimillion-dollar CEO pay at these 20 low-wage companies is costing you. This is the only fix.",
+    "April is usually a strong month for stocks — but three factors now jeopardize the market rebound",
+    "U.S. oil prices stay above $110 a barrel after Iran pushes back against Trump’s deadline for Tehran to reopen Strait of Hormuz",
+    "Individual investors are shifting from ‘buying dips’ to ‘selling rips’ as they favor bonds and other defensive bets"
+  ]
+}

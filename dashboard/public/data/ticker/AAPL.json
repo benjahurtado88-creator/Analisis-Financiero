@@ -1,0 +1,185 @@
+{
+  "ticker": "AAPL",
+  "fecha": "2026-04-11T23:19:11.420751",
+  "es_cripto": false,
+  "veredicto": "MANTENER / ESPERAR",
+  "score": 3,
+  "precio": {
+    "precio_actual": 260.48,
+    "cambio_24h": -0.0,
+    "cambio_7d": 2.64,
+    "cambio_30d": -0.13,
+    "high_52w": 285.9225,
+    "low_52w": 189.5937,
+    "vol_hoy": 31259500,
+    "vol_20d_avg": 40823780,
+    "vol_relativo": 0.77,
+    "cambio_ytd": -3.8,
+    "sma_20": 253.285,
+    "sma_50": 260.8421,
+    "sma_200": 250.3051,
+    "soporte": 246.4694,
+    "resistencia": 277.86,
+    "tendencia_sma": "MIXTA",
+    "rsi": 67.47,
+    "macd_line": -0.1615,
+    "macd_signal": -1.63,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 3828515864576.0,
+    "sector": "Technology",
+    "sector_key": "technology",
+    "industria": "Consumer Electronics",
+    "analyst_target": 296.3305,
+    "analyst_low": 205.0,
+    "analyst_high": 350.0,
+    "analyst_rec": "BUY",
+    "analyst_count": 40,
+    "revenue_growth": 0.157,
+    "earnings_growth": 0.183,
+    "ev": 3847745437696.0,
+    "ev_ebitda": 25.165,
+    "beta": 1.109,
+    "forward_eps": 9.31223,
+    "forward_pe": 27.971819,
+    "short_ratio": 3.17
+  },
+  "fundamentales": {
+    "yield": 0.003992628992628993,
+    "payout": 0.1377,
+    "pe": 36.3839,
+    "pb": 55.2718,
+    "pfcf": 41.2624,
+    "fcf_yield": 0.0242,
+    "margin": 0.2692,
+    "gross": 0.4691,
+    "roe": 1.7142,
+    "de": 1.338,
+    "int_cov": null,
+    "eps": 7.465,
+    "graham": 28.73
+  },
+  "fair_value": {
+    "tipo_empresa": "growth",
+    "pe_benchmark": 35,
+    "fair_value_pe": 250.57,
+    "fair_ev": 207.02,
+    "nota": "P/E benchmark x35 (growth)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 122.91,
+    "base": 174.86,
+    "bull": 248.55,
+    "bear_upside": -52.8,
+    "base_upside": -32.9,
+    "bull_upside": -4.6,
+    "wacc": 9.7,
+    "terminal_g": 3.0,
+    "fcf_ps": 6.3
+  },
+  "escenarios": {
+    "base": 296.33,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 205.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 350.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -21.3,
+    "base_upside": 13.8,
+    "bull_upside": 34.4
+  },
+  "moat": {
+    "score": 4,
+    "max": 5,
+    "nivel": "FOSO MODERADO",
+    "factores": [
+      "[+] Margen bruto 47% > 40% — pricing power",
+      "[+] ROE 171% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses infx — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[-] Retrasado vs sector YTD en -2.8%"
+    ]
+  },
+  "riesgos": [],
+  "eventos": {
+    "earnings_fecha": "2026-04-30",
+    "earnings_eps_est": 1.9426,
+    "earnings_eps_low": 1.75,
+    "earnings_eps_high": 2.16,
+    "earnings_rev_est": 109200786130.0,
+    "ex_dividendo": "2026-02-08",
+    "pago_dividendo": "2026-02-11"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLK",
+    "etf_precio": 142.62,
+    "etf_ytd": -1.04,
+    "sector_nombre": "Technology"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 2,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "67",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "BUY (40)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "40 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "3.2d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "74%",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "En zona media del rango anual"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-10] Barrons.com (score:11): Anthropic’s New AI Model Triggered an Emergency Banking Meeting. It’s a Reason to Buy Cybersecurity Stocks. — Treasury Secretary Scott Bessent, as well as Federal Reserve Chair Jerome Powell, arranged an emergency meeting of top bank bosses earlier this week, ",
+    "[2026-04-11] Bloomberg (score:8): Apple Hires Uber’s Asia-Pacific Government Relations Chief — (Bloomberg) -- Apple Inc. has hired Uber Technologies Inc.’s head of public policy and government relations for Asia-Pacific as it looks to revamp its",
+    "[2026-04-11] Bloomberg (score:7): Japan Bets $16 Billion to Propel Rapidus in Global AI Chip Race — (Bloomberg) -- Japan approved ¥631.5 billion ($4 billion) in additional subsidies to quicken Rapidus Corp.’s entry into the high-stakes AI chipmaking ",
+    "[2026-04-10] Barrons.com (score:5): Apple, Levi’s, and 5 More Stocks Get Analyst Attention — RESEARCH REPORTS These reports, excerpted and edited by Barron’s, were issued recently by investment and research firms. The reports are a sampling of",
+    "[2026-04-11] Motley Fool (score:4): 2.5 Billion Reasons Apple Might Be the Best Artificial Intelligence (AI) Stock to Buy Today — Apple may not be falling behind in AI after all."
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

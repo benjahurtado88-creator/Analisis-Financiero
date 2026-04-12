@@ -1,0 +1,196 @@
+{
+  "ticker": "NVDA",
+  "fecha": "2026-04-11T23:18:10.988932",
+  "es_cripto": false,
+  "veredicto": "COMPRA",
+  "score": 4,
+  "precio": {
+    "precio_actual": 188.63,
+    "cambio_24h": 2.57,
+    "cambio_7d": 8.16,
+    "cambio_30d": 1.4,
+    "high_52w": 207.0173,
+    "low_52w": 96.8872,
+    "vol_hoy": 160099500,
+    "vol_20d_avg": 169634160,
+    "vol_relativo": 0.94,
+    "cambio_ytd": -0.11,
+    "sma_20": 177.4205,
+    "sma_50": 182.0722,
+    "sma_200": 180.7249,
+    "soporte": 165.17,
+    "resistencia": 195.5494,
+    "tendencia_sma": "ALCISTA",
+    "rsi": 68.17,
+    "macd_line": 0.1288,
+    "macd_signal": -1.6624,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 4584652144640.0,
+    "sector": "Technology",
+    "sector_key": "technology",
+    "industria": "Semiconductors",
+    "analyst_target": 268.22195,
+    "analyst_low": 140.0,
+    "analyst_high": 380.0,
+    "analyst_rec": "STRONG_BUY",
+    "analyst_count": 56,
+    "revenue_growth": 0.732,
+    "earnings_growth": 0.956,
+    "ev": 4532565180416.0,
+    "ev_ebitda": 34.021,
+    "beta": 2.335,
+    "forward_eps": 11.11635,
+    "forward_pe": 16.968699,
+    "short_ratio": 1.28
+  },
+  "fundamentales": {
+    "yield": 0.00021205534644542227,
+    "payout": 0.0081,
+    "pe": 38.5124,
+    "pb": 29.3976,
+    "pfcf": 47.8306,
+    "fcf_yield": 0.0209,
+    "margin": 0.556,
+    "gross": 0.7107,
+    "roe": 1.0149,
+    "de": 0.0702,
+    "int_cov": 514.4015,
+    "eps": 4.8979,
+    "graham": 26.59
+  },
+  "fair_value": {
+    "tipo_empresa": "high_growth",
+    "pe_benchmark": 50,
+    "fair_value_pe": 244.9,
+    "fair_ev": 166.34,
+    "nota": "P/E benchmark x50 (hipercrecimiento)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 188.44,
+    "base": 101.98,
+    "bull": 142.07,
+    "bear_upside": -0.1,
+    "base_upside": -45.9,
+    "bull_upside": -24.7,
+    "wacc": 15.0,
+    "terminal_g": 3.0,
+    "fcf_ps": 3.94
+  },
+  "escenarios": {
+    "base": 268.22,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 140.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 380.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -25.8,
+    "base_upside": 42.2,
+    "bull_upside": 101.5
+  },
+  "moat": {
+    "score": 5,
+    "max": 5,
+    "nivel": "FOSO ANCHO",
+    "factores": [
+      "[+] Margen bruto 71% > 40% — pricing power",
+      "[+] ROE 101% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses 514.4x — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[+] Supera sector YTD en +0.9% — ejecución superior"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "VALORACION",
+      "nivel": "LOW",
+      "desc": "Precio 23% bajo Fair Value — descuento ofrece margen de seguridad"
+    },
+    {
+      "tipo": "MERCADO",
+      "nivel": "HIGH",
+      "desc": "Beta 2.33 — amplifica caídas del mercado significativamente"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-05-20",
+    "earnings_eps_est": 1.7751,
+    "earnings_eps_low": 1.69,
+    "earnings_eps_high": 1.99,
+    "earnings_rev_est": 78763122950.0,
+    "ex_dividendo": "2026-03-10",
+    "pago_dividendo": "2026-03-31"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLK",
+    "etf_precio": 142.62,
+    "etf_ytd": -1.04,
+    "sector_nombre": "Technology"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 3,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "68",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "ALCISTA",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "Precio sobre SMA50 y SMA200 — dinero institucional posicionado largo"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "STRONG_BUY (56)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "56 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "1.3d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "83%",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "Cerca del máximo anual — poco margen al alza sin nuevo catalizador"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-12] Motley Fool (score:9): 2 AI Stocks I Don't Like (Including Palantir) and 1 I Love — Software and AI stocks have taken a beating recently. But that doesn't mean investors should rush in to buy just because shares are down.",
+    "[2026-04-12] Simply Wall St. (score:8): Nebius Talks AI21 Deal As Full Stack AI Ambitions Meet Valuation — Nebius Group (NasdaqGS:NBIS) is reportedly in advanced talks to acquire Israeli AI startup AI21 Labs. The potential deal follows AI21 Labs' unsuccessf",
+    "[2026-04-12] Motley Fool (score:6): EV Sales Are \"Cratering.\" Here's Why I'm Holding On to My Rivian Shares — The company may be in its best shape ever.",
+    "[2026-04-12] Motley Fool (score:6): The Secret to Out-Innovating the Competition: Inside the Tesla Playbook — Former Tesla President Jon McNeill discusses his new book, The Algorithm: The Hypergrowth Formula That Transformed Tesla, Lululemon, General Motors, a",
+    "[2026-04-12] Investor's Business Daily (score:4): U.S.-Iran Talks End With No Deal; How Will Dow Jones Futures, Oil Prices React? — Futures loom after lengthy U.S.-Iran talks ended without an agreement. Vice President J.D. Vance said Tehran has \"chosen not to accept our terms.\""
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

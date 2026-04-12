@@ -3,7 +3,7 @@ import { ETFExplorer }   from "@/components/ticker/ETFExplorer"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
-export const metadata = { title: "Analizar — Tododeia" }
+export const metadata = { title: "Analizar — Finance.ia" }
 
 export default function AnalyzePage() {
   return (

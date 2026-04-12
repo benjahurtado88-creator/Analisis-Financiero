@@ -1,0 +1,158 @@
+{
+  "ticker": "MELI",
+  "fecha": "2026-04-06T09:59:29.953830",
+  "es_cripto": false,
+  "veredicto": "COMPRA",
+  "score": 4,
+  "precio": {
+    "precio_actual": 1721.12,
+    "cambio_24h": 0.33,
+    "cambio_7d": 4.98,
+    "cambio_30d": -3.33,
+    "high_52w": 2613.6299,
+    "low_52w": 1599.52,
+    "vol_hoy": 25282,
+    "vol_20d_avg": 490409,
+    "vol_relativo": 0.05,
+    "cambio_ytd": -12.8,
+    "sma_20": 1686.652,
+    "sma_50": 1865.0214,
+    "sma_200": 2154.743,
+    "soporte": 1599.52,
+    "resistencia": 2295.0,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 48.59,
+    "macd_line": -41.6389,
+    "macd_signal": -61.5654,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 87255941120.0,
+    "sector": "Consumer Cyclical",
+    "sector_key": "consumer-cyclical",
+    "industria": "Internet Retail",
+    "analyst_target": 2544.5,
+    "analyst_low": 1827.0,
+    "analyst_high": 3500.0,
+    "analyst_rec": "STRONG_BUY",
+    "analyst_count": 26,
+    "revenue_growth": 0.446,
+    "earnings_growth": -0.125,
+    "ev": 92079030272.0,
+    "ev_ebitda": 22.911,
+    "beta": 1.492,
+    "forward_eps": 73.1128,
+    "forward_pe": 23.540611
+  },
+  "fundamentales": {
+    "yield": 0.0,
+    "payout": 0.0,
+    "pe": 51.1356,
+    "pb": 15.133,
+    "pfcf": 9.479,
+    "fcf_yield": 0.1055,
+    "margin": 0.0691,
+    "gross": 0.445,
+    "roe": 0.3599,
+    "de": 1.6882,
+    "int_cov": 25.1188,
+    "eps": 39.3906,
+    "graham": 343.47
+  },
+  "fair_value": {
+    "tipo_empresa": "high_growth",
+    "pe_benchmark": 50,
+    "fair_value_pe": 1682.9,
+    "fair_ev": 2253.66,
+    "nota": "P/E benchmark x50 (hipercrecimiento)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 6172.41,
+    "base": 7194.96,
+    "bull": 10233.88,
+    "bear_upside": 258.6,
+    "base_upside": 318.0,
+    "bull_upside": 494.6,
+    "wacc": 11.7,
+    "terminal_g": 3.0,
+    "fcf_ps": 181.58
+  },
+  "escenarios": {
+    "base": 2544.5,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 1827.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 3500.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": 6.2,
+    "base_upside": 47.8,
+    "bull_upside": 103.4
+  },
+  "moat": {
+    "score": 4,
+    "max": 5,
+    "nivel": "FOSO MODERADO",
+    "factores": [
+      "[+] Margen bruto 44% > 40% — pricing power",
+      "[+] ROE 36% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses 25.1x — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[-] Retrasado vs sector YTD en -4.9%"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "FINANCIERO",
+      "nivel": "MEDIUM",
+      "desc": "Deuda/Equity 1.7x moderada — monitorear refinanciamiento"
+    },
+    {
+      "tipo": "MERCADO",
+      "nivel": "MEDIUM",
+      "desc": "Beta 1.49 — más volátil que el S&P 500"
+    },
+    {
+      "tipo": "TECNICO",
+      "nivel": "MEDIUM",
+      "desc": "Precio bajo SMA 50 y SMA 200 — tendencia bajista activa, momentum negativo"
+    },
+    {
+      "tipo": "CRECIMIENTO",
+      "nivel": "HIGH",
+      "desc": "Earnings YoY -12% — contracción de ganancias, cuestionable valoración actual"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-05-07",
+    "earnings_eps_est": 9.9918,
+    "earnings_eps_low": 7.24,
+    "earnings_eps_high": 11.64,
+    "earnings_rev_est": 8312878049.0,
+    "ex_dividendo": "2017-12-27",
+    "pago_dividendo": "2018-01-15"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLY",
+    "etf_precio": 108.77,
+    "etf_ytd": -7.91,
+    "sector_nombre": "Consumer Cyclical"
+  },
+  "sentimiento": {
+    "_error": "HTTP Error 401: Unauthorized"
+  },
+  "noticias_ticker": [
+    "[2026-04-01] Simply Wall St. (score:11): 3 Stocks Estimated To Be Trading At A Discount Of Up To 36.2% — Over the last 7 days, the United States market has remained flat, yet it is up 16% over the past year with earnings forecast to grow by 15% annually. ",
+    "[2026-04-04] MarketBeat (score:10): MarketBeat Week in Review – 03/30 - 04/03 — Stocks and the price of oil continue to be inversely linked, and that's likely to remain the case heading into a new earnings season",
+    "[2026-04-02] Motley Fool (score:6): The Nasdaq Has Entered a Correction: Here Are 2 Stocks That Are Can't-Miss Buys — Buy these dirt-cheap stocks for potential market outperformance in the years ahead.",
+    "[2026-04-05] Motley Fool (score:6): The Market Is Down -- Here's Which Stock Between Amazon and MercadoLibre to Buy First — Both companies found success as e-commerce conglomerates in their respective home regions.",
+    "[2026-04-02] Motley Fool (score:5): Nasdaq Correction: 2 Outstanding Growth Stocks to Buy on the Dip — For contrarian investors, now is a great time to go shopping."
+  ],
+  "noticias_macro": [
+    "Multimillion-dollar CEO pay at these 20 low-wage companies is costing you. This is the only fix.",
+    "April is usually a strong month for stocks — but three factors now jeopardize the market rebound",
+    "U.S. oil prices stay above $110 a barrel after Iran pushes back against Trump’s deadline for Tehran to reopen Strait of Hormuz",
+    "Individual investors are shifting from ‘buying dips’ to ‘selling rips’ as they favor bonds and other defensive bets"
+  ]
+}

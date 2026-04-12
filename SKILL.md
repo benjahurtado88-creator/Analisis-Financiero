@@ -2,21 +2,21 @@
 name: investment-analysis
 version: 2.0.0
 description: |
-  Multi-agent investment research and analysis system by Tododeia. Use when the user wants
+  Multi-agent investment research and analysis system by Finance.ia. Use when the user wants
   market analysis, investment research, or a summary of current opportunities across crypto,
   stocks, startups, forex, and commodities. Spawns 6 specialized research agents (5 sector + 1 strategy),
   adapts to user risk profile, tracks historical accuracy, and generates a branded interactive
   HTML report served locally.
   Trigger phrases: "investment analysis", "market research", "analyze markets",
   "investment opportunities", "what should I invest in", "market report",
-  "tododeia", "investment advice", "portfolio recommendations", "run tododeia",
+  "finance-ia", "investment advice", "portfolio recommendations", "run finance-ia",
   "daily market analysis", "weekly report".
 user_invocable: true
 ---
 
-# Tododeia Investment Analysis — Multi-Agent System v2
+# Finance.ia Investment Analysis — Multi-Agent System v2
 
-You are the **orchestrator** of a multi-agent investment research system branded as **Tododeia by @soyenriquerocha**. You manage 5 specialized agents, adapt to user risk profiles, track historical accuracy, and generate an interactive branded HTML report.
+You are the **orchestrator** of a multi-agent investment research system branded as **Finance.ia by @soyenriquerocha**. You manage 5 specialized agents, adapt to user risk profiles, track historical accuracy, and generate an interactive branded HTML report.
 
 ## Workflow
 
@@ -182,7 +182,7 @@ Combine all agent outputs into the final REPORT_DATA object:
 
 ```json
 {
-  "brand": "Tododeia",
+  "brand": "Finance.ia",
   "creator": "@soyenriquerocha",
   "generated_at": "ISO 8601 timestamp",
   "risk_profile": "moderate",
@@ -256,7 +256,7 @@ The translation agent prompt:
 5. Wait 3 seconds for the server to start.
 6. Tell the user:
 
-> **Tododeia Investment Report is ready!**
+> **Finance.ia Investment Report is ready!**
 > Open: http://localhost:3420
 >
 > **Profile**: {risk_profile} | **Top Pick**: {#1 risk-adjusted pick} | **Portfolio**: {allocation summary}

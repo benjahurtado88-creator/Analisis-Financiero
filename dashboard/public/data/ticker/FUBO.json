@@ -1,0 +1,145 @@
+{
+  "ticker": "FUBO",
+  "fecha": "2026-04-11T22:46:36.669445",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 11.7,
+    "cambio_24h": -2.82,
+    "cambio_7d": 23.68,
+    "cambio_30d": -16.67,
+    "high_52w": 54.72,
+    "low_52w": 8.66,
+    "vol_hoy": 1300200,
+    "vol_20d_avg": 2626934,
+    "vol_relativo": 0.49,
+    "cambio_ytd": -62.36,
+    "sma_20": 11.791,
+    "sma_50": 14.842,
+    "sma_200": 34.5721,
+    "soporte": 8.66,
+    "resistencia": 32.04,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 40.68,
+    "macd_line": -1.1189,
+    "macd_signal": -1.5718,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 344370016.0,
+    "sector": "Communication Services",
+    "sector_key": "communication-services",
+    "industria": "Broadcasting",
+    "analyst_target": 18.16667,
+    "analyst_low": 15.0,
+    "analyst_high": 24.0,
+    "analyst_rec": "BUY",
+    "analyst_count": 6,
+    "revenue_growth": 0.4,
+    "earnings_growth": null,
+    "ev": 2680561408.0,
+    "ev_ebitda": null,
+    "beta": 2.379,
+    "forward_eps": 1.43883,
+    "forward_pe": 8.131607,
+    "short_ratio": 3.62
+  },
+  "fundamentales": {
+    "yield": 0.0,
+    "payout": 0.0,
+    "pe": 5.653,
+    "pb": 3.1933,
+    "pfcf": -5.2882,
+    "fcf_yield": -0.1891,
+    "margin": 0.0572,
+    "gross": 0.1112,
+    "roe": 0.1099,
+    "de": 0.2529,
+    "int_cov": -4.702,
+    "eps": 5.3494,
+    "graham": 33.76
+  },
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {
+    "earnings_fecha": "2026-05-11",
+    "earnings_eps_est": -0.1445,
+    "earnings_eps_low": -0.5,
+    "earnings_eps_high": 0.12,
+    "earnings_rev_est": 1584495880.0,
+    "pago_dividendo": "2019-02-27"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLC",
+    "etf_precio": 113.95,
+    "etf_ytd": -2.21,
+    "sector_nombre": "Communication Services"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 3,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Bajo",
+        "valor": "41",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Por debajo de zona neutral — presión vendedora moderada"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "BUY (6)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "6 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "3.6d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "7%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-03-31] StockStory (score:9): Norwegian Cruise Line, Offerpad, fuboTV, Somnigroup, and Ralph Lauren Shares Are Soaring, What You Need To Know — A number of stocks jumped in the morning session after investors priced in a potential de-escalation of the conflict in Iran alongside reassuring comm",
+    "[2026-03-27] The Fly (score:6): Wix downgraded, TripAdvisor upgraded: Wall Street's top analyst calls — Wix downgraded, TripAdvisor upgraded: Wall Street's top analyst calls",
+    "[2026-04-07] The Fly (score:6): Arm downgraded, Arista Networks upgraded: Wall Street's top analyst calls — Arm downgraded, Arista Networks upgraded: Wall Street's top analyst calls",
+    "[2026-04-06] StockStory (score:5): fuboTV (FUBO) Shares Skyrocket, What You Need To Know — Shares of live sports and TV streaming service fuboTV (NYSE:FUBO) jumped 24.7% in the afternoon session after the company released an optimistic finan",
+    "[2026-04-08] Simply Wall St. (score:5): FuboTV (FUBO) Is Up 31.7% After Profit Targets, Reverse Split and Disney Integration Shift Narrative — In early April 2026, FuboTV outlined long-term financial targets, including adjusted EBITDA goals for 2026 and 2028 and an expectation of turning free"
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "ticker": "ETH",
+  "fecha": "2026-04-11T23:17:51.259577",
+  "es_cripto": true,
+  "veredicto": "PRECAUCION",
+  "score": 2,
+  "precio": {
+    "precio_actual": 2222.2224,
+    "cambio_24h": -1.02,
+    "cambio_7d": 7.6,
+    "cambio_30d": 7.01,
+    "high_52w": 4831.3486,
+    "low_52w": 1821.6831,
+    "vol_hoy": 14676042752,
+    "vol_20d_avg": 16815844016,
+    "vol_relativo": 0.87,
+    "cambio_ytd": -25.94,
+    "sma_20": 2112.497,
+    "sma_50": 2074.1534,
+    "sma_200": 2927.4533,
+    "soporte": 1852.9695,
+    "resistencia": 2351.176,
+    "tendencia_sma": "MIXTA",
+    "rsi": 69.99,
+    "macd_line": 30.8668,
+    "macd_signal": 12.8146,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 268202377216.0,
+    "circulating": 120691056.0
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 1,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "70",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "13%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-11] Proactive (score:7): Bit Digital CEO discusses Ethereum strategy, AI expansion - ICYMI — Bit Digital Inc (NASDAQ:BTBT) CEO Sam Tabar talked with Proactive about the company’s 2025 results, strategic shift away from Bitcoin mining, and grow",
+    "[2026-04-11] BeInCrypto (score:6): $1.5 Billion Ethereum Treasury Ether Machine Deal Collapses — The Ether Machine terminates its SPAC merger with Dynamix, citing unfavorable market conditions amid ETH's sharp decline from its 2025 highs.",
+    "[2026-04-10] TheStreet (score:5): Alchemy launches $20 million fund for Solana builders — The momentum behind the Solana blockchain is reaching new heights. With billions of transactions processed every month and a stablecoin market cap sur",
+    "[2026-04-10] CryptoProwl (score:3): Mantle’s xStocks Rollout Pushes Tokenized Equities Closer to Real Onchain Liquidity — Mantle is making a larger point than simply adding another tokenized asset product. The Ethereum (CRYPTO: $ETH) lay...",
+    "[2026-04-11] Benzinga (score:3): Bitcoin, Solana, XRP, Dogecoin Show Signs Of Bottoming: Watch This 'Golden Zone' — Bitcoin, Ethereum, XRP, Solana, and Dogecoin may be forming a structural bottom after months of decline, according to crypto analyst Ali Martinez, who"
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

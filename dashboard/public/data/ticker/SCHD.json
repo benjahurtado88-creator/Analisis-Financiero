@@ -1,0 +1,105 @@
+{
+  "ticker": "SCHD",
+  "fecha": "2026-04-11T23:12:59.110332",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 30.56,
+    "cambio_24h": -1.23,
+    "cambio_7d": -0.39,
+    "cambio_30d": -0.59,
+    "high_52w": 31.5928,
+    "low_52w": 24.0413,
+    "vol_hoy": 19600500,
+    "vol_20d_avg": 26967180,
+    "vol_relativo": 0.73,
+    "cambio_ytd": 11.14,
+    "sma_20": 30.5346,
+    "sma_50": 30.7693,
+    "sma_200": 27.8225,
+    "soporte": 28.4593,
+    "resistencia": 31.5928,
+    "tendencia_sma": "MIXTA",
+    "rsi": 60.39,
+    "macd_line": 0.0279,
+    "macd_signal": 0.0063,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null,
+    "short_ratio": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": -1,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "60",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "86%",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "Cerca del máximo anual — poco margen al alza sin nuevo catalizador"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-05] 24/7 Wall St. (score:13): What Schwab U.S. Dividend Equity’s New Dividend Means for Investors — Dividend stocks have quietly outperformed growth names in 2026 so far, with the S&P 500’s 1.2% yield looking anemic next to inflation that still hover",
+    "[2026-04-09] Barrons.com (score:7): Dividend Stocks Won the War. Why They Could Also Win the Peace. — Stocks that pay generous dividends should help investors stay calm—no matter what the world throws at them this year.",
+    "[2026-04-10] Zacks (score:6): 5 Dividend ETFs Under $50 to Buy Now — Volatility rising amid Middle East tensions? These 5 dividend ETFs under $50 offer steady income, diversification, and a defensive edge in uncertain m",
+    "[2026-04-11] 24/7 Wall St. (score:6): Why Wealthy Retirees Are Draining Their 401(k) Early to Lock In a Bigger Social Security Check at 70 — A 63-year-old with $1.4 million in a traditional 401(k) who delays Social Security to 70 can collect $3,720 per month instead of $3,000 at full retire",
+    "[2026-04-11] 24/7 Wall St. (score:6): How Much Do You Really Need Invested To Replace A $60k Salary With Dividends? New PF Investment Income Series — Replacing a $60,000 salary with dividend income is one of the most concrete goals in personal finance. The math is straightforward. The tradeoffs are "
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

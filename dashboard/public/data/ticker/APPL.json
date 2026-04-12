@@ -1,0 +1,48 @@
+{
+  "ticker": "APPL",
+  "fecha": "2026-04-06T14:22:54.773198",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {},
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "_error": "HTTP Error 401: Unauthorized"
+  },
+  "noticias_ticker": [
+    "[2025-10-27] MT Newswires (score:9): US Equity Investors to Focus on Mag-7 Earnings, Fed's Policy Path, China Trade Deal This Week — US equity investors will focus on earnings from the so-called Magnificent-7 companies this week, whi",
+    "[2026-01-26] MT Newswires (score:8): US Equity Investors to Look Out for Big Tech Earnings, Fed Policy Announcements This Week — US equity investors will focus on a flood of quarterly earnings, including from big tech, while keep",
+    "[2026-02-02] MT Newswires (score:5): US Equity Investors to Look Out for Mag-7 Earnings, Labor Market Data This Week — US equity investors will focus on the big tech earnings and nonfarm payrolls this week amid geopolit"
+  ],
+  "noticias_macro": [
+    "‘Our FICO score is excellent’: My husband and I are in our 70s. How do we raise $10,000 for a new roof?",
+    "These three clothing retailers might be ahead of their rivals in the AI race",
+    "An S&P 500 change may be imminent. These stocks are leading contenders to join the index.",
+    "How a ‘short squeeze’ could still move Avis’s stock much higher"
+  ]
+}

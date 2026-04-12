@@ -1,0 +1,105 @@
+{
+  "ticker": "ICLN",
+  "fecha": "2026-04-11T23:15:29.028746",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 18.92,
+    "cambio_24h": 1.5,
+    "cambio_7d": 3.44,
+    "cambio_30d": 2.22,
+    "high_52w": 19.19,
+    "low_52w": 10.7118,
+    "vol_hoy": 4450000,
+    "vol_20d_avg": 5298845,
+    "vol_relativo": 0.84,
+    "cambio_ytd": 10.64,
+    "sma_20": 18.297,
+    "sma_50": 18.4176,
+    "sma_200": 16.2502,
+    "soporte": 17.36,
+    "resistencia": 19.19,
+    "tendencia_sma": "ALCISTA",
+    "rsi": 59.91,
+    "macd_line": 0.0394,
+    "macd_signal": -0.0334,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null,
+    "short_ratio": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 2,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Neutral",
+        "valor": "60",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Sin señal clara de momentum"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "ALCISTA",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "Precio sobre SMA50 y SMA200 — dinero institucional posicionado largo"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "97%",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "Cerca del máximo anual — poco margen al alza sin nuevo catalizador"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-03-03] Zacks (score:10): ETFs in Focus Post First Solar's Q4 Earnings Miss, Weak Sales View — FSLR sinks 12.7% after missing Q4 earnings and issuing a weak 2026 sales guidance, putting solar ETFs like TAN in focus.",
+    "[2026-03-30] Zacks (score:5): The Zacks Analyst Blog  ICLN,QCLN,CNRG, PBD and PBW — Middle East tensions are pushing oil prices higher, fueling a surge in clean energy ETFs as investors eye long-term growth opportunities.",
+    "[2026-03-11] The Wall Street Journal (score:4): Europe’s New Energy Crisis Will Mean a Bull Market in Renewables — Shares of European defense contractors have risen since President  Trump’s  return to the Oval Office.  The continent’s energy infrastructure is about",
+    "[2026-02-04] Zacks (score:3): Project Vault: ETFs to Gain as Trump Pushes $12B Into Rare Earth Reserve — Trump's $12B Project Vault to stockpile rare earths lifts MP Materials and brings critical minerals and clean energy ETFs into focus.",
+    "[2026-03-11] Barrons.com (score:3): Alternative-Energy Funds Are Shooting Out the Lights — Don’t be shocked, but the past year has been one of the best periods for renewable-energy stocks funds."
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

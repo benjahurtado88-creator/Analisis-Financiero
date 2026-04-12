@@ -1,0 +1,71 @@
+{
+  "ticker": "QQQ",
+  "fecha": "2026-04-06T10:03:36.380019",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 588.265,
+    "cambio_24h": 0.56,
+    "cambio_7d": 0.08,
+    "cambio_30d": -3.27,
+    "high_52w": 634.1523,
+    "low_52w": 414.0558,
+    "vol_hoy": 7651462,
+    "vol_20d_avg": 67449188,
+    "vol_relativo": 0.11,
+    "cambio_ytd": -3.93,
+    "sma_20": 588.4757,
+    "sma_50": 601.9545,
+    "sma_200": 593.8316,
+    "soporte": 558.28,
+    "resistencia": 632.4225,
+    "tendencia_sma": "MIXTA",
+    "rsi": 44.22,
+    "macd_line": -6.8532,
+    "macd_signal": -7.5701,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 231272529920.0,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "_error": "HTTP Error 401: Unauthorized"
+  },
+  "noticias_ticker": [
+    "[2026-04-06] Investor's Business Daily (score:6): Stock Market Today: Dow Falls On Trump's Iran Threat, Peace Talks; Netflix Rallies On Upgrade (Live Coverage) — The Dow Jones index fell Monday on President Trump's Iran threat, as peace talks remained ongoing. Netflix stock rallied.",
+    "[2026-04-02] Barrons.com (score:5): Bear Markets Stir, Then Pounce. These Charts Show How. — Weakness rarely stays contained. It often begins in more vulnerable market corners, such as software, before quietly spreading.",
+    "[2026-04-03] 24/7 Wall St. (score:5): XOVR Raised $470 Million on the SpaceX Dream but Trails QQQ by 70 Points Over 5 Years — Most retail investors have never had a realistic path into SpaceX. That is the specific problem ERShares Private-Public Crossover ETF (NYSEARCA:XOVR) ",
+    "[2026-04-02] Zacks (score:4): Pre-markets Lower on Concerns About Iran — Investors sought signs that the military conflict would soon come to an end, but the lack of details in the president's speech left us wanting.",
+    "[2026-04-03] 24/7 Wall St. (score:3): Fidelity’s Active Large-Cap Growth ETF FFLG Is Winning the Battle but Losing the War — Active management in large-cap growth has a credibility problem. Most active funds charge more, trade more, and deliver less than the index over time."
+  ],
+  "noticias_macro": [
+    "Multimillion-dollar CEO pay at these 20 low-wage companies is costing you. This is the only fix.",
+    "April is usually a strong month for stocks — but three factors now jeopardize the market rebound",
+    "U.S. oil prices stay above $110 a barrel after Iran pushes back against Trump’s deadline for Tehran to reopen Strait of Hormuz",
+    "Individual investors are shifting from ‘buying dips’ to ‘selling rips’ as they favor bonds and other defensive bets"
+  ]
+}

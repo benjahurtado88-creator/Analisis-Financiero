@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Tododeia / MAIA Skill — Installer
+# Finance.ia / MAIA Skill — Installer
 # Usage: curl -sL https://raw.githubusercontent.com/Hainrixz/maia-skill/main/install.sh | bash
 
 set -e
@@ -9,7 +9,7 @@ SKILL_NAME="investment-analysis"
 INSTALL_DIR="$HOME/.claude/skills/$SKILL_NAME"
 
 echo ""
-echo "  Tododeia — Multi-Agent Investment Analysis"
+echo "  Finance.ia — Multi-Agent Investment Analysis"
 echo "  by @soyenriquerocha"
 echo ""
 
@@ -49,7 +49,7 @@ echo ""
 echo "  Open Claude Code and say:"
 echo "    \"Run an investment analysis\""
 echo "    \"Analyze the markets\""
-echo "    \"Run tododeia\""
+echo "    \"Run finance-ia\""
 echo ""
 echo "  To uninstall:"
 echo "    rm -rf $INSTALL_DIR $CLONE_DIR"

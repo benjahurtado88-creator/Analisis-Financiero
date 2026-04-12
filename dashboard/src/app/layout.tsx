@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Tododeia — Investment Analysis Report",
+  title: "Finance.ia — Investment Analysis Report",
   description: "Multi-agent investment research and analysis by @soyenriquerocha",
 }
 

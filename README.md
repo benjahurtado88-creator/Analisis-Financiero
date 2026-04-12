@@ -1,4 +1,4 @@
-# Tododeia — Multi-Agent Investment Analysis Skill
+# Finance.ia — Multi-Agent Investment Analysis Skill
 
 **by @soyenriquerocha**
 
@@ -10,7 +10,7 @@ A Claude Code skill that spawns 5 specialized AI research agents to analyze inve
 
 ## What Is This?
 
-Tododeia is a **Claude Code skill** — a reusable prompt-and-tooling package that extends what Claude can do. When installed, Claude gains the ability to run a full multi-agent investment research workflow: 4 sector analysts research in parallel, a strategy agent synthesizes everything, and the result is served as an interactive dashboard in your browser.
+Finance.ia is a **Claude Code skill** — a reusable prompt-and-tooling package that extends what Claude can do. When installed, Claude gains the ability to run a full multi-agent investment research workflow: 4 sector analysts research in parallel, a strategy agent synthesizes everything, and the result is served as an interactive dashboard in your browser.
 
 ## How It Works
 
@@ -132,7 +132,7 @@ In any Claude Code conversation:
 - "What are the best investment opportunities today?"
 - "Analyze the markets"
 - "Give me a market report"
-- "Run tododeia"
+- "Run finance-ia"
 
 You'll be asked your risk profile (conservative, moderate, or aggressive), then the 5 agents go to work. The report opens at `http://localhost:3420`.
 
@@ -206,23 +206,23 @@ If Node.js is not available, the skill falls back to generating a standalone `ou
 
 ## Disclaimer
 
-This tool is for **informational and educational purposes only**. It does not constitute financial advice, investment recommendations, or solicitation to buy or sell any securities, cryptocurrencies, or commodities. AI-generated analysis may contain errors and should not be relied upon for investment decisions. Always consult a qualified financial advisor before making investment decisions. Past performance is not indicative of future results. Tododeia and its creators assume no liability for investment losses.
+This tool is for **informational and educational purposes only**. It does not constitute financial advice, investment recommendations, or solicitation to buy or sell any securities, cryptocurrencies, or commodities. AI-generated analysis may contain errors and should not be relied upon for investment decisions. Always consult a qualified financial advisor before making investment decisions. Past performance is not indicative of future results. Finance.ia and its creators assume no liability for investment losses.
 
 ---
 
 <a id="espanol"></a>
 
-# Tododeia — Skill de Analisis de Inversiones Multi-Agente
+# Finance.ia — Skill de Analisis de Inversiones Multi-Agente
 
 **por @soyenriquerocha**
 
 Un skill de Claude Code que lanza 5 agentes de investigacion especializados para analizar oportunidades de inversion en crypto, acciones, forex y materias primas. Se adapta a tu perfil de riesgo, rastrea la precision historica y genera un dashboard interactivo en Next.js con soporte completo en espanol e ingles.
 
-> **[Read in English](#tododeia--multi-agent-investment-analysis-skill)**
+> **[Read in English](#finance-ia--multi-agent-investment-analysis-skill)**
 
 ## Que es esto?
 
-Tododeia es un **skill de Claude Code** — un paquete reutilizable de prompts y herramientas que extiende lo que Claude puede hacer. Una vez instalado, Claude puede ejecutar un flujo completo de investigacion de inversiones con multiples agentes: 4 analistas sectoriales investigan en paralelo, un agente estrategico sintetiza todo, y el resultado se sirve como un dashboard interactivo en tu navegador.
+Finance.ia es un **skill de Claude Code** — un paquete reutilizable de prompts y herramientas que extiende lo que Claude puede hacer. Una vez instalado, Claude puede ejecutar un flujo completo de investigacion de inversiones con multiples agentes: 4 analistas sectoriales investigan en paralelo, un agente estrategico sintetiza todo, y el resultado se sirve como un dashboard interactivo en tu navegador.
 
 ## Como funciona
 
@@ -344,7 +344,7 @@ En cualquier conversacion de Claude Code:
 - "Cuales son las mejores oportunidades de inversion hoy?"
 - "Analiza los mercados"
 - "Dame un reporte de mercado"
-- "Corre tododeia"
+- "Corre finance-ia"
 
 Se te preguntara tu perfil de riesgo (conservador, moderado o agresivo), luego los 5 agentes se ponen a trabajar. El reporte se abre en `http://localhost:3420`.
 
@@ -418,7 +418,7 @@ Si Node.js no esta disponible, el skill genera un archivo `output/report.html` i
 
 ## Aviso Legal
 
-Esta herramienta es **solo para fines informativos y educativos**. No constituye asesoramiento financiero, recomendaciones de inversion ni solicitud para comprar o vender valores, criptomonedas o materias primas. El analisis generado por IA puede contener errores y no debe utilizarse como base para decisiones de inversion. Siempre consulta a un asesor financiero calificado antes de tomar decisiones de inversion. El rendimiento pasado no es indicativo de resultados futuros. Tododeia y sus creadores no asumen responsabilidad por perdidas de inversion.
+Esta herramienta es **solo para fines informativos y educativos**. No constituye asesoramiento financiero, recomendaciones de inversion ni solicitud para comprar o vender valores, criptomonedas o materias primas. El analisis generado por IA puede contener errores y no debe utilizarse como base para decisiones de inversion. Siempre consulta a un asesor financiero calificado antes de tomar decisiones de inversion. El rendimiento pasado no es indicativo de resultados futuros. Finance.ia y sus creadores no asumen responsabilidad por perdidas de inversion.
 
 ## Licencia
 

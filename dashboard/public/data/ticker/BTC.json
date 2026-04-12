@@ -1,0 +1,90 @@
+{
+  "ticker": "BTC",
+  "fecha": "2026-04-11T23:17:48.709751",
+  "es_cripto": true,
+  "veredicto": "PRECAUCION",
+  "score": 0,
+  "precio": {
+    "precio_actual": 71764.5234,
+    "cambio_24h": -1.66,
+    "cambio_7d": 6.65,
+    "cambio_30d": 4.44,
+    "high_52w": 124752.5312,
+    "low_52w": 62702.0977,
+    "vol_hoy": 25792532480,
+    "vol_20d_avg": 35110837364,
+    "vol_relativo": 0.73,
+    "cambio_ytd": -19.12,
+    "sma_20": 69083.8953,
+    "sma_50": 69061.7855,
+    "sma_200": 88078.6617,
+    "soporte": 64080.043,
+    "resistencia": 74861.0859,
+    "tendencia_sma": "MIXTA",
+    "rsi": 70.67,
+    "macd_line": 570.6707,
+    "macd_signal": -21.6507,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 1436337700864.0,
+    "circulating": 20014592.0
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 0,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Sobrecompra",
+        "valor": "71",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Zona de sobrecompra — riesgo de corrección"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "15%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-11] 24/7 Wall St. (score:6): Bitcoin News: Morgan Stanley Just Launched the Cheapest Bitcoin ETF on the Market — Morgan Stanley once called Bitcoin (CRYPTO: BTC) worthless. In 2017, the bank’s analysts published a research note arguing that Bitcoin’s true value c",
+    "[2026-04-11] 24/7 Wall St. (score:5): Bitcoin (BTC) Hits $73K After CPI Surges to 3.3%: Here’s Why the Market is Rallying — Inflation just hit a two-year high, but Bitcoin (CRYPTO: BTC) rallied instead of crashing. The March CPI report came in at 3.3%, almost entirely drive",
+    "[2026-04-11] Motley Fool (score:4): 2 Ways to Invest in the Soaring Tokenization Market — Cryptocurrencies and companies that power on-chain assets could soar in the coming years.",
+    "[2026-04-11] BeInCrypto (score:3): Bitcoin Almost Hit $74K as US–Iran in Islamabad Showed Early Progress But No Deal — Bitcoin surged near $74k on optimism around US–Iran talks, but pulled back after negotiations ended without a deal, keeping markets volatile.",
+    "[2026-04-11] Motley Fool (score:3): Forget Bitcoin ETFs; This Is How Crypto Is Really Going Mainstream — Everyone's talking about Bitcoin ETFs. Almost nobody is talking about this bigger shift in how money moves on digital rails."
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}

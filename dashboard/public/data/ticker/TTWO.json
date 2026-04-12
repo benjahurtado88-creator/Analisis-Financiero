@@ -1,0 +1,176 @@
+{
+  "ticker": "TTWO",
+  "fecha": "2026-04-11T23:02:05.319979",
+  "es_cripto": false,
+  "veredicto": "MANTENER / ESPERAR",
+  "score": 2,
+  "precio": {
+    "precio_actual": 197.07,
+    "cambio_24h": -0.49,
+    "cambio_7d": -0.22,
+    "cambio_30d": -6.64,
+    "high_52w": 262.29,
+    "low_52w": 189.69,
+    "vol_hoy": 1532900,
+    "vol_20d_avg": 1815535,
+    "vol_relativo": 0.84,
+    "cambio_ytd": -21.67,
+    "sma_20": 199.009,
+    "sma_50": 204.1532,
+    "sma_200": 233.635,
+    "soporte": 189.69,
+    "resistencia": 245.73,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 45.75,
+    "macd_line": -2.876,
+    "macd_signal": -3.6488,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 36492529664.0,
+    "sector": "Communication Services",
+    "sector_key": "communication-services",
+    "industria": "Electronic Gaming & Multimedia",
+    "analyst_target": 276.8107,
+    "analyst_low": 165.0,
+    "analyst_high": 300.0,
+    "analyst_rec": null,
+    "analyst_count": 28,
+    "revenue_growth": 0.249,
+    "earnings_growth": null,
+    "ev": 37644828672.0,
+    "ev_ebitda": 45.741,
+    "beta": 0.965,
+    "forward_eps": 7.79183,
+    "forward_pe": 25.291878,
+    "short_ratio": 4.61
+  },
+  "fundamentales": {
+    "yield": 0.0,
+    "payout": 0.0,
+    "pe": -10.0093,
+    "pb": 20.9715,
+    "pfcf": -208.9043,
+    "fcf_yield": -0.0048,
+    "margin": -0.795,
+    "gross": 0.5436,
+    "roe": -1.1476,
+    "de": 1.9207,
+    "int_cov": 3.5605,
+    "eps": -25.5791,
+    "graham": 0
+  },
+  "fair_value": {
+    "tipo_empresa": "growth",
+    "pe_benchmark": 35,
+    "fair_value_pe": 0,
+    "fair_ev": 86.17,
+    "nota": "P/E benchmark x35 (growth)",
+    "graham": 0.0
+  },
+  "dcf": {},
+  "escenarios": {
+    "base": 276.81,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 165.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 300.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -16.3,
+    "base_upside": 40.5,
+    "bull_upside": 52.2
+  },
+  "moat": {
+    "score": 1,
+    "max": 5,
+    "nivel": "FOSO ESTRECHO",
+    "factores": [
+      "[+] Margen bruto 54% > 40% — pricing power",
+      "[-] ROE bajo (-115%)",
+      "[~] Cobertura intereses 3.6x — adecuada",
+      "[-] Margen neto DETERIORANDO — presión competitiva",
+      "[-] Retrasado vs sector YTD en -19.5%"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "FINANCIERO",
+      "nivel": "MEDIUM",
+      "desc": "Deuda/Equity 1.9x moderada — monitorear refinanciamiento"
+    },
+    {
+      "tipo": "TECNICO",
+      "nivel": "MEDIUM",
+      "desc": "Precio bajo SMA 50 y SMA 200 — tendencia bajista activa, momentum negativo"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-05-14",
+    "earnings_eps_est": 0.5611,
+    "earnings_eps_low": 0.44,
+    "earnings_eps_high": 0.88,
+    "earnings_rev_est": 1557539750.0
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLC",
+    "etf_precio": 113.95,
+    "etf_ytd": -2.21,
+    "sector_nombre": "Communication Services"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 0,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Neutral",
+        "valor": "46",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Sin señal clara de momentum"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "4.6d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "10%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    "[2026-04-06] Zacks (score:7): Why Take-Two Interactive (TTWO) is a Top Growth Stock for the Long-Term — Wondering how to pick strong, market-beating stocks for your investment portfolio? Look no further than the Zacks Style Scores.",
+    "[2026-03-28] Barrons.com (score:5): It Was a Busy Week for Videogames. Keep An Eye on These Stocks. — Layoffs, console price hikes, game price declines, are just some of the news that broke in the videogame space this week.",
+    "[2026-04-07] Zacks (score:5): RBLX's Viral Hits or Platform Depth: Which Matters More for Investors? — RBLX weighs viral hits compared with platform depth as engagement broadens, AI discovery improves and investors eye sustainable growth over short-term",
+    "[2026-04-06] Zacks (score:4): Take-Two Interactive (TTWO) Stock Drops Despite Market Gains: Important Facts to Note — Take-Two Interactive (TTWO) concluded the recent trading session at $196.69, signifying a -1.59% move from its prior day's close.",
+    "[2026-04-08] Simply Wall St. (score:4): A Look At Take Two Interactive Software (TTWO) Valuation As GTA VI Drives A Key Content Cycle — What recent performance says about Take-Two Interactive Software Take-Two Interactive Software (TTWO) has drawn investor attention after a period of m"
+  ],
+  "noticias_macro": [
+    "Here are some bargain bank stocks heading into earnings season",
+    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+  ]
+}
