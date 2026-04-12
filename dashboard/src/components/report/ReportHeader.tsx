@@ -159,11 +159,17 @@ export function ReportHeader({ data }: { data: ReportData }) {
               ? <AlertCircle size={15} className="flex-shrink-0" />
               : <Sparkles size={15} className="flex-shrink-0 animate-pulse" />
             }
-            <span className="flex-1">
-              {STEPS[genStatus.step] ?? genStatus.msg}
-            </span>
+            <div className="flex-1 min-w-0">
+              <p className="font-medium">{STEPS[genStatus.step] ?? genStatus.step}</p>
+              {genError && genStatus.msg && (
+                <pre className="mt-1 whitespace-pre-wrap break-all text-xs opacity-80 font-mono">{genStatus.msg}</pre>
+              )}
+              {!genError && genStatus.msg && genStatus.msg !== STEPS[genStatus.step] && (
+                <p className="text-xs opacity-70 mt-0.5">{genStatus.msg}</p>
+              )}
+            </div>
             {genError && (
-              <button onClick={() => setGenStatus(null)} className="ml-auto">
+              <button onClick={() => setGenStatus(null)} className="ml-auto flex-shrink-0">
                 <X size={13} />
               </button>
             )}
