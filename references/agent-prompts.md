@@ -80,7 +80,7 @@ Return a single JSON code block with this exact structure:
       "confidence": 7,
       "source_agreement": "high",
       "sources_checked": ["python:yfinance", "reddit.com", "twitter.com"],
-      "key_news": ["ETF inflows surge to $500M daily", "Fed signals rate pause"],
+      "key_news": [],
       "social_highlights": ["Trending #Bitcoin hashtag with 50K+ posts", "Major influencer X predicts $100K by Q3"],
       "recommendation": "buy",
       "reasoning": "Strong institutional inflows via ETFs, positive macro backdrop with rate pause expected. RSI at 58 — not overbought."

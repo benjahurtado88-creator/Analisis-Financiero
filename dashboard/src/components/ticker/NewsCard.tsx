@@ -67,14 +67,14 @@ export function NewsCard({ noticias_ticker, noticias_macro }: {
 
   return (
     <div className="space-y-4">
-      {noticias_ticker?.length > 0 && (
-        <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm">
-          <p className="mb-3 text-sm font-semibold text-zinc-500">Noticias Recientes</p>
-          <ul className="space-y-3">
-            {noticias_ticker.map(renderItem)}
-          </ul>
-        </div>
-      )}
+      <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm">
+        <p className="mb-3 text-sm font-semibold text-zinc-500">Noticias Recientes</p>
+        {noticias_ticker?.length > 0 ? (
+          <ul className="space-y-3">{noticias_ticker.map(renderItem)}</ul>
+        ) : (
+          <p className="text-sm text-zinc-400 italic">No se encontraron noticias al respecto.</p>
+        )}
+      </div>
 
       {noticias_macro?.filter(n => {
         const t = typeof n === "string" ? n : (n as {title?: string}).title ?? ""

@@ -371,6 +371,29 @@ export async function POST(request: Request) {
           /* crítico falla silenciosamente — no bloquea el reporte */
         }
 
+        // ── PASO 5b: Reemplazar key_news con noticias reales de Python ────────
+        // Nunca usar noticias inventadas por el modelo. Si el ticker JSON tiene
+        // noticias reales (yfinance), las usamos. Si no, key_news queda vacío.
+        const reportSectors = reportJson.sectors as Record<string, { assets?: { symbol?: string; key_news?: unknown[] }[] }> | undefined
+        if (reportSectors) {
+          for (const sectorData of Object.values(reportSectors)) {
+            for (const asset of sectorData.assets ?? []) {
+              const symbol = (asset.symbol ?? "").toUpperCase()
+              const tickerPath = path.join(tickerDir, `${symbol}.json`)
+              if (fs.existsSync(tickerPath)) {
+                try {
+                  const td = JSON.parse(fs.readFileSync(tickerPath, "utf-8"))
+                  asset.key_news = td.noticias_ticker ?? []
+                } catch {
+                  asset.key_news = []
+                }
+              } else {
+                asset.key_news = []
+              }
+            }
+          }
+        }
+
         // ── PASO 6: Merge — incorporar feedback del crítico ────────────────────
         const warningsExistentes: string[] = (reportJson.warnings as string[]) ?? []
         const warningsAdicionales: string[] = (criticOutput.warnings_adicionales as string[]) ?? []

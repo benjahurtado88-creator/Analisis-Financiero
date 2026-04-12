@@ -66,6 +66,8 @@ Read each JSON file and pass its contents to the corresponding sector agent. Thi
 
 **Instruction to pass to sector agents:**
 > "Here is the pre-loaded Python data for {TICKER}. Use these values directly in your output. Only do web searches for data NOT in this JSON: specific day catalysts, social buzz for crypto (not covered by Finnhub), commodity spot prices, and geopolitical/macro context."
+>
+> **CRITICAL — key_news rule:** For the `key_news` field, use ONLY the `noticias_ticker` array from the pre-loaded Python JSON. Each item is already an object with `{title, url, source, date, sentiment}`. Copy them as-is. **Never invent, paraphrase, or add news headlines that are not in the Python data.** If `noticias_ticker` is empty or the ticker has no Python data (e.g. currencies), set `key_news: []`.
 
 ### Step 4: Spawn 5 Sector Research Agents
 

@@ -126,10 +126,12 @@ export function DetailedAnalysis({ sectors, openSectors = [] }: DetailedAnalysis
                 <div className="border-t border-[#E6E6E4] px-5 pb-5 pt-4" onClick={e => e.stopPropagation()}>
                   <SortableTable assets={s.assets} />
                   <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {newsItems.length > 0 && (
-                      <div>
-                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#8B8B85]">{t("analysis.news")}</h4>
-                        {newsItems.slice(0, 8).map((n, i) => (
+                    <div>
+                      <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#8B8B85]">{t("analysis.news")}</h4>
+                      {newsItems.length === 0 ? (
+                        <p className="text-sm text-[#8B8B85] italic">No se encontraron noticias al respecto.</p>
+                      ) : (
+                        newsItems.slice(0, 8).map((n, i) => (
                           <div key={i} className="flex items-start gap-2 border-b border-[#F0F0ED] py-1.5">
                             <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${sentimentDot[n.sentiment] ?? "bg-zinc-400"}`} title={n.sentiment} />
                             <div className="min-w-0 flex-1 text-sm text-[#4D4A44]">
@@ -145,9 +147,9 @@ export function DetailedAnalysis({ sectors, openSectors = [] }: DetailedAnalysis
                               )}
                             </div>
                           </div>
-                        ))}
-                      </div>
-                    )}
+                        ))
+                      )}
+                    </div>
                     {socialItems.length > 0 && <div><h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#8B8B85]">{t("analysis.social")}</h4>{socialItems.slice(0, 6).map((h, i) => <div key={i} className="border-b border-[#F0F0ED] py-1.5 text-sm italic text-[#8B8B85]">{h}</div>)}</div>}
                   </div>
                 </div>
