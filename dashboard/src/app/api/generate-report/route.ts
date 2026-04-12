@@ -283,7 +283,7 @@ export async function POST(request: Request) {
         const macroTickers = pickTickers(sectors, excluded)
 
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" })
 
         // ── PASO 1: Contexto macro real (VIX, yields, sector rotation) ─────────
         send("macro", "Obteniendo VIX, yields y rotación sectorial...")
