@@ -1,8 +1,9 @@
 import { AnalyzeSearch } from "@/components/ticker/AnalyzeSearch"
+import { ETFExplorer }   from "@/components/ticker/ETFExplorer"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
-export const metadata = { title: "Analizar Empresa — Tododeia" }
+export const metadata = { title: "Analizar — Tododeia" }
 
 export default function AnalyzePage() {
   return (
@@ -15,6 +16,7 @@ export default function AnalyzePage() {
           volver al reporte
         </Link>
 
+        {/* ── BUSCAR TICKER ────────────────────────── */}
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900">Analizar empresa o cripto</h1>
           <p className="mt-2 text-sm text-zinc-500">
@@ -24,13 +26,13 @@ export default function AnalyzePage() {
 
         <AnalyzeSearch />
 
-        <div className="mt-10 rounded-xl border border-zinc-100 bg-white p-5 shadow-sm">
+        <div className="mt-8 rounded-xl border border-zinc-100 bg-white p-5 shadow-sm">
           <p className="mb-3 text-xs font-semibold text-zinc-500 uppercase tracking-wide">¿Cómo funciona?</p>
           <div className="space-y-3">
             {[
-              { n: "1", t: "Escribes el ticker", d: "Ejemplo: AAPL para Apple, BTC para Bitcoin, KO para Coca-Cola" },
-              { n: "2", t: "El sistema analiza", d: "Obtiene precios reales, calcula indicadores técnicos y fundamentales automáticamente" },
-              { n: "3", t: "Ver el informe", d: "Dashboard interactivo con zona de entrada, semáforos y explicaciones en simple" },
+              { n: "1", t: "Escribes el ticker",   d: "Ejemplo: AAPL para Apple, BTC para Bitcoin, KO para Coca-Cola" },
+              { n: "2", t: "El sistema analiza",   d: "Obtiene precios reales, calcula indicadores técnicos y fundamentales automáticamente" },
+              { n: "3", t: "Ver el informe",        d: "Dashboard interactivo con zona de entrada, semáforos y explicaciones en simple" },
             ].map(({ n, t, d }) => (
               <div key={n} className="flex gap-3">
                 <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-zinc-900 text-xs font-bold text-white">{n}</span>
@@ -43,7 +45,18 @@ export default function AnalyzePage() {
           </div>
         </div>
 
-        <p className="mt-6 text-center text-xs text-zinc-400">
+        {/* ── EXPLORADOR DE ETFs ───────────────────── */}
+        <div className="mt-12">
+          <div className="mb-5 text-center">
+            <h2 className="text-xl font-bold tracking-tight text-zinc-900">Explorar ETFs</h2>
+            <p className="mt-1 text-sm text-zinc-500">
+              No sabes qué ticker poner? Elige una categoría o déjanos sugerirte los mejores para 20 años.
+            </p>
+          </div>
+          <ETFExplorer />
+        </div>
+
+        <p className="mt-10 text-center text-xs text-zinc-400">
           Solo con fines educativos. No es asesoría financiera.
         </p>
       </div>
