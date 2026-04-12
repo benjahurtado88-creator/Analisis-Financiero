@@ -4,7 +4,7 @@ version: 2.0.0
 description: |
   Multi-agent investment research and analysis system by Tododeia. Use when the user wants
   market analysis, investment research, or a summary of current opportunities across crypto,
-  stocks, forex, and commodities. Spawns 5 specialized research agents (4 sector + 1 strategy),
+  stocks, startups, forex, and commodities. Spawns 6 specialized research agents (5 sector + 1 strategy),
   adapts to user risk profile, tracks historical accuracy, and generates a branded interactive
   HTML report served locally.
   Trigger phrases: "investment analysis", "market research", "analyze markets",
@@ -22,17 +22,16 @@ You are the **orchestrator** of a multi-agent investment research system branded
 
 Follow these steps exactly:
 
-### Step 1: Determine Risk Profile
+### Step 1: Set Risk Profile
 
-Before any research, ask the user their risk tolerance using the AskUserQuestion tool:
+The user's profile is **AGGRESSIVE — 65% Growth / 35% Dividend (The Benja Wealth Strategy)**.
 
-**Question**: "What's your investment risk profile?"
-**Options**:
-1. **Conservative** — "Capital preservation, stable returns, lower risk (bonds, blue chips, gold)"
-2. **Moderate** — "Balanced growth and safety, diversified across sectors (Recommended)"
-3. **Aggressive** — "Maximum growth potential, comfortable with high volatility (crypto, growth stocks, leveraged positions)"
+Set `risk_profile = "aggressive"` directly. Do NOT ask the user — this is their established profile.
 
-Store the selected profile as the `risk_profile` variable ("conservative", "moderate", or "aggressive"). This profile will be passed to the Strategy Agent and used to filter recommendations.
+Profile context to pass to all agents:
+- **65% Growth bucket**: Young investor seeking x5–x10 returns. Targets: disruptive tech, crypto, small caps, AI, high revenue growth (>15% YoY). Tolerates drawdowns if thesis is intact.
+- **35% Dividend bucket**: Sustainable cash flow while waiting. Targets: payout ratio <70%, positive FCF yield, growing dividend history. Not max yield — quality yield.
+- Each pick must be tagged [GROWTH 🚀] or [DIVIDENDO 💰] so the user knows the role of each position.
 
 ### Step 2: Load Agent Prompts
 
@@ -44,21 +43,46 @@ Check if previous reports exist at `output/history/` in the user's current worki
 
 If no history exists, that's fine — this is the first run.
 
-### Step 4: Spawn 4 Sector Research Agents
+### Step 3b: Run FinanceToolkit Script — Pre-load All Hard Data
 
-Launch **all 4 agents in parallel** using the Agent tool in a single message. Each agent must use `WebSearch` and `WebFetch` to gather current market data. Pass each agent its sector-specific prompt from the agent-prompts file.
+**Before spawning any agent**, run the local analysis script for every known ticker. This eliminates the vast majority of web searches agents would otherwise do.
 
-The 4 sector agents are:
-1. **Crypto Agent** — Discovers 5-7 best crypto assets to analyze (always includes BTC + ETH, dynamically finds trending/promising altcoins)
-2. **Stocks Agent** — Discovers 5-8 best stocks to analyze (always includes SPX + IXIC benchmarks, dynamically finds top-performing and catalyst-driven stocks across sectors)
-3. **Currencies Agent** — Discovers 5-7 most relevant currency pairs (always includes DXY + USD/MXN, dynamically finds pairs affected by current events)
-4. **Materials Agent** — Discovers 5-7 best commodities to analyze (always includes Gold + Oil WTI, dynamically finds trending commodities including agricultural if relevant)
+```bash
+python analisis_maia.py TICKER1 TICKER2 ...
+```
+
+**Run it for:**
+- Every **stock ticker** (e.g., `python analisis_maia.py NVDA AAPL KO`)
+- Every **crypto ticker** (e.g., `python analisis_maia.py BTC ETH SOL`) — yfinance supports them
+- **ETF proxies for commodities** (GLD=Gold, USO=Oil, COPX=Copper, SLV=Silver, WEAT=Wheat)
+- Do NOT run for currency pairs (no ticker equivalent)
+
+**After the script finishes**, each ticker's full JSON is saved at:
+```
+dashboard/public/data/ticker/{TICKER}.json
+```
+
+Read each JSON file and pass its contents to the corresponding sector agent. This JSON contains: price, all % changes, RSI, MACD, SMAs, support/resistance, P/E, FCF Yield, ROE, margins, debt, revenue growth, analyst consensus (target/low/high/rec/count), Fair Value, Finnhub social sentiment (score, buzz, Reddit %, Twitter %), and pre-filtered top-5 news.
+
+**Instruction to pass to sector agents:**
+> "Here is the pre-loaded Python data for {TICKER}. Use these values directly in your output. Only do web searches for data NOT in this JSON: specific day catalysts, social buzz for crypto (not covered by Finnhub), commodity spot prices, and geopolitical/macro context."
+
+### Step 4: Spawn 5 Sector Research Agents
+
+Launch **all 5 agents in parallel** using the Agent tool in a single message. Pass each agent its sector-specific prompt from the agent-prompts file plus the pre-loaded JSON data from Step 3b. Agents must check the Python data first — web searches are only for what Python cannot provide.
+
+The 5 sector agents and their expected web search count:
+1. **Crypto Agent** — Price/technical from Python. Web searches: fear & greed index (1), social buzz per asset (1 each), catalyst if big move (1 each). **~3–5 total searches.**
+2. **Stocks Agent** — All fundamentals/price/sentiment from Python. Web searches: day catalyst per asset (1 each). **~2–3 total searches.**
+3. **Startups Agent** — Growth/small-cap picks (<$10B market cap, >40% revenue growth). Python data where available. Web searches: moat validation (1 per asset), growth confirmation (1 per asset), sector multiple context (1 total). **~3–5 total searches.**
+4. **Currencies Agent** — No Python data available. Full web research. **~5–7 searches.**
+5. **Materials Agent** — ETF proxy technicals from Python. Web searches: spot prices (1), supply/demand (1–2), geopolitical (1), macro outlook (1). **~4–5 searches.**
 
 Each agent MUST return a JSON block in this exact schema:
 
 ```json
 {
-  "sector": "crypto|stocks|currencies|materials",
+  "sector": "crypto|stocks|startups|currencies|materials",
   "timestamp": "ISO 8601 date-time",
   "assets": [
     {
@@ -94,8 +118,8 @@ Each agent MUST return a JSON block in this exact schema:
 
 ### Step 5: Spawn Strategy Agent
 
-After all 4 sector agents return, launch the **Strategy Agent** using the Agent tool. Pass it:
-- All 4 sector JSON outputs
+After all 5 sector agents return, launch the **Strategy Agent** using the Agent tool. Pass it:
+- All 5 sector JSON outputs
 - The user's `risk_profile`
 - Historical data from previous reports (if any)
 - The strategy agent prompt from `references/agent-prompts.md`
@@ -114,8 +138,9 @@ The Strategy Agent performs cross-sector analysis and MUST return this JSON:
   },
   "portfolio_allocation": {
     "crypto": 10,
-    "stocks": 45,
-    "currencies": 15,
+    "stocks": 35,
+    "startups": 15,
+    "currencies": 10,
     "materials": 20,
     "cash": 10
   },
@@ -171,6 +196,7 @@ Combine all agent outputs into the final REPORT_DATA object:
   "sectors": {
     "crypto": { ...sector agent output... },
     "stocks": { ...sector agent output... },
+    "startups": { ...sector agent output... },
     "currencies": { ...sector agent output... },
     "materials": { ...sector agent output... }
   }
@@ -270,6 +296,6 @@ Do NOT auto-set this up — only mention it as an option.
 - Always use today's date when constructing search queries.
 - The report MUST include a visible disclaimer that this is not financial advice.
 - Never cache or reuse old data — every invocation does fresh research.
-- Keep agent prompts focused — each sector agent should do 5-8 targeted web searches (including social media).
+- Keep agent web searches minimal — Crypto: ~3–5, Stocks: ~2–3, Startups: ~3–5, Materials: ~4–5, Currencies: ~5–7. Agents must use Python JSON first and only search for what it doesn't cover.
 - The Strategy Agent is the brain — give it ALL sector data and let it do the cross-sector thinking.
 - Risk profile shapes everything: which assets to emphasize, position sizes, and allocation percentages.

@@ -13,20 +13,10 @@ export function useReportData(lang: Language = "en") {
     setLoading(true)
     setError(null)
 
-    const file = lang === "es" ? "/data/report-es.json" : "/data/report.json"
-
-    fetch(file)
+    // Llama a /api/report que inyecta precios en tiempo real desde Yahoo Finance
+    fetch(`/api/report?lang=${lang}`, { cache: "no-store" })
       .then((res) => {
-        if (!res.ok) {
-          if (lang === "es" && res.status === 404) {
-            // Fallback to English if Spanish file doesn't exist
-            return fetch("/data/report.json").then((fallback) => {
-              if (!fallback.ok) throw new Error(`Failed to load report data: ${fallback.status}`)
-              return fallback.json()
-            })
-          }
-          throw new Error(`Failed to load report data: ${res.status}`)
-        }
+        if (!res.ok) throw new Error(`Error ${res.status} al cargar el reporte`)
         return res.json()
       })
       .then(setData)
