@@ -25,6 +25,10 @@ def _sanitize(obj):
         return [_sanitize(v) for v in obj]
     return obj
 
+def nv(val, default=0):
+    """Convierte None → default para usar en f-strings con formato numérico."""
+    return default if val is None else val
+
 # CONFIGURACION — usa variables de entorno si están disponibles, fallback a hardcoded
 import os
 API_KEY         = os.environ.get("FINANCETOOLKIT_API_KEY", "87etVkEnSmcBXp2yDkeGyiAq1PQfWrNL")
@@ -1185,29 +1189,29 @@ def analizar(ticker_input):
             print(f"  Recomendacion   :  {inf.get('analyst_rec','N/D')}  ({inf.get('analyst_count',0)} analistas)")
 
         print(f"\n-- VALORACION ----------------------------------------")
-        print(f"  P/E Ratio       :  {r.get('pe', 0):.1f}x  (benchmark sector: {fv.get('pe_benchmark',25)}x)")
-        print(f"  P/B Ratio       :  {r.get('pb', 0):.1f}x")
-        print(f"  P/FCF           :  {r.get('pfcf', 0):.1f}x")
-        print(f"  EV/EBITDA       :  {inf.get('ev_ebitda', 0):.1f}x")
-        print(f"  FCF Yield       :  {r.get('fcf_yield', 0):.2%}")
-        if inf.get('beta', 0):
+        print(f"  P/E Ratio       :  {nv(r.get('pe')):.1f}x  (benchmark sector: {fv.get('pe_benchmark',25)}x)")
+        print(f"  P/B Ratio       :  {nv(r.get('pb')):.1f}x")
+        print(f"  P/FCF           :  {nv(r.get('pfcf')):.1f}x")
+        print(f"  EV/EBITDA       :  {nv(inf.get('ev_ebitda')):.1f}x")
+        print(f"  FCF Yield       :  {nv(r.get('fcf_yield')):.2%}")
+        if inf.get('beta') is not None:
             print(f"  Beta            :  {inf['beta']:.2f}  ({'alta volatilidad' if inf['beta'] > 1.5 else 'baja volatilidad' if inf['beta'] < 0.8 else 'volatilidad normal'})")
 
         print(f"\n-- CRECIMIENTO ---------------------------------------")
-        rev_g = inf.get('revenue_growth', 0) * 100
-        earn_g = inf.get('earnings_growth', 0) * 100
+        rev_g = nv(inf.get('revenue_growth')) * 100
+        earn_g = nv(inf.get('earnings_growth')) * 100
         print(f"  Revenue YoY     :  {rev_g:+.1f}%")
         print(f"  Earnings YoY    :  {earn_g:+.1f}%")
-        print(f"  EPS             :  ${r.get('eps', 0):.2f}   {t_eps}")
+        print(f"  EPS             :  ${nv(r.get('eps')):.2f}   {t_eps}")
 
         print(f"\n-- CALIDAD DEL NEGOCIO -------------------------------")
-        print(f"  Margen Bruto    :  {r.get('gross', 0):.1%}   {t_margin}")
-        print(f"  Margen Neto     :  {r.get('margin', 0):.1%}")
-        print(f"  ROE             :  {r.get('roe', 0):.1%}   {t_roe}")
+        print(f"  Margen Bruto    :  {nv(r.get('gross')):.1%}   {t_margin}")
+        print(f"  Margen Neto     :  {nv(r.get('margin')):.1%}")
+        print(f"  ROE             :  {nv(r.get('roe')):.1%}   {t_roe}")
 
         print(f"\n-- SOLIDEZ FINANCIERA --------------------------------")
-        print(f"  Deuda/Equity    :  {r.get('de', 0):.2f}x")
-        print(f"  Cobertura Int.  :  {r.get('int_cov', 0):.1f}x")
+        print(f"  Deuda/Equity    :  {nv(r.get('de')):.2f}x")
+        print(f"  Cobertura Int.  :  {nv(r.get('int_cov')):.1f}x")
 
         # FOSO COMPETITIVO (Moat)
         if moat:
