@@ -1,6 +1,6 @@
 {
   "ticker": "AAPL",
-  "fecha": "2026-04-11T23:27:08.279372",
+  "fecha": "2026-04-12T00:21:52.779061",
   "es_cripto": false,
   "veredicto": "MANTENER / ESPERAR",
   "score": 3,
@@ -170,16 +170,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-04-10] Barrons.com (score:11): Anthropic’s New AI Model Triggered an Emergency Banking Meeting. It’s a Reason to Buy Cybersecurity Stocks. — Treasury Secretary Scott Bessent, as well as Federal Reserve Chair Jerome Powell, arranged an emergency meeting of top bank bosses earlier this week, ",
-    "[2026-04-11] Bloomberg (score:8): Apple Hires Uber’s Asia-Pacific Government Relations Chief — (Bloomberg) -- Apple Inc. has hired Uber Technologies Inc.’s head of public policy and government relations for Asia-Pacific as it looks to revamp its",
-    "[2026-04-11] Bloomberg (score:7): Japan Bets $16 Billion to Propel Rapidus in Global AI Chip Race — (Bloomberg) -- Japan approved ¥631.5 billion ($4 billion) in additional subsidies to quicken Rapidus Corp.’s entry into the high-stakes AI chipmaking ",
-    "[2026-04-10] Barrons.com (score:5): Apple, Levi’s, and 5 More Stocks Get Analyst Attention — RESEARCH REPORTS These reports, excerpted and edited by Barron’s, were issued recently by investment and research firms. The reports are a sampling of",
-    "[2026-04-11] Motley Fool (score:4): 2.5 Billion Reasons Apple Might Be the Best Artificial Intelligence (AI) Stock to Buy Today — Apple may not be falling behind in AI after all."
+    {
+      "title": "Anthropic’s New AI Model Triggered an Emergency Banking Meeting. It’s a Reason to Buy Cybersecurity Stocks.",
+      "url": "https://www.barrons.com/articles/bessent-powell-anthropic-mythos-cybersecurity-crowdstrike-stock-25ae1cb7?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-04-10",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Apple Hires Uber’s Asia-Pacific Government Relations Chief",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/apple-hires-uber-asia-pacific-000000401.html",
+      "source": "Bloomberg",
+      "date": "2026-04-11",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Japan Bets $16 Billion to Propel Rapidus in Global AI Chip Race",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/japan-bets-16-billion-propel-112506649.html",
+      "source": "Bloomberg",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Apple, Levi’s, and 5 More Stocks Get Analyst Attention",
+      "url": "https://www.barrons.com/articles/apple-levis-and-5-more-stocks-get-analyst-attention-ad9fadf3?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "2.5 Billion Reasons Apple Might Be the Best Artificial Intelligence (AI) Stock to Buy Today",
+      "url": "https://www.fool.com/investing/2026/04/11/25-billion-reasons-apple-might-be-the-best-ai-buy/",
+      "source": "Motley Fool",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
+      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    }
   ]
 }

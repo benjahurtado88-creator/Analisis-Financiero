@@ -21,7 +21,7 @@ import { LoadingSkeleton } from "@/components/report/LoadingSkeleton"
 
 function ReportContent() {
   const { lang } = useLanguage()
-  const { data, loading, error } = useReportData(lang)
+  const { data, loading, error, macroRefreshing, macroRefreshedAt, refreshMacro } = useReportData(lang)
   const [openSectors, setOpenSectors] = useState<string[]>([])
 
   const handleSectorClick = useCallback((sector: string) => {
@@ -66,9 +66,14 @@ function ReportContent() {
       <main id="main-content" className="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-10">
         <ReportHeader data={data} />
         <div className="mt-6 space-y-8">
-          <ExecutiveSummary summary={data.executive_summary} />
+          <ExecutiveSummary
+            summary={data.executive_summary}
+            refreshing={macroRefreshing}
+            refreshedAt={macroRefreshedAt}
+            onRefresh={refreshMacro}
+          />
           <div className="grid gap-4 md:grid-cols-2">
-            <MacroEnvironment macro={data.macro_environment} />
+            <MacroEnvironment macro={data.macro_environment} refreshing={macroRefreshing} />
             <PortfolioAllocation allocation={data.portfolio_allocation} />
           </div>
           <CrossSectorInsights insights={data.cross_sector_insights} />

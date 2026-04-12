@@ -9,7 +9,7 @@ const valueColors: Record<string, string> = {
   high: "text-red-600", medium: "text-amber-600", low: "text-green-600",
 }
 
-export function MacroEnvironment({ macro }: { macro: MacroType }) {
+export function MacroEnvironment({ macro, refreshing }: { macro: MacroType; refreshing?: boolean }) {
   const { t } = useLanguage()
   const indicators = [
     { label: t("macro.rates"), value: macro.interest_rate_outlook },
@@ -19,7 +19,12 @@ export function MacroEnvironment({ macro }: { macro: MacroType }) {
 
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="rounded-xl border border-[#E6E6E4] bg-[#FCFCFB] p-6">
-      <h3 className="mb-4 text-base font-semibold text-[#252420]">{t("macro.title")}</h3>
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-base font-semibold text-[#252420]">{t("macro.title")}</h3>
+        {refreshing && (
+          <span className="text-[11px] text-[#8B8B85]">actualizando...</span>
+        )}
+      </div>
       <div className="mb-4 flex flex-wrap gap-3">
         {indicators.map((ind) => (
           <div key={ind.label} className="flex flex-col items-center gap-1 rounded-lg bg-[#F7F7F5] px-5 py-2.5">

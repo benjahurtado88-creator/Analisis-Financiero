@@ -1,6 +1,6 @@
 {
   "ticker": "PLTR",
-  "fecha": "2026-04-12T00:01:19.256802",
+  "fecha": "2026-04-12T00:16:08.117549",
   "es_cripto": false,
   "veredicto": "COMPRA",
   "score": 5,
@@ -184,16 +184,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-04-11] Benzinga (score:10): Michael Burry Saying Anthropic Eating Palantir's Lunch Is 'The Wrong Take And Fictional Narrative,' Says Top Analyst — On Thursday, Wedbush Securities analyst Dan Ives dismissed statements made by famed investor Michael Burry that Anthropic is overtaking Palantir Techn",
-    "[2026-04-12] Motley Fool (score:9): 2 AI Stocks I Don't Like (Including Palantir) and 1 I Love — Software and AI stocks have taken a beating recently. But that doesn't mean investors should rush in to buy just because shares are down.",
-    "[2026-04-10] Motley Fool (score:7): Stock Market Today, April 10: Palantir Falls as AI Competition Pressures Valuation — Palantir fell as rising competition in AI software weighed on its premium valuation, with recent commentary highlighting pressure on its ability to ex",
-    "[2026-04-11] TheStreet (score:6): Palantir stock caught in a battle over pension billions — Palantir Technologies (PLTR) is currently one of the most powerful AI companies on Wall Street, owing to a strong surge of hope around AI, national se",
-    "[2026-04-11] Moneywise (score:5): Trump name-drops Palantir by ticker symbol, 1st president to hype a stock. It surged $10B in minutes amid a 16% freefall — Critics are calling it market manipulation. Michael Burry is betting against it. Here's what investors should know."
+    {
+      "title": "Michael Burry Saying Anthropic Eating Palantir's Lunch Is 'The Wrong Take And Fictional Narrative,' Says Top Analyst",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/michael-burry-saying-anthropic-eating-150115784.html",
+      "source": "Benzinga",
+      "date": "2026-04-11",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "2 AI Stocks I Don't Like (Including Palantir) and 1 I Love",
+      "url": "https://www.fool.com/investing/2026/04/11/2-ai-stocks-i-dont-like-and-1-i-love/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Stock Market Today, April 10: Palantir Falls as AI Competition Pressures Valuation",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/04/10/stock-market-today-april-10-palantir-falls-as-ai-competition-pressures-valuation/",
+      "source": "Motley Fool",
+      "date": "2026-04-10",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Palantir stock caught in a battle over pension billions",
+      "url": "https://www.thestreet.com/investing/palantir-stock-caught-in-a-battle-over-pension-billions",
+      "source": "TheStreet",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump name-drops Palantir by ticker symbol, 1st president to hype a stock. It surged $10B in minutes amid a 16% freefall",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/trump-name-drops-palantir-ticker-154500129.html",
+      "source": "Moneywise",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
+      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    }
   ]
 }

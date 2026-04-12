@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/hooks/use-language"
-import type { SectorData, Asset } from "@/types/report"
+import type { SectorData, Asset, NewsItem } from "@/types/report"
 import { SECTOR_COLORS, SECTORS } from "@/lib/constants"
 
 function parseNumeric(val: string | number): number {
@@ -84,6 +84,17 @@ function SortableTable({ assets }: { assets: Asset[] }) {
   )
 }
 
+function normalizeNewsItem(n: NewsItem | string): NewsItem {
+  if (typeof n === "string") return { title: n, sentiment: "neutral" }
+  return n
+}
+
+const sentimentDot: Record<string, string> = {
+  bullish: "bg-green-500",
+  bearish: "bg-red-500",
+  neutral: "bg-zinc-400",
+}
+
 interface DetailedAnalysisProps { sectors: Record<string, SectorData>; openSectors?: string[] }
 
 export function DetailedAnalysis({ sectors, openSectors = [] }: DetailedAnalysisProps) {
@@ -100,7 +111,7 @@ export function DetailedAnalysis({ sectors, openSectors = [] }: DetailedAnalysis
         {SECTORS.map((key) => {
           const s = sectors[key]; if (!s || s.data_unavailable) return null
           const isOpen = effectiveOpen.has(key)
-          const newsItems = (s.assets || []).flatMap(a => (a.key_news || []).map(n => n))
+          const newsItems = (s.assets || []).flatMap(a => (a.key_news || []).map(normalizeNewsItem))
           const socialItems = (s.assets || []).flatMap(a => (a.social_highlights || []).map(h => h))
           return (
             <div key={key} id={`sector-${key}`} className="overflow-hidden rounded-xl border border-[#E6E6E4] bg-[#FCFCFB]">
@@ -115,7 +126,28 @@ export function DetailedAnalysis({ sectors, openSectors = [] }: DetailedAnalysis
                 <div className="border-t border-[#E6E6E4] px-5 pb-5 pt-4" onClick={e => e.stopPropagation()}>
                   <SortableTable assets={s.assets} />
                   <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {newsItems.length > 0 && <div><h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#8B8B85]">{t("analysis.news")}</h4>{newsItems.slice(0, 8).map((n, i) => <div key={i} className="border-b border-[#F0F0ED] py-1.5 text-sm text-[#4D4A44]">{n}</div>)}</div>}
+                    {newsItems.length > 0 && (
+                      <div>
+                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#8B8B85]">{t("analysis.news")}</h4>
+                        {newsItems.slice(0, 8).map((n, i) => (
+                          <div key={i} className="flex items-start gap-2 border-b border-[#F0F0ED] py-1.5">
+                            <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${sentimentDot[n.sentiment] ?? "bg-zinc-400"}`} title={n.sentiment} />
+                            <div className="min-w-0 flex-1 text-sm text-[#4D4A44]">
+                              {n.url ? (
+                                <a href={n.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#fa8625] hover:underline">{n.title}</a>
+                              ) : (
+                                <span>{n.title}</span>
+                              )}
+                              {(n.source || n.date) && (
+                                <span className="ml-1.5 text-[11px] text-[#8B8B85]">
+                                  {n.source}{n.date ? ` · ${n.date}` : ""}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                     {socialItems.length > 0 && <div><h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#8B8B85]">{t("analysis.social")}</h4>{socialItems.slice(0, 6).map((h, i) => <div key={i} className="border-b border-[#F0F0ED] py-1.5 text-sm italic text-[#8B8B85]">{h}</div>)}</div>}
                   </div>
                 </div>

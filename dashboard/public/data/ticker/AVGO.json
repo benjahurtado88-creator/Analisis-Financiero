@@ -1,6 +1,6 @@
 {
   "ticker": "AVGO",
-  "fecha": "2026-04-12T00:00:49.507114",
+  "fecha": "2026-04-12T00:15:36.790322",
   "es_cripto": false,
   "veredicto": "MANTENER / ESPERAR",
   "score": 3,
@@ -181,16 +181,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-04-11] Motley Fool (score:11): What AI Fatigue? Anthropic's Red-Hot Growth Is Going to Supercharge These 3 AI Leaders. — Anthropic's rapidly growing revenue run rate is proof that enterprise adoption of AI services remains solid.",
-    "[2026-04-10] Barrons.com (score:9): Intel Stock Gains 51% in 8 Days. Why the Company Has a ‘Renewed Lease on Life.’ — Intel stock is in the midst of its longest winning streak since September 2023. Analysts see momentum continuing with headline-catching deals.",
-    "[2026-04-10] GuruFocus.com (score:6): CoreWeave Jumps 13% On Multibillion Anthropic AI Capacity Deal — Agreement supports Claude model deployment using Nvidia chips across US data centers amid rising AI demand",
-    "[2026-04-11] Motley Fool (score:6): Agentic AI Is the Next Big Thing in AI. Here Are the 5 Best Stocks to Capitalize on It. — AI computing equipment providers and cloud infrastructure operators are the best investments you can make right now.",
-    "[2026-04-11] Motley Fool (score:6): Could Investing $50,000 in Broadcom Stock Make You a Millionaire? — Here's what needs to happen for you to get rich from this chip stock."
+    {
+      "title": "Early Broadcom stock investors now earn 16.8% dividend yield",
+      "url": "https://www.thestreet.com/investing/stocks/early-broadcom-avgo-stock-investors-now-earn-a-16-8-dividend-yield",
+      "source": "TheStreet",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "What AI Fatigue? Anthropic's Red-Hot Growth Is Going to Supercharge These 3 AI Leaders.",
+      "url": "https://www.fool.com/investing/2026/04/11/ai-fatigue-anthropic-hot-growth-ai-stock-avgo/",
+      "source": "Motley Fool",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Intel Stock Gains 51% in 8 Days. Why the Company Has a ‘Renewed Lease on Life.’",
+      "url": "https://www.barrons.com/articles/intel-stock-price-analysts-winning-streak-a1bdcdf4?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Agentic AI Is the Next Big Thing in AI. Here Are the 5 Best Stocks to Capitalize on It.",
+      "url": "https://www.fool.com/investing/2026/04/11/agentic-ai-is-the-next-big-thing-for-ai-here-are-t/",
+      "source": "Motley Fool",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Could Investing $50,000 in Broadcom Stock Make You a Millionaire?",
+      "url": "https://www.fool.com/investing/2026/04/11/could-investing-50000-in-broadcom-stock-make-you-a/",
+      "source": "Motley Fool",
+      "date": "2026-04-11",
+      "sentiment": "neutral"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
+      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    }
   ]
 }

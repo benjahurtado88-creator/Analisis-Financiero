@@ -274,10 +274,43 @@ def puntuar_noticia(titulo, resumen, fuente):
     score += FUENTES_CONFIABLES.get(fuente, 0)
     return score
 
+# Keywords para detectar si la noticia es positiva o negativa para el activo
+NEWS_BULLISH_KW = {
+    "beat", "beats", "record", "surge", "surges", "rally", "rallies", "upgrade",
+    "upgrades", "upgraded", "buyback", "buy back", "outperform", "approval",
+    "approved", "approves", "partnership", "deal", "merger", "acquisition",
+    "dividend increase", "raised guidance", "raises guidance", "strong earnings",
+    "profit rises", "revenue beats", "strong results", "positive", "breakout",
+    "all-time high", "new high", "bullish", "buy", "overweight", "growth",
+    "expansion", "investment", "launch", "launches", "wins contract",
+}
+NEWS_BEARISH_KW = {
+    "miss", "misses", "missed", "downgrade", "downgrades", "downgraded",
+    "bankruptcy", "bankrupt", "default", "fraud", "investigation", "recall",
+    "layoff", "layoffs", "job cuts", "cuts jobs", "loss", "losses", "decline",
+    "declining", "warning", "concern", "risk", "sell", "underperform",
+    "underweight", "disappoints", "disappointing", "weak results", "guidance cut",
+    "lowers guidance", "below expectations", "miss estimates", "short seller",
+    "probe", "subpoena", "lawsuit", "penalty", "fine", "crash", "plunge",
+    "plunges", "sell-off", "selloff", "bearish", "recession", "inflation spike",
+}
+
+def detectar_sentimiento_noticia(titulo, resumen):
+    """Clasifica si una noticia es bullish, bearish o neutral para el activo."""
+    texto = (titulo + " " + resumen).lower()
+    bull = sum(1 for kw in NEWS_BULLISH_KW if kw in texto)
+    bear = sum(1 for kw in NEWS_BEARISH_KW if kw in texto)
+    if bull > bear:
+        return "bullish"
+    elif bear > bull:
+        return "bearish"
+    return "neutral"
+
 def obtener_noticias_ticker(ticker_yf, max_news=10, top_n=5):
     """
     Obtiene noticias del ticker via yfinance, las puntúa por relevancia
-    financiera y retorna solo el top_n más relevantes.
+    financiera y retorna solo el top_n más relevantes como dicts con
+    title, url, source, date y sentiment.
     """
     candidatas = []
     try:
@@ -289,21 +322,30 @@ def obtener_noticias_ticker(ticker_yf, max_news=10, top_n=5):
             resumen = content.get('summary', '')[:200]
             fecha   = content.get('pubDate', '')[:10]
             fuente  = content.get('provider', {}).get('displayName', '')
+            # Intentar obtener URL desde múltiples ubicaciones posibles
+            url_art = (
+                content.get('canonicalUrl', {}).get('url', '') or
+                content.get('clickThroughUrl', {}).get('url', '') or
+                n.get('link', '') or
+                ''
+            )
             if not titulo:
                 continue
             score = puntuar_noticia(titulo, resumen, fuente)
-            candidatas.append((score, fecha, fuente, titulo, resumen))
+            sentimiento = detectar_sentimiento_noticia(titulo, resumen)
+            candidatas.append((score, fecha, fuente, titulo, resumen, url_art, sentimiento))
 
-        # Ordenar por score desc, luego por fecha desc
-        candidatas.sort(key=lambda x: (-x[0], x[1]), reverse=False)
         candidatas.sort(key=lambda x: x[0], reverse=True)
 
         noticias = []
-        for score, fecha, fuente, titulo, resumen in candidatas[:top_n]:
-            linea = f"[{fecha}] {fuente} (score:{score}): {titulo}"
-            if resumen:
-                linea += f" — {resumen[:150]}"
-            noticias.append(linea)
+        for score, fecha, fuente, titulo, resumen, url_art, sentimiento in candidatas[:top_n]:
+            noticias.append({
+                "title":     titulo,
+                "url":       url_art,
+                "source":    fuente,
+                "date":      fecha,
+                "sentiment": sentimiento,
+            })
         return noticias
     except:
         return []
@@ -312,33 +354,35 @@ def obtener_noticias_ticker(ticker_yf, max_news=10, top_n=5):
 def obtener_noticias_macro(max_news=6, top_n=4):
     """
     Obtiene noticias macro del RSS de MarketWatch, las puntúa
-    y retorna solo las top_n más relevantes para el mercado.
+    y retorna solo las top_n más relevantes como dicts con title, url y sentiment.
     """
     candidatas = []
     try:
         import html as html_mod
-        url = 'https://feeds.marketwatch.com/marketwatch/topstories/'
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        feed_url = 'https://feeds.marketwatch.com/marketwatch/topstories/'
+        req = urllib.request.Request(feed_url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=8) as r:
             content = r.read().decode('utf-8', errors='ignore')
 
-        # Parsear títulos y descripciones del RSS
-        items = re.findall(
-            r'<item>(.*?)</item>', content, re.DOTALL
-        )
+        items = re.findall(r'<item>(.*?)</item>', content, re.DOTALL)
         for item in items[:max_news]:
             titulo_m  = re.search(r'<title><!\[CDATA\[(.*?)\]\]></title>|<title>(.*?)</title>', item)
             desc_m    = re.search(r'<description><!\[CDATA\[(.*?)\]\]></description>', item, re.DOTALL)
+            link_m    = re.search(r'<link>(.*?)</link>|<link\s+href=["\']([^"\']+)["\']', item, re.DOTALL)
             titulo    = html_mod.unescape((titulo_m.group(1) or titulo_m.group(2) or '').strip()) if titulo_m else ''
             descripcion = html_mod.unescape(desc_m.group(1)[:200]).strip() if desc_m else ''
-            # Limpiar HTML residual
             descripcion = re.sub(r'<[^>]+>', '', descripcion)
+            url_art   = (link_m.group(1) or link_m.group(2) or '').strip() if link_m else ''
             if titulo and len(titulo) > 10:
                 score = puntuar_noticia(titulo, descripcion, "MarketWatch")
-                candidatas.append((score, titulo))
+                sentimiento = detectar_sentimiento_noticia(titulo, descripcion)
+                candidatas.append((score, titulo, url_art, sentimiento))
 
         candidatas.sort(key=lambda x: x[0], reverse=True)
-        return [t for _, t in candidatas[:top_n]]
+        return [
+            {"title": t, "url": u, "source": "MarketWatch", "sentiment": s}
+            for _, t, u, s in candidatas[:top_n]
+        ]
     except:
         return []
 
@@ -1323,12 +1367,20 @@ def analizar(ticker_input):
     if noticias_ticker:
         print(f"\n-- NOTICIAS: {ticker_input} {'(CRIPTO)' if es_cripto else '(ACCION)'} -------------------------")
         for n in noticias_ticker:
-            print(f"  * {n}")
+            if isinstance(n, dict):
+                sen = n.get('sentiment','?').upper()
+                print(f"  [{sen}] [{n.get('date','')}] {n.get('source','')}: {n.get('title','')}  → {n.get('url','') or 'sin URL'}")
+            else:
+                print(f"  * {n}")
 
     if noticias_macro:
         print(f"\n-- NOTICIAS MACRO ------------------------------------")
         for n in noticias_macro:
-            print(f"  * {n}")
+            if isinstance(n, dict):
+                sen = n.get('sentiment','?').upper()
+                print(f"  [{sen}] {n.get('source','')}: {n.get('title','')}  → {n.get('url','') or 'sin URL'}")
+            else:
+                print(f"  * {n}")
 
     print(f"\n{'='*60}\n")
 

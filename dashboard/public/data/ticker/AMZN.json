@@ -1,6 +1,6 @@
 {
   "ticker": "AMZN",
-  "fecha": "2026-04-11T23:26:24.811577",
+  "fecha": "2026-04-12T00:22:07.684858",
   "es_cripto": false,
   "veredicto": "MANTENER / ESPERAR",
   "score": 3,
@@ -184,16 +184,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-04-11] 24/7 Wall St. (score:9): Nvidia Just Posted Its Longest Winning Streak Since 2023. Is This Time for Real? — The S&P 500 is mixed after March inflation came in just below forecasts and uncertainty over a peaceful resolution to the Iran war. Tech stocks, thoug",
-    "[2026-04-11] 24/7 Wall St. (score:9): Amazon vs. Walmart: The Retail War Just Picked a Winner — Amazon (NASDAQ:AMZN) and Walmart (NYSE:WMT) reported earnings revealing two companies of nearly identical scale but radically different profit archite",
-    "[2026-04-11] Simply Wall St. (score:7): Rigetti’s 108 Qubit Launch Tests Quantum Ambitions And Valuation Gap — Rigetti Computing has released its 108 qubit modular quantum system, Cepheus-1-108Q, for general availability. The system is now accessible through Ri",
-    "[2026-04-11] Bloomberg (score:6): AI Juggernaut Rumbles on Even as Markets Whipsaw — (Bloomberg) -- The artificial intelligence credit juggernaut keeps pushing forward as the relentless demand for exposure to the industry trumps fears ",
-    "[2026-04-11] Simply Wall St. (score:6): Hims And Hers Confronts Amazon Threat While Advancing AI Weight Loss Plan — Amazon Pharmacy has entered the weight loss medication market with Eli Lilly’s new GLP-1 drug, offering same day delivery and raising competitive pres"
+    {
+      "title": "Nvidia Just Posted Its Longest Winning Streak Since 2023. Is This Time for Real?",
+      "url": "https://247wallst.com/investing/2026/04/11/nvidia-just-posted-its-longest-winning-streak-since-2023-is-this-time-for-real/",
+      "source": "24/7 Wall St.",
+      "date": "2026-04-11",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Amazon vs. Walmart: The Retail War Just Picked a Winner",
+      "url": "https://247wallst.com/investing/2026/04/11/amazon-vs-walmart-the-retail-war-just-picked-a-winner/",
+      "source": "24/7 Wall St.",
+      "date": "2026-04-11",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Rigetti’s 108 Qubit Launch Tests Quantum Ambitions And Valuation Gap",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rigetti-108-qubit-launch-tests-121224543.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "AI Juggernaut Rumbles on Even as Markets Whipsaw",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/ai-juggernaut-rumbles-even-markets-190000638.html",
+      "source": "Bloomberg",
+      "date": "2026-04-11",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "U.S.-Iran Talks End With No Deal; How Will Dow Jones Futures, Oil Prices React?",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-us-iran-talks-no-deal-vp-jd-vance/?src=A00220&yptr=yahoo",
+      "source": "Investor's Business Daily",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
+      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    }
   ]
 }

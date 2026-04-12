@@ -60,6 +60,14 @@ export interface SectorData {
   data_unavailable?: boolean
 }
 
+export interface NewsItem {
+  title: string
+  url?: string
+  source?: string
+  date?: string
+  sentiment: "bullish" | "bearish" | "neutral"
+}
+
 export interface Asset {
   name: string
   symbol: string
@@ -78,7 +86,7 @@ export interface Asset {
   confidence: number
   source_agreement: "high" | "medium" | "low"
   sources_checked: string[]
-  key_news: string[]
+  key_news: (NewsItem | string)[]
   social_highlights: string[]
   recommendation: "buy" | "hold" | "sell"
   reasoning: string

@@ -144,7 +144,7 @@ function buildMainPrompt(
           "confidence": 8,
           "source_agreement": "high|medium|low",
           "sources_checked": ["yfinance/Python", "conocimiento de mercado"],
-          "key_news": ["[FECHA] Noticia real o catalizador conocido"],
+          "key_news": [{"title": "Noticia real o catalizador conocido", "url": "", "source": "fuente", "date": "YYYY-MM-DD", "sentiment": "bullish|bearish|neutral"}],
           "social_highlights": [],
           "recommendation": "buy|hold|sell",
           "reasoning": "OBLIGATORIO: cita al menos 2 métricas específicas (ej: RSI=42 sobreventa, MACD alcista, P/E=18x vs sector 25x). Incluye el catalizador principal y el riesgo más importante."
@@ -242,22 +242,40 @@ Responde con un JSON con esta estructura EXACTA:
 Solo JSON, sin texto adicional.`
 }
 
+/**
+ * Extrae el primer objeto JSON válido del texto del modelo.
+ * Usa tracking de llaves para manejar texto antes/después del JSON,
+ * markdown, trailing commas y otros defectos comunes de LLMs.
+ */
 function extractJson(text: string): Record<string, unknown> {
-  // 1. Limpiar markdown
-  let cleaned = text
-    .replace(/^```json\s*/i, "").replace(/^```\s*/i, "")
-    .replace(/\s*```$/i, "").trim()
+  // 1. Buscar el primer { y rastrear profundidad de llaves
+  const start = text.indexOf("{")
+  if (start === -1) throw new Error(`No se encontró JSON en la respuesta. Preview: ${text.slice(0, 200)}`)
 
-  // 2. Extraer el bloque JSON más externo si hay texto alrededor
-  const match = cleaned.match(/\{[\s\S]*\}/)
-  if (match) cleaned = match[0]
+  let depth = 0
+  let inString = false
+  let escape = false
 
-  // 3. Primer intento: JSON estricto
-  try { return JSON.parse(cleaned) } catch { /* sigue */ }
-
-  // 4. Segundo intento: eliminar trailing commas (bug más común de Gemini)
-  const fixed = cleaned.replace(/,\s*([}\]])/g, "$1")
-  return JSON.parse(fixed)
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i]
+    if (escape)            { escape = false; continue }
+    if (ch === "\\" && inString) { escape = true;  continue }
+    if (ch === '"')        { inString = !inString; continue }
+    if (inString)          continue
+    if (ch === "{")        depth++
+    if (ch === "}") { depth--; if (depth === 0) {
+      const candidate = text.slice(start, i + 1)
+      // 2. Primer intento: JSON estricto
+      try { return JSON.parse(candidate) } catch { /* sigue */ }
+      // 3. Segundo intento: eliminar trailing commas
+      const fixed = candidate.replace(/,\s*([}\]])/g, "$1")
+      try { return JSON.parse(fixed) } catch { /* sigue */ }
+      // 4. Tercer intento: eliminar comentarios // y trailing commas
+      const noComments = fixed.replace(/\/\/[^\n]*/g, "")
+      return JSON.parse(noComments)
+    }}
+  }
+  throw new Error(`JSON incompleto en la respuesta. Preview: ${text.slice(start, start + 300)}`)
 }
 
 export async function POST(request: Request) {
@@ -311,7 +329,7 @@ export async function POST(request: Request) {
         }
 
         // ── PASO 3: Leer JSONs generados ───────────────────────────────────────
-        send("reading", "Preparando contexto para Gemini...")
+        send("reading", "Preparando contexto para el análisis...")
         const tickerDeep: Record<string, unknown> = {}
         for (const ticker of macroTickers) {
           const p = path.join(tickerDir, `${ticker}.json`)
@@ -325,7 +343,10 @@ export async function POST(request: Request) {
         const mainPrompt = buildMainPrompt(tickerDeep, marketCtx, riskProfile, sectors, excluded)
         const mainResult = await groq.chat.completions.create({
           model: "llama-3.3-70b-versatile",
-          messages: [{ role: "user", content: mainPrompt }],
+          messages: [
+            { role: "system", content: "You are a financial analyst API. You MUST respond with ONLY a valid JSON object. No markdown, no code blocks, no explanations, no text before or after the JSON. Start your response with { and end with }." },
+            { role: "user", content: mainPrompt },
+          ],
           temperature: 0.3,
           max_tokens: 8000,
         })
@@ -338,7 +359,10 @@ export async function POST(request: Request) {
         try {
           const criticResult = await groq.chat.completions.create({
             model: "llama-3.3-70b-versatile",
-            messages: [{ role: "user", content: buildCriticPrompt(mainText) }],
+            messages: [
+              { role: "system", content: "You are a financial risk analyst API. Respond with ONLY a valid JSON object. No markdown, no text outside the JSON." },
+              { role: "user", content: buildCriticPrompt(mainText) },
+            ],
             temperature: 0.2,
             max_tokens: 1000,
           })

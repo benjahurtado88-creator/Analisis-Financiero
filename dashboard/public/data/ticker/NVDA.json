@@ -1,6 +1,6 @@
 {
   "ticker": "NVDA",
-  "fecha": "2026-04-11T23:26:10.729261",
+  "fecha": "2026-04-12T00:21:37.990642",
   "es_cripto": false,
   "veredicto": "COMPRA",
   "score": 4,
@@ -181,16 +181,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-04-12] Motley Fool (score:9): 2 AI Stocks I Don't Like (Including Palantir) and 1 I Love — Software and AI stocks have taken a beating recently. But that doesn't mean investors should rush in to buy just because shares are down.",
-    "[2026-04-12] Simply Wall St. (score:8): Nebius Talks AI21 Deal As Full Stack AI Ambitions Meet Valuation — Nebius Group (NasdaqGS:NBIS) is reportedly in advanced talks to acquire Israeli AI startup AI21 Labs. The potential deal follows AI21 Labs' unsuccessf",
-    "[2026-04-12] Motley Fool (score:6): EV Sales Are \"Cratering.\" Here's Why I'm Holding On to My Rivian Shares — The company may be in its best shape ever.",
-    "[2026-04-12] Motley Fool (score:6): The Secret to Out-Innovating the Competition: Inside the Tesla Playbook — Former Tesla President Jon McNeill discusses his new book, The Algorithm: The Hypergrowth Formula That Transformed Tesla, Lululemon, General Motors, a",
-    "[2026-04-12] Investor's Business Daily (score:4): U.S.-Iran Talks End With No Deal; How Will Dow Jones Futures, Oil Prices React? — Futures loom after lengthy U.S.-Iran talks ended without an agreement. Vice President J.D. Vance said Tehran has \"chosen not to accept our terms.\""
+    {
+      "title": "2 AI Stocks I Don't Like (Including Palantir) and 1 I Love",
+      "url": "https://www.fool.com/investing/2026/04/11/2-ai-stocks-i-dont-like-and-1-i-love/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Nebius Talks AI21 Deal As Full Stack AI Ambitions Meet Valuation",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nebius-talks-ai21-deal-full-021104174.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "EV Sales Are \"Cratering.\" Here's Why I'm Holding On to My Rivian Shares",
+      "url": "https://www.fool.com/investing/2026/04/11/ev-sales-are-cratering-heres-why-im-holding-on-to/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "The Secret to Out-Innovating the Competition: Inside the Tesla Playbook",
+      "url": "https://www.fool.com/investing/2026/04/11/the-secret-to-out-innovating-the-competition-inside-the-tesla-playbook/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "U.S.-Iran Talks End With No Deal; How Will Dow Jones Futures, Oil Prices React?",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-us-iran-talks-no-deal-vp-jd-vance/?src=A00220&yptr=yahoo",
+      "source": "Investor's Business Daily",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
+      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    }
   ]
 }

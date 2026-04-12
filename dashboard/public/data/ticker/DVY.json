@@ -1,0 +1,155 @@
+{
+  "ticker": "DVY",
+  "fecha": "2026-04-12T00:21:02.671813",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 152.44,
+    "cambio_24h": -0.67,
+    "cambio_7d": 0.68,
+    "cambio_30d": 1.67,
+    "high_52w": 156.7294,
+    "low_52w": 117.7493,
+    "vol_hoy": 311100,
+    "vol_20d_avg": 498965,
+    "vol_relativo": 0.62,
+    "cambio_ytd": 7.7,
+    "sma_20": 150.2903,
+    "sma_50": 152.0481,
+    "sma_200": 141.2817,
+    "soporte": 145.1283,
+    "resistencia": 156.7294,
+    "tendencia_sma": "ALCISTA",
+    "rsi": 79.78,
+    "macd_line": 0.4526,
+    "macd_signal": 0.0119,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 26684622848.0,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null,
+    "short_ratio": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 0,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Sobrecompra",
+        "valor": "80",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Zona de sobrecompra — riesgo de corrección"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "ALCISTA",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "Precio sobre SMA50 y SMA200 — dinero institucional posicionado largo"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "89%",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "Cerca del máximo anual — poco margen al alza sin nuevo catalizador"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "7 Dividend ETFs Built to Survive a Recession and Pay You Through It",
+      "url": "https://247wallst.com/investing/2026/03/16/7-dividend-etfs-built-to-survive-a-recession-and-pay-you-through-it-2/",
+      "source": "24/7 Wall St.",
+      "date": "2026-03-16",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "3 High-Yield BlackRock ETFs Perfect For Retirement",
+      "url": "https://247wallst.com/investing/2026/03/18/3-high-yield-blackrock-etfs-perfect-for-retirement/",
+      "source": "24/7 Wall St.",
+      "date": "2026-03-18",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Retirees Are Still Collecting Quarterly Paychecks From An ETF That’s Old Enough To Drink",
+      "url": "https://247wallst.com/investing/2026/03/09/retirees-are-still-collecting-quarterly-paychecks-from-an-etf-thats-old-enough-to-drink/",
+      "source": "24/7 Wall St.",
+      "date": "2026-03-09",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Retirees Are Quickly Moving Into These Dividend Funds",
+      "url": "https://247wallst.com/investing/2026/02/26/retirees-are-quickly-moving-into-these-dividend-funds/",
+      "source": "24/7 Wall St.",
+      "date": "2026-02-26",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "Nvidia Isn’t Dead. But These  Dividend ETFs Are Crushing It.",
+      "url": "https://www.barrons.com/articles/dividend-etfs-coca-cola-exxon-walmart-ford-6dabf212?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-02-02",
+      "sentiment": "neutral"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
+      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    }
+  ]
+}
