@@ -27,8 +27,21 @@ const VERDICT_COLOR: Record<string, string> = {
   "MOMENTUM FUERTE":    "text-purple-600",
 }
 
+type RawNewsItem = { title: string; url?: string; source?: string; date?: string; sentiment?: string } | string
+
+function normalizeNews(n: RawNewsItem) {
+  if (typeof n === "object" && n !== null) {
+    return { title: n.title ?? "", url: n.url ?? "", source: n.source ?? "", date: n.date ?? "", sentiment: n.sentiment ?? "neutral" }
+  }
+  const match = String(n).match(/^\[(\d{4}-\d{2}-\d{2})\] ([^:]+):\s*(.+?)(?:\s*—\s*.+)?$/)
+  if (match) return { title: match[3].trim(), url: "", source: match[2].trim(), date: match[1], sentiment: "neutral" }
+  return { title: String(n), url: "", source: "", date: "", sentiment: "neutral" }
+}
+
+const sentimentDotPf: Record<string, string> = { bullish: "bg-green-500", bearish: "bg-red-500", neutral: "bg-zinc-300" }
+
 interface NewsData {
-  noticias:   string[]
+  noticias:   RawNewsItem[]
   precio?:    number
   cambio_24h?: number
   veredicto?: string
@@ -186,22 +199,21 @@ function StockRow({
         <div className="border-t border-zinc-100 px-4 pb-4 pt-3">
           <p className="mb-2 text-xs font-semibold text-zinc-400 uppercase tracking-wide">Noticias recientes</p>
           <ul className="space-y-2">
-            {noticias.map((n, i) => {
-              const match = n.match(/^\[(\d{4}-\d{2}-\d{2})\] ([^:]+): (.+?)(?:\s*—\s*(.+))?$/)
-              if (match) {
-                const [, fecha, fuente, titulo, resumen] = match
-                return (
-                  <li key={i} className="flex gap-2">
-                    <span className="mt-0.5 flex-shrink-0 rounded bg-zinc-100 px-1.5 py-0.5 text-xs text-zinc-400">{fecha}</span>
-                    <div>
-                      <p className="text-xs font-medium text-zinc-700">{titulo}</p>
-                      {resumen && <p className="text-xs text-zinc-400 line-clamp-1">{resumen}</p>}
-                      <p className="text-xs text-zinc-300">{fuente}</p>
-                    </div>
-                  </li>
-                )
-              }
-              return <li key={i} className="text-xs text-zinc-500">{n}</li>
+            {noticias.map((raw, i) => {
+              const n = normalizeNews(raw)
+              return (
+                <li key={i} className="flex items-start gap-2">
+                  <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${sentimentDotPf[n.sentiment] ?? "bg-zinc-300"}`} title={n.sentiment} />
+                  <div className="min-w-0 flex-1">
+                    {n.url ? (
+                      <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-zinc-700 hover:text-zinc-500 hover:underline">{n.title}</a>
+                    ) : (
+                      <p className="text-xs font-medium text-zinc-700">{n.title}</p>
+                    )}
+                    <p className="text-xs text-zinc-300">{n.source}{n.date ? ` · ${n.date}` : ""}</p>
+                  </div>
+                </li>
+              )
             })}
           </ul>
         </div>

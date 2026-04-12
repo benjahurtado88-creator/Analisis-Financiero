@@ -1,0 +1,91 @@
+{
+  "ticker": "COPEC",
+  "fecha": "2026-04-12T00:34:19.264255",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {},
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null,
+    "short_ratio": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": -1,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Neutral",
+        "valor": "50",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Sin señal clara de momentum"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Bajista",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "MACD por debajo de señal — momentum de corto plazo negativo"
+      }
+    ]
+  },
+  "noticias_ticker": [],
+  "noticias_macro": [
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
+      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
+      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
+      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    }
+  ]
+}

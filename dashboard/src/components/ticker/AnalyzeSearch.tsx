@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { Search, Loader2, TrendingUp } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ErrorPanel } from "@/components/ErrorPanel"
 
 const SUGGESTIONS = ["AAPL", "MSFT", "KO", "BTC", "ETH", "NVDA", "AMZN", "GOOGL", "PEP", "JNJ"]
 
@@ -80,16 +81,12 @@ export function AnalyzeSearch() {
 
       {/* Error */}
       {error && (
-        <div className="mt-3 rounded-xl border border-red-200 bg-red-50 p-4">
-          <div className="flex items-start gap-2">
-            <span className="text-red-500 text-lg leading-none">⚠️</span>
-            <div>
-              <p className="text-sm font-semibold text-red-700">Error al analizar</p>
-              <p className="mt-1 text-xs text-red-600 whitespace-pre-wrap font-mono">{error}</p>
-              <p className="mt-2 text-xs text-red-400">Verifica que el ticker existe (ej: AAPL, BTC, KO) y que el servidor Python está disponible.</p>
-            </div>
-          </div>
-        </div>
+        <ErrorPanel
+          title="Error al analizar"
+          error={error}
+          onDismiss={() => setError("")}
+          className="mt-3"
+        />
       )}
 
       {/* Loading state */}

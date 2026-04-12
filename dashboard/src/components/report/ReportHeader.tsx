@@ -7,6 +7,7 @@ import type { ReportData } from "@/types/report"
 import Link from "next/link"
 import { Search, RefreshCw, Sparkles, X, CheckCircle, AlertCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ErrorPanel } from "@/components/ErrorPanel"
 
 const profileStyles: Record<string, string> = {
   conservative: "bg-blue-50 text-blue-700 border-blue-200",
@@ -173,34 +174,32 @@ export function ReportHeader({ data }: { data: ReportData }) {
         </div>
 
         {/* Barra de progreso de generación */}
-        {genStatus && (
+        {genStatus && !genError && (
           <div className={cn(
             "mb-4 rounded-xl border px-4 py-3 text-sm flex items-center gap-3",
-            genError ? "border-red-200 bg-red-50 text-red-700"
-              : genDone ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-              : "border-violet-200 bg-violet-50 text-violet-700"
+            genDone ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                    : "border-violet-200 bg-violet-50 text-violet-700"
           )}>
             {genDone
               ? <CheckCircle size={15} className="flex-shrink-0" />
-              : genError
-              ? <AlertCircle size={15} className="flex-shrink-0" />
               : <Sparkles size={15} className="flex-shrink-0 animate-pulse" />
             }
             <div className="flex-1 min-w-0">
               <p className="font-medium">{STEPS[genStatus.step] ?? genStatus.step}</p>
-              {genError && genStatus.msg && (
-                <pre className="mt-1 whitespace-pre-wrap break-all text-xs opacity-80 font-mono">{genStatus.msg}</pre>
-              )}
-              {!genError && genStatus.msg && genStatus.msg !== STEPS[genStatus.step] && (
+              {genStatus.msg && genStatus.msg !== STEPS[genStatus.step] && (
                 <p className="text-xs opacity-70 mt-0.5">{genStatus.msg}</p>
               )}
             </div>
-            {genError && (
-              <button onClick={() => setGenStatus(null)} className="ml-auto flex-shrink-0">
-                <X size={13} />
-              </button>
-            )}
           </div>
+        )}
+
+        {genError && genStatus?.msg && (
+          <ErrorPanel
+            title="Error en el análisis"
+            error={genStatus.msg}
+            onDismiss={() => setGenStatus(null)}
+            className="mb-4"
+          />
         )}
 
         {/* Título y fecha */}
