@@ -2,3 +2,10 @@ output/
 .DS_Store
 dashboard/node_modules/
 dashboard/.next/
+
+# Variables de entorno — NUNCA subir al repo
+.env
+.env.local
+.env*.local
+dashboard/.env
+dashboard/.env.local
