@@ -38,6 +38,7 @@ export function ReportHeader({ data }: { data: ReportData }) {
   const [riskProfile, setRiskProfile] = useState<string>("moderate")
   const [showRiskModal, setShowRiskModal] = useState(false)
   const [sectors, setSectors] = useState<string[]>(["crypto", "stocks", "startups", "currencies", "materials"])
+  const [excludedTickers, setExcludedTickers] = useState<string[]>([])
 
   const SECTOR_OPTIONS = [
     { key: "crypto",     label: "Crypto",          desc: "BTC, ETH, altcoins con momentum" },
@@ -64,16 +65,15 @@ export function ReportHeader({ data }: { data: ReportData }) {
     }
   }
 
-  // ── Generar reporte completo con Gemini (SSE) ─────────────────────────
-  async function handleGenerate() {
-    setShowRiskModal(false)
+  // ── Generar reporte con Gemini (SSE) — acepta lista de excluidos ────────
+  async function runGenerate(excluded: string[] = []) {
     setGenDone(false)
     setGenStatus({ step: "start", msg: "Iniciando..." })
 
     const res = await fetch("/api/generate-report", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ risk_profile: riskProfile, sectors }),
+      body: JSON.stringify({ risk_profile: riskProfile, sectors, excluded }),
     })
 
     if (!res.body) return
@@ -95,11 +95,27 @@ export function ReportHeader({ data }: { data: ReportData }) {
           setGenStatus(payload)
           if (payload.step === "done") {
             setGenDone(true)
+            // Guardar los tickers actuales del reporte como "excluidos" para el botón "Siguientes 3"
+            const currentPicks = (data.risk_adjusted_picks ?? []).map((p: {symbol: string}) => p.symbol)
+            setExcludedTickers(prev => [...new Set([...prev, ...excluded, ...currentPicks])])
             setTimeout(() => window.location.reload(), 1500)
           }
         } catch { /* chunk incompleto, ignorar */ }
       }
     }
+  }
+
+  function handleGenerate() {
+    setShowRiskModal(false)
+    setExcludedTickers([])    // análisis fresco — resetear excluidos
+    runGenerate([])
+  }
+
+  function handleNextThree() {
+    const currentPicks = (data.risk_adjusted_picks ?? []).map((p: {symbol: string}) => p.symbol)
+    const allExcluded = [...new Set([...excludedTickers, ...currentPicks])]
+    setExcludedTickers(allExcluded)
+    runGenerate(allExcluded)
   }
 
   const genRunning = genStatus !== null && !genDone && genStatus.step !== "error"
@@ -134,6 +150,17 @@ export function ReportHeader({ data }: { data: ReportData }) {
             <Sparkles size={13} />
             {genRunning ? "Generando..." : "Nuevo análisis Gemini"}
           </button>
+
+          {/* Siguientes 3 — visible solo si ya hay picks en el reporte */}
+          {(data.risk_adjusted_picks?.length ?? 0) > 0 && !genRunning && (
+            <button
+              onClick={handleNextThree}
+              className="flex items-center gap-1.5 rounded-xl border border-violet-300 bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-700 hover:bg-violet-100 transition-colors"
+            >
+              <Sparkles size={13} />
+              Siguientes 3
+            </button>
+          )}
 
           {/* Analizar empresa */}
           <Link

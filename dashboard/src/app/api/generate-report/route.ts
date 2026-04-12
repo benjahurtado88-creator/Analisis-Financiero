@@ -7,8 +7,24 @@ import { GoogleGenerativeAI } from "@google/generative-ai"
 const execAsync = promisify(exec)
 export const maxDuration = 300
 
-// Tickers con análisis profundo (Python + FinanceToolkit) — referencia macro siempre
-const MACRO_TICKERS = ["BTC", "ETH", "SOL", "NVDA", "AMZN", "AVGO", "MSFT", "AAPL", "GLD", "KO"]
+// Tickers por sector para análisis profundo — se eligen 3 según los sectores seleccionados
+const TICKERS_BY_SECTOR: Record<string, string[]> = {
+  crypto:    ["BTC", "ETH", "SOL"],
+  stocks:    ["NVDA", "AAPL", "AMZN"],
+  startups:  ["AVGO", "MELI", "PLTR"],
+  materials: ["GLD", "KO", "XOM"],
+  currencies: [],   // Gemini maneja divisas sin datos Python
+}
+
+function pickTickers(sectors: string[], excluded: string[]): string[] {
+  const candidates: string[] = []
+  for (const s of sectors) {
+    for (const t of TICKERS_BY_SECTOR[s] ?? []) {
+      if (!candidates.includes(t) && !excluded.includes(t)) candidates.push(t)
+    }
+  }
+  return candidates.slice(0, 3)
+}
 
 const SECTOR_INSTRUCTIONS: Record<string, string> = {
   crypto:    "CRYPTO (3-4 activos): prioriza los que tienen catalizadores técnicos HOY (RSI < 45 + MACD alcista, o sobreventa con volumen creciente). No copies los más grandes por default — busca el momentum real.",
@@ -75,7 +91,8 @@ function buildMainPrompt(
   tickerDeep: Record<string, unknown>,
   marketCtx: Record<string, unknown>,
   riskProfile: string,
-  sectors: string[]
+  sectors: string[],
+  excluded: string[] = []
 ): string {
   const today = new Date().toISOString().split("T")[0]
 
@@ -164,6 +181,8 @@ REGLAS DE CALIDAD — OBLIGATORIAS:
 4. CONFIDENCE HONESTO: Si no tienes datos Python del activo, max confidence = 6. Si tienes datos Python, puede ser 7-9.
 5. SIN PRECIO INVENTADO: Si no sabes el precio exacto, escribe "ver mercado" no un número inventado.
 6. ANTI-SESGO: Primero busca razones para NO comprar. Solo recomienda BUY si supera ese filtro.
+7. TOP 3 PICKS: risk_adjusted_picks debe contener EXACTAMENTE 3 picks — los mejores entre todos los sectores.
+8. EXCLUIR TICKERS: NO incluyas en risk_adjusted_picks ni en assets estos tickers ya mostrados: ${excluded.length > 0 ? excluded.join(", ") : "ninguno"}. Busca activos diferentes.
 
 ══ FORMATO DE SALIDA — JSON PURO ══
 Responde SOLO con JSON válido, sin markdown, sin comentarios:
@@ -193,6 +212,7 @@ Responde SOLO con JSON válido, sin markdown, sin comentarios:
       "position_size": "X-Y%"
     }
   ],
+  "excluded_tickers": ${JSON.stringify(excluded)},
   "historical_accuracy": { "previous_date": null, "calls_made": 0, "calls_correct": 0, "accuracy_pct": 0, "notable": "Análisis cuantitativo — ${today}" },
   "warnings": ["Advertencia real basada en datos (no genérica)"],
   "sectors": { ${sectorJsonTemplate} }
@@ -251,15 +271,19 @@ export async function POST(request: Request) {
 
       try {
         const body = await request.json().catch(() => ({}))
-        const riskProfile: string = (body as Record<string, string>).risk_profile ?? "moderate"
+        const riskProfile: string  = (body as Record<string, string>).risk_profile ?? "moderate"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const sectors: string[] = (body as any).sectors ?? ["crypto", "stocks", "currencies", "materials"]
+        const sectors: string[]    = (body as any).sectors   ?? ["crypto", "stocks", "currencies", "materials"]
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const excluded: string[]   = (body as any).excluded  ?? []   // tickers ya mostrados (para "siguientes 3")
         const rootDir   = path.join(process.cwd(), "..")
         const reportPath = path.join(rootDir, "dashboard", "public", "data", "report.json")
         const tickerDir  = path.join(rootDir, "dashboard", "public", "data", "ticker")
 
+        const macroTickers = pickTickers(sectors, excluded)
+
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" })
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
 
         // ── PASO 1: Contexto macro real (VIX, yields, sector rotation) ─────────
         send("macro", "Obteniendo VIX, yields y rotación sectorial...")
@@ -275,10 +299,10 @@ export async function POST(request: Request) {
           send("macro", "Contexto macro parcial, continuando...")
         }
 
-        // ── PASO 2: Análisis profundo de tickers de referencia (paralelo) ──────
-        send("deep", `Análisis profundo de ${MACRO_TICKERS.length} tickers (Python + FinanceToolkit)...`)
+        // ── PASO 2: Análisis profundo de 3 tickers seleccionados ────────────────
+        send("deep", `Análisis profundo de ${macroTickers.length} tickers: ${macroTickers.join(", ")}...`)
         try {
-          await execAsync(`python analisis_maia.py ${MACRO_TICKERS.join(" ")}`, {
+          await execAsync(`python analisis_maia.py ${macroTickers.join(" ")}`, {
             cwd: rootDir,
             env: { ...process.env, PYTHONUTF8: "1" },
             timeout: 240000,
@@ -290,7 +314,7 @@ export async function POST(request: Request) {
         // ── PASO 3: Leer JSONs generados ───────────────────────────────────────
         send("reading", "Preparando contexto para Gemini...")
         const tickerDeep: Record<string, unknown> = {}
-        for (const ticker of MACRO_TICKERS) {
+        for (const ticker of macroTickers) {
           const p = path.join(tickerDir, `${ticker}.json`)
           if (fs.existsSync(p)) {
             try { tickerDeep[ticker] = JSON.parse(fs.readFileSync(p, "utf-8")) } catch { /* skip */ }
@@ -299,7 +323,7 @@ export async function POST(request: Request) {
 
         // ── PASO 4: Gemini — generación principal ──────────────────────────────
         send("gemini", "Gemini buscando oportunidades (análisis cuantitativo + contexto)...")
-        const mainPrompt = buildMainPrompt(tickerDeep, marketCtx, riskProfile, sectors)
+        const mainPrompt = buildMainPrompt(tickerDeep, marketCtx, riskProfile, sectors, excluded)
         const mainResult = await model.generateContent(mainPrompt)
         const mainText   = mainResult.response.text()
         const reportJson = extractJson(mainText) as Record<string, unknown>
