@@ -7,6 +7,16 @@ const projectRoot = path.resolve(process.cwd(), "..")
 const scriptPath  = path.join(projectRoot, "analisis_maia.py")
 const tickerDir   = path.join(process.cwd(), "public", "data", "ticker")
 
+// Refrescar si el archivo tiene más de 8 horas
+const STALE_THRESHOLD_MS = 8 * 60 * 60 * 1000
+
+function isStale(ticker: string): boolean {
+  const jsonPath = path.join(tickerDir, `${ticker}.json`)
+  if (!fs.existsSync(jsonPath)) return true
+  const stat = fs.statSync(jsonPath)
+  return (Date.now() - stat.mtimeMs) > STALE_THRESHOLD_MS
+}
+
 function readTickerJson(ticker: string) {
   const jsonPath = path.join(tickerDir, `${ticker}.json`)
   if (!fs.existsSync(jsonPath)) return null
@@ -52,7 +62,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ results })
 }
 
-// POST — analiza tickers sin cache y devuelve todo (puede tardar para tickers nuevos)
+// POST — analiza tickers sin datos o con datos viejos (>8h) y devuelve todo
 export async function POST(req: NextRequest) {
   let tickers: string[] = []
   try {
@@ -64,10 +74,10 @@ export async function POST(req: NextRequest) {
 
   if (!tickers.length) return NextResponse.json({ results: {} })
 
-  // Solo analizar tickers sin JSON (primera vez) — en paralelo
-  const missing = tickers.filter(t => !fs.existsSync(path.join(tickerDir, `${t}.json`)))
-  if (missing.length > 0) {
-    await Promise.all(missing.map(runScript))
+  // Analizar tickers sin JSON O con datos viejos (>8h) — en paralelo
+  const toRefresh = tickers.filter(isStale)
+  if (toRefresh.length > 0) {
+    await Promise.all(toRefresh.map(runScript))
   }
 
   const results: Record<string, ReturnType<typeof readTickerJson>> = {}

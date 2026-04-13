@@ -45,6 +45,7 @@ interface NewsData {
   precio?:    number
   cambio_24h?: number
   veredicto?: string
+  _age_h?:    number
 }
 
 // ── Add Stock Modal ─────────────────────────────────────────
@@ -338,16 +339,17 @@ export default function PortfolioPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Paso 2: analiza en background solo tickers que no tienen datos
+  // Paso 2: analiza en background tickers sin datos o con datos viejos (>8h)
   const analyzeNew = useCallback(async (tickers: string[], map: Record<string, NewsData>) => {
-    const sinDatos = tickers.filter(t => !map[t]?.precio)
-    if (!sinDatos.length) return
+    // Refrescar si no tiene precio O si los datos tienen más de 8 horas
+    const toRefresh = tickers.filter(t => !map[t]?.precio || (map[t]?._age_h ?? 999) > 8)
+    if (!toRefresh.length) return
     setLoadingNew(true)
     try {
       const res  = await fetch("/api/portfolio-news", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ tickers: sinDatos }),
+        body:    JSON.stringify({ tickers: toRefresh }),
       })
       const data = await res.json()
       setNewsMap(prev => ({ ...prev, ...data.results }))
@@ -408,7 +410,7 @@ export default function PortfolioPage() {
             <p className="text-sm text-zinc-400">
               {allTickers.length} activos en {portfolio.categories.length} categorías
               {lastUpdate && <span className="ml-2">· {lastUpdate}</span>}
-              {loadingNew && <span className="ml-2 text-amber-500">· analizando nuevos...</span>}
+              {loadingNew && <span className="ml-2 text-amber-500">· actualizando noticias...</span>}
             </p>
           </div>
           <button

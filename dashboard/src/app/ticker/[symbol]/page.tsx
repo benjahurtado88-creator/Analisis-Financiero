@@ -9,6 +9,7 @@ import { ScenariosCard } from "@/components/ticker/ScenariosCard"
 import { EventsCard } from "@/components/ticker/EventsCard"
 import { MoatCard, RisksCard } from "@/components/ticker/MoatRisksCard"
 import { SentimentCard } from "@/components/ticker/SentimentCard"
+import { SummaryCard } from "@/components/ticker/SummaryCard"
 import { ArrowLeft, Search } from "lucide-react"
 import Link from "next/link"
 import fs from "fs"
@@ -113,8 +114,13 @@ export default async function TickerPage({ params }: { params: Promise<{ symbol:
         </div>
 
         {/* Veredicto */}
-        <div className="mb-6">
+        <div className="mb-4">
           <VerdictBadge verdict={veredicto} score={score} />
+        </div>
+
+        {/* Resumen en lenguaje simple */}
+        <div className="mb-6">
+          <SummaryCard ticker={ticker} />
         </div>
 
         {/* Grid principal */}

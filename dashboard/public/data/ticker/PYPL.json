@@ -1,0 +1,246 @@
+{
+  "ticker": "PYPL",
+  "fecha": "2026-04-12T20:09:15.274978",
+  "es_cripto": false,
+  "veredicto": "COMPRA",
+  "score": 5,
+  "precio": {
+    "precio_actual": 45.24,
+    "cambio_24h": -1.61,
+    "cambio_7d": 0.02,
+    "cambio_30d": -0.72,
+    "high_52w": 77.804,
+    "low_52w": 38.962,
+    "vol_hoy": 13125100,
+    "vol_20d_avg": 16677865,
+    "vol_relativo": 0.79,
+    "cambio_ytd": -21.95,
+    "sma_20": 44.9935,
+    "sma_50": 44.6143,
+    "sma_200": 60.8624,
+    "soporte": 38.962,
+    "resistencia": 57.486,
+    "tendencia_sma": "MIXTA",
+    "rsi": 55.64,
+    "macd_line": -0.0846,
+    "macd_signal": -0.2681,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 41650864128.0,
+    "sector": "Financial Services",
+    "sector_key": "financial-services",
+    "industria": "Credit Services",
+    "analyst_target": 52.99667,
+    "analyst_low": 32.0,
+    "analyst_high": 147.39,
+    "analyst_rec": "HOLD",
+    "analyst_count": 33,
+    "revenue_growth": 0.037,
+    "earnings_growth": 0.394,
+    "ev": 43524861952.0,
+    "ev_ebitda": 6.546,
+    "beta": 1.411,
+    "forward_eps": 5.80573,
+    "forward_pe": 7.792302,
+    "short_ratio": 1.65
+  },
+  "fundamentales": {
+    "yield": 0.00618921308576481,
+    "payout": 0.0248,
+    "pe": 10.7991,
+    "pb": 2.7899,
+    "pfcf": 10.1567,
+    "fcf_yield": 0.0985,
+    "margin": 0.1578,
+    "gross": 0.4662,
+    "roe": 0.2573,
+    "de": 0.493,
+    "int_cov": 15.9365,
+    "eps": 5.406,
+    "graham": 50.45
+  },
+  "fair_value": {
+    "tipo_empresa": "value",
+    "pe_benchmark": 20,
+    "fair_value_pe": 83.78,
+    "fair_ev": 69.11,
+    "nota": "P/E benchmark x20 (valor/dividendo)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 49.98,
+    "base": 54.02,
+    "bull": 59.66,
+    "bear_upside": 10.5,
+    "base_upside": 19.4,
+    "bull_upside": 31.9,
+    "wacc": 11.3,
+    "terminal_g": 3.0,
+    "fcf_ps": 4.46
+  },
+  "escenarios": {
+    "base": 53.0,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 32.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 147.39,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -29.3,
+    "base_upside": 17.2,
+    "bull_upside": 225.8
+  },
+  "moat": {
+    "score": 4,
+    "max": 5,
+    "nivel": "FOSO MODERADO",
+    "factores": [
+      "[+] Margen bruto 47% > 40% — pricing power",
+      "[+] ROE 26% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses 15.9x — fortaleza de balance",
+      "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
+      "[-] Retrasado vs sector YTD en -14.8%"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "VALORACION",
+      "nivel": "LOW",
+      "desc": "Precio 46% bajo Fair Value — descuento ofrece margen de seguridad"
+    },
+    {
+      "tipo": "MERCADO",
+      "nivel": "MEDIUM",
+      "desc": "Beta 1.41 — más volátil que el S&P 500"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-05-05",
+    "earnings_eps_est": 1.2799,
+    "earnings_eps_low": 1.2,
+    "earnings_eps_high": 1.41,
+    "earnings_rev_est": 8066625280.0,
+    "ex_dividendo": "2026-03-03",
+    "pago_dividendo": "2026-03-24"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLF",
+    "etf_precio": 50.77,
+    "etf_ytd": -7.1,
+    "sector_nombre": "Financial Services"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 2,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Neutral",
+        "valor": "56",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Sin señal clara de momentum"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "HOLD (33)",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Consenso neutral — sin catalizador claro según analistas"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "1.6d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "16%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "Alchemy launches $20 million fund for Solana builders",
+      "url": "https://www.thestreet.com/crypto/markets/alchemy-launches-20-million-fund-for-solana-builders",
+      "source": "TheStreet",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "SOFI's Valuation Reflects Growth Expectations but Raises Questions",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sofis-valuation-reflects-growth-expectations-165100663.html",
+      "source": "Zacks",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Bitcoin climbs above $72K following March's hot inflation data",
+      "url": "https://finance.yahoo.com/video/bitcoin-climbs-above-72k-following-marchs-hot-inflation-data-145909318.html",
+      "source": "Yahoo Finance Video",
+      "date": "2026-04-10",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "INTU's FedNow Integration: Will It Strengthen Its Competitive Edge?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/intus-fednow-integration-strengthen-competitive-142800939.html",
+      "source": "Zacks",
+      "date": "2026-04-10",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "3 Profitable Stocks That Concern Us",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-profitable-stocks-concern-us-125444245.html",
+      "source": "StockStory",
+      "date": "2026-04-10",
+      "sentiment": "bearish"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "April’s stock-market rebound is about to face its first major test as earnings season swings into gear",
+      "url": "https://www.marketwatch.com/story/aprils-stock-market-rebound-is-about-to-face-its-first-major-test-as-earnings-season-swings-into-gear-1210b246?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "‘I feel pressured’: My husband has early Alzheimer’s and wants to visit Europe, but I’m terrified of flying. What should I do?",
+      "url": "https://www.marketwatch.com/story/i-feel-pressured-my-husband-has-early-alzheimers-and-wants-to-visit-europe-but-im-terrified-of-flying-what-should-i-do-c5cc01bf?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
+  ]
+}

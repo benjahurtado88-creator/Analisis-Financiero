@@ -1,0 +1,155 @@
+{
+  "ticker": "BND",
+  "fecha": "2026-04-12T16:11:25.811662",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 73.64,
+    "cambio_24h": -0.15,
+    "cambio_7d": 0.34,
+    "cambio_30d": 0.0,
+    "high_52w": 74.6876,
+    "low_52w": 69.2602,
+    "vol_hoy": 6333300,
+    "vol_20d_avg": 9158745,
+    "vol_relativo": 0.69,
+    "cambio_ytd": 0.43,
+    "sma_20": 73.3738,
+    "sma_50": 73.7738,
+    "sma_200": 72.8775,
+    "soporte": 72.8618,
+    "resistencia": 74.6876,
+    "tendencia_sma": "MIXTA",
+    "rsi": 65.0,
+    "macd_line": -0.0355,
+    "macd_signal": -0.1139,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null,
+    "short_ratio": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": -1,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "65",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "81%",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "Cerca del máximo anual — poco margen al alza sin nuevo catalizador"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "7 Dividend ETFs Built to Survive a Recession and Pay You Through It",
+      "url": "https://247wallst.com/investing/2026/03/16/7-dividend-etfs-built-to-survive-a-recession-and-pay-you-through-it-2/",
+      "source": "24/7 Wall St.",
+      "date": "2026-03-16",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "Here’s How Gold Hits $8,000, According to J.P. Morgan",
+      "url": "https://www.barrons.com/articles/gold-prices-record-gains-ec34dd24?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-01-29",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "2026 Stock Market Crash Coming? 3 Best ETFs to Protect You Now",
+      "url": "https://247wallst.com/investing/2026/02/24/2026-stock-market-crash-coming-3-best-etfs-to-protect-you-now/",
+      "source": "24/7 Wall St.",
+      "date": "2026-02-24",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "Can’t Live on $2k a Month in Social Security? Add These ETFs to Your Retirement Portfolio",
+      "url": "https://247wallst.com/investing/2026/02/01/cant-live-on-2k-a-month-in-social-security-add-these-etfs-to-your-retirement-portfolio/",
+      "source": "24/7 Wall St.",
+      "date": "2026-02-01",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Over 50? 3 ETFs to Buy Now to Supplement Your Future Social Security",
+      "url": "https://247wallst.com/investing/2026/01/31/over-50-3-etfs-to-buy-now-to-supplement-your-future-social-security/",
+      "source": "24/7 Wall St.",
+      "date": "2026-01-31",
+      "sentiment": "bullish"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "April’s stock-market rebound is about to face its first major test as earnings season swings into gear",
+      "url": "https://www.marketwatch.com/story/aprils-stock-market-rebound-is-about-to-face-its-first-major-test-as-earnings-season-swings-into-gear-1210b246?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "There are years-long waiting lists to retire on college campuses. 6 steps to take before enrolling.",
+      "url": "https://www.marketwatch.com/story/there-are-years-long-waiting-lists-to-retire-on-college-campuses-6-steps-to-take-before-enrolling-d7bd2d2d?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
+  ]
+}

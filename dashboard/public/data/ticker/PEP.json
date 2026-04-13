@@ -1,0 +1,246 @@
+{
+  "ticker": "PEP",
+  "fecha": "2026-04-12T16:21:52.757204",
+  "es_cripto": false,
+  "veredicto": "MANTENER / ESPERAR",
+  "score": 3,
+  "precio": {
+    "precio_actual": 157.06,
+    "cambio_24h": -0.27,
+    "cambio_7d": 1.14,
+    "cambio_30d": -1.93,
+    "high_52w": 168.9803,
+    "low_52w": 123.5029,
+    "vol_hoy": 4411300,
+    "vol_20d_avg": 6164410,
+    "vol_relativo": 0.72,
+    "cambio_ytd": 11.41,
+    "sma_20": 154.5275,
+    "sma_50": 159.4428,
+    "sma_200": 146.0239,
+    "soporte": 143.1213,
+    "resistencia": 168.9803,
+    "tendencia_sma": "MIXTA",
+    "rsi": 65.81,
+    "macd_line": -0.5616,
+    "macd_signal": -1.0841,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 214691741696.0,
+    "sector": "Consumer Defensive",
+    "sector_key": "consumer-defensive",
+    "industria": "Beverages - Non-Alcoholic",
+    "analyst_target": 170.06049,
+    "analyst_low": 130.0,
+    "analyst_high": 191.0,
+    "analyst_rec": "HOLD",
+    "analyst_count": 21,
+    "revenue_growth": 0.056,
+    "earnings_growth": 0.675,
+    "ev": 258284896256.0,
+    "ev_ebitda": 14.212,
+    "beta": 0.41,
+    "forward_eps": 9.12296,
+    "forward_pe": 17.215902,
+    "short_ratio": 3.4
+  },
+  "fundamentales": {
+    "yield": 0.0362281930472431,
+    "payout": 0.9269,
+    "pe": 23.914,
+    "pb": 9.6566,
+    "pfcf": 25.6847,
+    "fcf_yield": 0.0389,
+    "margin": 0.0877,
+    "gross": 0.5415,
+    "roe": 0.4256,
+    "de": 2.4286,
+    "int_cov": 15.7618,
+    "eps": 6.0015,
+    "graham": 44.8
+  },
+  "fair_value": {
+    "tipo_empresa": "blend",
+    "pe_benchmark": 25,
+    "fair_value_pe": 164.19,
+    "fair_ev": 165.77,
+    "nota": "P/E benchmark x25 (blend)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "FCF-DCF (Flujo de Caja Descontado)",
+    "bear": 147.78,
+    "base": 169.69,
+    "bull": 194.78,
+    "bear_upside": -5.9,
+    "base_upside": 8.0,
+    "bull_upside": 24.0,
+    "wacc": 7.0,
+    "terminal_g": 3.0,
+    "fcf_ps": 6.11
+  },
+  "escenarios": {
+    "base": 170.06,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 130.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 191.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -17.2,
+    "base_upside": 8.3,
+    "bull_upside": 21.6
+  },
+  "moat": {
+    "score": 4,
+    "max": 5,
+    "nivel": "FOSO MODERADO",
+    "factores": [
+      "[+] Margen bruto 54% > 40% — pricing power",
+      "[+] ROE 43% > 20% — eficiencia de capital superior",
+      "[+] Cobertura intereses 15.8x — fortaleza de balance",
+      "[-] Margen neto DETERIORANDO — presión competitiva",
+      "[+] Supera sector YTD en +4.8% — ejecución superior"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "FINANCIERO",
+      "nivel": "MEDIUM",
+      "desc": "Deuda/Equity 2.4x moderada — monitorear refinanciamiento"
+    },
+    {
+      "tipo": "DIVIDENDO",
+      "nivel": "HIGH",
+      "desc": "Payout 93% — dividendo consume casi todo el flujo libre"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-04-16",
+    "earnings_eps_est": 1.5442,
+    "earnings_eps_low": 1.5203,
+    "earnings_eps_high": 1.56,
+    "earnings_rev_est": 18922228620.0,
+    "ex_dividendo": "2026-03-05",
+    "pago_dividendo": "2026-03-30"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLP",
+    "etf_precio": 82.37,
+    "etf_ytd": 6.62,
+    "sector_nombre": "Consumer Defensive"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 0,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Alto",
+        "valor": "66",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "HOLD (21)",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Consenso neutral — sin catalizador claro según analistas"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "3.4d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "74%",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "En zona media del rango anual"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "Why Simply Good Foods Stock Just Had Its Worst Day in Years",
+      "url": "https://www.marketbeat.com/originals/why-simply-good-foods-stock-just-had-its-worst-day-in-years/?utm_source=yahoofinance&utm_medium=yahoofinance",
+      "source": "MarketBeat",
+      "date": "2026-04-10",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "How The PepsiCo (PEP) Investment Narrative Is Shifting With Mixed Targets And Fair Value Reset",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-pep-investment-narrative-shifting-211424651.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-07",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Goldman Sachs, Bank of America, JP Morgan, Netflix, J&J, Producer Prices, and More to Watch This Week",
+      "url": "https://www.barrons.com/articles/goldman-sachs-bank-of-america-jp-morgan-netflix-j-j-producer-prices-and-more-to-watch-this-week-b3703e94?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "PepsiCo (PEP) Earnings Expected to Grow: Should You Buy?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-pep-earnings-expected-grow-140004998.html",
+      "source": "Zacks",
+      "date": "2026-04-09",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "PepsiCo Balances Dirty Mountain Dew Launch With Snack Pricing And ESG Risks",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-balances-dirty-mountain-dew-002052624.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-09",
+      "sentiment": "neutral"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Here are some bargain bank stocks heading into earnings season",
+      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "April’s stock-market rebound is about to face its first major test as earnings season swings into gear",
+      "url": "https://www.marketwatch.com/story/aprils-stock-market-rebound-is-about-to-face-its-first-major-test-as-earnings-season-swings-into-gear-1210b246?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "There are years-long waiting lists to retire on college campuses. 6 steps to take before enrolling.",
+      "url": "https://www.marketwatch.com/story/there-are-years-long-waiting-lists-to-retire-on-college-campuses-6-steps-to-take-before-enrolling-d7bd2d2d?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
+  ]
+}
