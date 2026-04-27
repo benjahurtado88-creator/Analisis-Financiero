@@ -9,6 +9,7 @@ import { ExecutiveSummary } from "@/components/report/ExecutiveSummary"
 import { MacroEnvironment } from "@/components/report/MacroEnvironment"
 import { PortfolioAllocation } from "@/components/report/PortfolioAllocation"
 import { MacroOpportunities } from "@/components/report/MacroOpportunities"
+import { YoutubeSignals } from "@/components/report/YoutubeSignals"
 import { CrossSectorInsights } from "@/components/report/CrossSectorInsights"
 import { Warnings } from "@/components/report/Warnings"
 import { TopPicksGrid } from "@/components/report/TopPicksGrid"
@@ -83,6 +84,7 @@ function ReportContent() {
               refreshing={macroRefreshing}
             />
           )}
+          <YoutubeSignals />
           <CrossSectorInsights insights={data.cross_sector_insights} />
           <Warnings warnings={data.warnings} />
           <TopPicksGrid

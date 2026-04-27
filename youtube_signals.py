@@ -15,7 +15,7 @@ Uso:
     python youtube_signals.py --max 10       # últimos 10 por canal
     python youtube_signals.py --force VID    # reprocesa un video específico
 """
-import sys, io, os, json, re, argparse, urllib.request, urllib.error
+import sys, io, os, json, re, time, argparse, urllib.request, urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -117,8 +117,8 @@ def fetch_transcript(video_id: str) -> tuple[str, str]:
     return text, lang
 
 
-def call_groq(api_key: str, system: str, user: str) -> str:
-    """POST a Groq chat completions, retorna content del assistant."""
+def call_groq(api_key: str, system: str, user: str, max_retries: int = 4) -> str:
+    """POST a Groq chat completions con retry/backoff en 429. Retorna content del assistant."""
     payload = json.dumps({
         "model": GROQ_MODEL,
         "messages": [
@@ -128,19 +128,32 @@ def call_groq(api_key: str, system: str, user: str) -> str:
         "temperature": 0.2,
         "response_format": {"type": "json_object"},
     }).encode("utf-8")
-    req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions",
-        data=payload,
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type":  "application/json",
-            "User-Agent":    "youtube-signals/1.0 (urllib)",
-        },
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=60) as r:
-        body = json.loads(r.read())
-    return body["choices"][0]["message"]["content"]
+
+    for attempt in range(max_retries):
+        req = urllib.request.Request(
+            "https://api.groq.com/openai/v1/chat/completions",
+            data=payload,
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type":  "application/json",
+                "User-Agent":    "youtube-signals/1.0 (urllib)",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                body = json.loads(r.read())
+            return body["choices"][0]["message"]["content"]
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < max_retries - 1:
+                # Respeta Retry-After si viene; si no, backoff 8s, 16s, 32s
+                retry_after = e.headers.get("Retry-After")
+                wait = int(float(retry_after)) if retry_after else (8 * (2 ** attempt))
+                print(f"    rate-limited, esperando {wait}s...", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            raise
+    raise RuntimeError("max_retries excedido")
 
 
 ANALYSIS_SYSTEM = (
@@ -216,14 +229,23 @@ def process_channel(handle: str, channel_id: str, state: dict, max_videos: int,
     new_count = 0
     for v in videos:
         vid = v["video_id"]
-        if vid in state["videos"] and force_video != vid:
-            continue
+        existing = state["videos"].get(vid)
+        if existing and force_video != vid:
+            # Reprocesar si error de análisis o si fue ip_blocked (temporal)
+            has_analysis_error = isinstance(existing.get("analysis"), dict) and existing["analysis"].get("_error")
+            ip_blocked = existing.get("error") == "ip_blocked"
+            if not (has_analysis_error or ip_blocked):
+                continue
         print(f"  → {vid} | {v['title'][:70]}", file=sys.stderr)
 
         try:
             transcript, lang = fetch_transcript(vid)
         except Exception as e:
-            print(f"    transcript no disponible: {e}", file=sys.stderr)
+            err_str = str(e)
+            # YouTube IP block es temporal → reprocesable en próxima corrida
+            ip_blocked = "blocking requests" in err_str or "RequestBlocked" in err_str or "IpBlocked" in err_str
+            err_type = "ip_blocked" if ip_blocked else "no_transcript"
+            print(f"    transcript no disponible ({err_type})", file=sys.stderr)
             state["videos"][vid] = {
                 "video_id":     vid,
                 "title":        v["title"],
@@ -231,9 +253,11 @@ def process_channel(handle: str, channel_id: str, state: dict, max_videos: int,
                 "url":          f"https://www.youtube.com/watch?v={vid}",
                 "published_text": v.get("published_text", ""),
                 "fetched_at":   datetime.now(timezone.utc).isoformat(),
-                "error":        f"no_transcript: {e}",
+                "error":        err_type,
+                "error_detail": err_str[:200],
             }
             continue
+        time.sleep(2)  # Defensive — evita ban de IP por fetches consecutivos
 
         try:
             analysis = analyze_transcript(api_key, v["title"], transcript, handle)
