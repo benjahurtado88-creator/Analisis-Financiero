@@ -231,6 +231,65 @@ def calcular_sentimiento_mercado(precios, info_extra, r, es_cripto):
 
 
 # ============================================================
+# DATOS EXTERNOS PARA CRYPTO — sin key, APIs públicas gratuitas
+# ============================================================
+
+def fetch_fear_greed() -> dict:
+    """
+    Fear & Greed Index de crypto — alternative.me, API gratuita sin key.
+    Escala 0-100: 0-25=Extreme Fear, 26-45=Fear, 46-55=Neutral,
+    56-75=Greed, 76-100=Extreme Greed.
+    """
+    try:
+        req = urllib.request.Request(
+            "https://api.alternative.me/fng/?limit=1",
+            headers={"User-Agent": "Mozilla/5.0"}
+        )
+        with urllib.request.urlopen(req, timeout=8) as r:
+            data = json.loads(r.read())
+        entry = data["data"][0]
+        return {
+            "value":          int(entry["value"]),
+            "classification": entry["value_classification"],
+        }
+    except Exception as e:
+        return {"_error": str(e)}
+
+
+def fetch_crypto_social(symbol_yf: str) -> dict:
+    """
+    Datos sociales de CoinGecko — API gratuita sin key.
+    symbol_yf: "BTC-USD" → mapea a ID CoinGecko ("bitcoin")
+    Retorna: sentiment_bullish_pct, watchlist_users, market_cap_rank
+    """
+    COINGECKO_IDS = {
+        "BTC": "bitcoin",  "ETH": "ethereum",  "SOL": "solana",
+        "BNB": "binancecoin", "XRP": "ripple",  "ADA": "cardano",
+        "AVAX": "avalanche-2", "DOT": "polkadot", "MATIC": "matic-network",
+        "LINK": "chainlink", "DOGE": "dogecoin",  "SUI": "sui",
+        "INJ": "injective-protocol", "NEAR": "near", "APT": "aptos",
+        "RNDR": "render-token", "TON": "the-open-network",
+    }
+    symbol = symbol_yf.replace("-USD", "").split("-")[0].upper()
+    coin_id = COINGECKO_IDS.get(symbol)
+    if not coin_id:
+        return {"_error": f"No CoinGecko ID for {symbol}"}
+    try:
+        url = f"https://api.coingecko.com/api/v3/coins/{coin_id}?localization=false&tickers=false&market_data=false&community_data=true&developer_data=false"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read())
+        return {
+            "sentiment_bullish_pct": data.get("sentiment_votes_up_percentage"),
+            "sentiment_bearish_pct": data.get("sentiment_votes_down_percentage"),
+            "watchlist_users":       data.get("watchlist_portfolio_users"),
+            "market_cap_rank":       data.get("market_cap_rank"),
+        }
+    except Exception as e:
+        return {"_error": str(e)}
+
+
+# ============================================================
 # NOTICIAS — FILTRO PYTHON PROPIO
 # Puntúa noticias por relevancia (keywords + fuente confiable)
 # y entrega solo el top N a Claude → menos tokens, más calidad.
@@ -1043,6 +1102,16 @@ def analizar(ticker_input):
     sentimiento     = calcular_sentimiento_mercado(precios, info_extra, {}, es_cripto)
     eventos         = obtener_eventos_calendario(ticker_yf, info_extra, es_cripto)
     sector_ctx      = obtener_contexto_sectorial(ticker_yf, info_extra, es_cripto)
+
+    # Datos externos para cripto (APIs públicas sin key)
+    if es_cripto and not sentimiento.get('_error'):
+        print("Obteniendo Fear & Greed y datos sociales...", file=sys.stderr)
+        fg = fetch_fear_greed()
+        if not fg.get('_error'):
+            sentimiento['fear_greed'] = fg
+        social = fetch_crypto_social(ticker_yf)
+        if not social.get('_error'):
+            sentimiento['social_cripto'] = social
 
     r = {}
     t_margin = t_roe = t_eps = "N/A"
