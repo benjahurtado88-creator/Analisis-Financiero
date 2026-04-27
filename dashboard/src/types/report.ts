@@ -1,3 +1,25 @@
+export interface MacroOpportunity {
+  theme: string
+  idea: string
+  tickers?: string[]
+  conviction: "high" | "medium" | "low"
+}
+
+export interface MacroHiddenGem {
+  ticker: string
+  name: string
+  reason: string
+  theme: string
+}
+
+export interface MacroOpportunities {
+  short: MacroOpportunity[]
+  medium: MacroOpportunity[]
+  long: MacroOpportunity[]
+  hidden_gems: MacroHiddenGem[]
+  avoid: string[]
+}
+
 export interface ReportData {
   brand: string
   creator: string
@@ -5,12 +27,14 @@ export interface ReportData {
   risk_profile: "conservative" | "moderate" | "aggressive"
   executive_summary: string
   macro_environment: MacroEnvironment
+  macro_opportunities?: MacroOpportunities
   portfolio_allocation: PortfolioAllocation
   cross_sector_insights: CrossSectorInsight[]
   risk_adjusted_picks: RiskAdjustedPick[]
   historical_accuracy: HistoricalAccuracy
   warnings: string[]
   sectors: Record<string, SectorData>
+  _macro_refreshed_at?: string
 }
 
 export interface MacroEnvironment {

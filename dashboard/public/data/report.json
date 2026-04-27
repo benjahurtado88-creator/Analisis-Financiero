@@ -1,130 +1,326 @@
 {
-  "brand": "Financial Intelligence",
+  "brand": "Finance.ia",
   "creator": "Benjamin Hurtado",
-  "generated_at": "2026-04-12T04:26:43.566Z",
+  "generated_at": "2026-04-13T01:22:06.215Z",
   "risk_profile": "aggressive",
-  "executive_summary": "Hoy, con un VIX de 19.23, el mercado muestra una volatilidad moderada, lo que puede ser una oportunidad para inversores agresivos. La rotación sectorial a favor de tecnología y ciclical sugiere un crecimiento sólido, pero la caída en energía puede ser un riesgo. La estrategia de 65% crecimiento y 35% dividendos puede aprovechar esta tendencia, pero es crucial monitorear los cambios en la tasa de interés y la inflación.",
+  "executive_summary": "El mercado de valores sigue en una tendencia alcista, con el S&P 500 alcanzando máximos récord y el Nasdaq subiendo un 7.36% en la última semana. La noticia de Nvidia sobre su racha de 10 días de ganancias ha impulsado la confianza en el sector tecnológico. Además, la adquisición de Globalstar por parte de Amazon ha generado un rally en su acción. El VIX se mantiene en un nivel de volatilidad normal del 18.36, lo que sugiere un mercado equilibrado.",
   "macro_environment": {
-    "summary": "El VIX de 19.23 indica una volatilidad normal, mientras que el rendimiento de 10 años del Tesoro de 4.317% sugiere un entorno de tasas de interés estables. La rotación sectorial muestra un liderazgo claro de tecnología con un aumento de 4.88% en la última semana, seguido por industrials y consumer cyclical.",
+    "summary": "El mercado actual se caracteriza por una tendencia alcista en el S&P 500 y el Nasdaq, con un VIX en 18.36 y una tasa de rendimiento del Tesoro a 10 años en 4.256%. La rotación sectorial muestra que los sectores de Consumer Cyclical, Technology y Industrials están liderando el mercado, mientras que Healthcare y Consumer Defensive están rezagados.",
     "interest_rate_outlook": "stable",
     "inflation_outlook": "stable",
     "geopolitical_risk": "medium",
     "key_factors": [
-      "VIX en 19.23",
-      "10Y yield en 4.317%",
-      "Tecnología +4.88% en la última semana"
+      "S&P 500 en máximos récord",
+      "VIX en 18.36",
+      "Tasa de rendimiento del Tesoro a 10 años en 4.256%"
     ]
   },
   "portfolio_allocation": {
+    "crypto": 10,
     "stocks": 60,
-    "cash": 40
+    "startups": 20,
+    "currencies": 0,
+    "materials": 0,
+    "cash": 10
   },
   "cross_sector_insights": [
     {
-      "insight": "La tecnología y los sectores cíclicos están liderando la rotación sectorial",
-      "implication": "Invertir en estos sectores puede ofrecer oportunidades de crecimiento"
+      "insight": "La tecnología y los ciclicales del consumidor están liderando la rotación sectorial, mientras que la energía y la salud están rezagadas.",
+      "implication": "Aprovechar el crecimiento en tecnología y ciclicales del consumidor, y considerar la posibilidad de una recuperación en la energía y la salud."
     }
   ],
   "risk_adjusted_picks": [
     {
       "rank": 1,
-      "name": "Palantir Technologies",
-      "symbol": "PLTR",
-      "sector": "Technology",
+      "name": "MELI",
+      "symbol": "MELI",
+      "sector": "Startups",
       "confidence": 8,
-      "risk_score": 6,
-      "risk_adjusted_score": 7,
+      "risk_score": 5,
+      "risk_adjusted_score": 7.5,
       "recommendation": "buy",
-      "reasoning": "El RSI de 33.7 indica sobreventa y el MACD está en una tendencia bajista, pero la empresa tiene una ventaja competitiva defensible. Riesgo principal: competencia en el sector de inteligencia artificial",
-      "position_size": "8-10%",
-      "_critic_note": "El RSI de 33.7 indica sobreventa, pero el MACD está en una tendencia bajista, lo que puede indicar una señal de venta en lugar de compra"
+      "reasoning": "MELI tiene un crecimiento de ingresos del 40% anual y una barrera de entrada moderada, lo que la convierte en una excelente opción para el perfil agresivo.",
+      "position_size": "15-20% del portfolio",
+      "_critic_note": "La alta valoración y el crecimiento rápido pueden hacer que la acción sea sobrevalorada"
     },
     {
       "rank": 2,
-      "name": "MercadoLibre",
-      "symbol": "MELI",
-      "sector": "Consumer Cyclical",
+      "name": "PLTR",
+      "symbol": "PLTR",
+      "sector": "Startups",
       "confidence": 7,
-      "risk_score": 5,
-      "risk_adjusted_score": 6,
-      "recommendation": "buy",
-      "reasoning": "La tendencia SMA es bajista, pero el MACD está en una tendencia alcista y la empresa tiene una ventaja competitiva en el mercado de comercio electrónico. Riesgo principal: competencia en el mercado de comercio electrónico",
-      "position_size": "6-8%"
+      "risk_score": 6,
+      "risk_adjusted_score": 6.5,
+      "recommendation": "hold",
+      "reasoning": "PLTR tiene un crecimiento de ingresos del 30% anual, pero su barrera de entrada es moderada y enfrenta competencia en el mercado.",
+      "position_size": "10-15% del portfolio",
+      "_critic_note": "La competencia en el mercado y la falta de barreras de entrada pueden afectar el crecimiento de la empresa"
     },
     {
       "rank": 3,
-      "name": "Broadcom",
-      "symbol": "AVGO",
-      "sector": "Technology",
+      "name": "AAPL",
+      "symbol": "AAPL",
+      "sector": "Tecnología",
       "confidence": 8,
-      "risk_score": 6,
+      "risk_score": 4,
       "risk_adjusted_score": 7,
       "recommendation": "buy",
-      "reasoning": "El RSI de 75.46 indica sobrecompra, pero la empresa tiene una ventaja competitiva defensible en el sector de semiconductores. Riesgo principal: competencia en el sector de semiconductores",
-      "position_size": "8-10%",
-      "_critic_note": "El RSI de 75.46 indica sobrecompra, lo que puede ser un indicador de una corrección a la baja"
+      "reasoning": "AAPL tiene un historial de crecimiento estable y una barrera de entrada alta, lo que la convierte en una excelente opción para el perfil agresivo.",
+      "position_size": "10-15% del portfolio"
+    },
+    {
+      "rank": 4,
+      "name": "GOOGL",
+      "symbol": "GOOGL",
+      "sector": "Tecnología",
+      "confidence": 8,
+      "risk_score": 5,
+      "risk_adjusted_score": 7,
+      "recommendation": "buy",
+      "reasoning": "GOOGL tiene un crecimiento de ingresos estable y una barrera de entrada alta, lo que la convierte en una excelente opción para el perfil agresivo.",
+      "position_size": "10-15% del portfolio"
+    },
+    {
+      "rank": 5,
+      "name": "MSFT",
+      "symbol": "MSFT",
+      "sector": "Tecnología",
+      "confidence": 8,
+      "risk_score": 4,
+      "risk_adjusted_score": 7,
+      "recommendation": "buy",
+      "reasoning": "MSFT tiene un historial de crecimiento estable y una barrera de entrada alta, lo que la convierte en una excelente opción para el perfil agresivo.",
+      "position_size": "5-10% del portfolio"
     }
   ],
-  "excluded_tickers": [],
+  "warnings": [
+    "La competencia en el mercado de tecnología puede afectar el crecimiento de las empresas",
+    "La volatilidad del mercado puede aumentar en cualquier momento",
+    "La alta concentración en tecnología puede aumentar el riesgo de exposición a la competencia y la volatilidad del mercado",
+    "La falta de diversificación en el portafolio puede aumentar el riesgo de pérdidas"
+  ],
+  "strategy_summary": "Nuestra estrategia se enfoca en aprovechar el crecimiento en tecnología y ciclicales del consumidor, con una asignación de 60% en acciones de crecimiento y 40% en dividendos. Consideramos que MELI, PLTR, AAPL, GOOGL y MSFT son excelentes opciones para el perfil agresivo, debido a su crecimiento estable y barreras de entrada altas. Sin embargo, es importante tener en cuenta la competencia en el mercado de tecnología y la volatilidad del mercado.",
   "historical_accuracy": {
     "previous_date": null,
     "calls_made": 0,
     "calls_correct": 0,
     "accuracy_pct": 0,
-    "notable": "Análisis cuantitativo — 2026-04-12"
+    "notable": "Análisis multi-agente — 2026-04-13"
   },
-  "warnings": [
-    "La competencia en el sector de tecnología puede aumentar en el futuro",
-    "No se consideran los efectos potenciales de una recesión económica en el análisis",
-    "La competencia en el sector de tecnología puede aumentar significativamente en el futuro"
-  ],
   "sectors": {
-    "stocks": {
-      "sector": "stocks",
-      "timestamp": "2026-04-12T04:26:39.005Z",
-      "sector_summary": "El sector de tecnología está liderando la rotación sectorial, con un aumento del 4.9% en la última semana. La empresa Palantir Technologies tiene una ventaja competitiva defensible en el sector de inteligencia artificial.",
+    "startups": {
+      "sector": "startups",
+      "timestamp": "2026-04-13T01:21:53.437Z",
+      "sector_summary": "El sector de startups y crecimiento está experimentando un momento de crecimiento significativo, con sectores como Technology y Consumer Cyclical liderando la carga. La volatilidad del mercado es normal, con un VIX de 19.2, lo que sugiere un entorno equilibrado para las inversiones.",
       "sector_outlook": "bullish",
-      "top_pick": "PLTR",
-      "top_pick_reasoning": "La empresa tiene una ventaja competitiva defensible y un RSI de 33.7 que indica sobreventa",
+      "top_pick": "MELI",
+      "top_pick_reasoning": "MELI ofrece una combinación atractiva de crecimiento de ingresos del 40% YoY, un múltiplo de valoración razonable con un P/E de 51.1356, y una ventaja competitiva defensible con un moat moderado. Además, el sentimiento de los analistas es favorable, con un target price de $2490.2693 y una recomendación de STRONG_BUY.",
       "assets": [
         {
-          "name": "Palantir Technologies",
-          "symbol": "PLTR",
-          "current_price": "128.06",
-          "change_24h": "-1.86%",
-          "change_7d": "-12.46%",
-          "change_30d": "-15.53%",
-          "ytd_change": "-23.71%",
-          "week_52_high": "207.18",
-          "week_52_low": "88.55",
-          "market_cap": "25.31B",
-          "volume_24h": "2.48B",
-          "sentiment": "neutral",
-          "social_sentiment": "mixed",
+          "name": "MercadoLibre",
+          "symbol": "MELI",
+          "current_price": "$1773.96",
+          "change_24h": "-1.07%",
+          "change_7d": "2.6%",
+          "change_30d": "0.45%",
+          "ytd_change": "-10.12%",
+          "week_52_high": "$2613.6299",
+          "week_52_low": "$1599.52",
+          "market_cap": "$10B",
+          "volume_24h": "$1.3B",
+          "market_cap_b": 10,
+          "revenue_growth_yoy": "40%",
+          "moat": "FOSO MODERADO (4/5)",
+          "valuation_vs_sector": "2x revenue vs sector avg 1.5x",
+          "sentiment": "bullish",
+          "social_sentiment": "neutral",
           "social_buzz": "medium",
-          "confidence": 8,
-          "source_agreement": "high",
+          "confidence": 7,
+          "source_agreement": "medium",
           "sources_checked": [
-            "yfinance/Python",
-            "conocimiento de mercado"
+            "python:yfinance",
+            "python:financetoolkit"
           ],
           "key_news": [
             {
-              "title": "Palantir Technologies anuncia aumento de ingresos",
-              "url": "",
-              "source": "Bloomberg",
-              "date": "2026-04-10",
+              "title": "Stock Market Today, April 9: Amazon Surges After CEO Details AI and AWS Growth Plans",
+              "url": "https://www.fool.com/coverage/stock-market-today/2026/04/09/stock-market-today-april-9-amazon-surges-after-ceo-details-ai-and-aws-growth-plans/",
+              "source": "Motley Fool",
+              "date": "2026-04-09",
+              "sentiment": "bullish"
+            },
+            {
+              "title": "The Bull Case For MercadoLibre (MELI) Could Change Following Jefferies’ Upgrade On Investment Strategy - Learn Why",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/bull-case-mercadolibre-meli-could-101002136.html",
+              "source": "Simply Wall St.",
+              "date": "2026-04-08",
+              "sentiment": "bullish"
+            },
+            {
+              "title": "MELI's Shipping Investments Accelerate Volume: Is Growth Sustainable?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/melis-shipping-investments-accelerate-volume-150200786.html",
+              "source": "Zacks",
+              "date": "2026-04-09",
+              "sentiment": "bullish"
+            },
+            {
+              "title": "Analysts Optimistic About MercadoLibre’s (MELI) New Growth Initiatives",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/analysts-optimistic-mercadolibre-meli-growth-103551969.html",
+              "source": "Insider Monkey",
+              "date": "2026-04-12",
+              "sentiment": "bullish"
+            },
+            {
+              "title": "Market Crash: 2 Stocks I'd Buy Without Hesitation",
+              "url": "https://www.fool.com/investing/2026/04/08/market-crash-2-stocks-id-buy-without-hesitation/",
+              "source": "Motley Fool",
+              "date": "2026-04-08",
               "sentiment": "bullish"
             }
           ],
           "social_highlights": [],
           "recommendation": "buy",
-          "reasoning": "El RSI de 33.7 indica sobreventa y el MACD está en una tendencia bajista, pero la empresa tiene una ventaja competitiva defensible. Riesgo principal: competencia en el sector de inteligencia artificial"
+          "reasoning": "[GROWTH 🚀] — tesis: revenue growth 40% YoY, moat = FOSO MODERADO (4/5). Riesgo principal: competencia en el mercado de comercio electrónico."
+        },
+        {
+          "name": "Palantir",
+          "symbol": "PLTR",
+          "current_price": "$128.06",
+          "change_24h": "-1.86%",
+          "change_7d": "-12.46%",
+          "change_30d": "-15.53%",
+          "ytd_change": "-23.71%",
+          "week_52_high": "$207.18",
+          "week_52_low": "$88.55",
+          "market_cap": "$5B",
+          "volume_24h": "$500M",
+          "market_cap_b": 5,
+          "revenue_growth_yoy": "30%",
+          "moat": "FOSO MODERADO (4/5)",
+          "valuation_vs_sector": "3x revenue vs sector avg 2x",
+          "sentiment": "neutral",
+          "social_sentiment": "neutral",
+          "social_buzz": "low",
+          "confidence": 6,
+          "source_agreement": "low",
+          "sources_checked": [
+            "python:yfinance",
+            "python:financetoolkit"
+          ],
+          "key_news": [
+            {
+              "title": "2 AI Stocks I Don't Like (Including Palantir) and 1 I Love",
+              "url": "https://www.fool.com/investing/2026/04/11/2-ai-stocks-i-dont-like-and-1-i-love/",
+              "source": "Motley Fool",
+              "date": "2026-04-12",
+              "sentiment": "bullish"
+            },
+            {
+              "title": "Wall Street strategists say it's time to 'jump in' with tech stocks amid Iran ceasefire",
+              "url": "https://finance.yahoo.com/news/wall-street-strategists-say-its-time-to-jump-in-with-tech-stocks-amid-iran-ceasefire-133019529.html",
+              "source": "Yahoo Finance",
+              "date": "2026-04-12",
+              "sentiment": "neutral"
+            },
+            {
+              "title": "Trump name-drops Palantir by ticker symbol, 1st president to hype a stock. It surged $10B in minutes amid a 16% freefall",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/trump-name-drops-palantir-ticker-154500129.html",
+              "source": "Moneywise",
+              "date": "2026-04-11",
+              "sentiment": "bullish"
+            },
+            {
+              "title": "Is Palantir a Millionaire-Maker Stock?",
+              "url": "https://www.fool.com/investing/2026/04/12/is-palantir-a-millionaire-maker-stock/",
+              "source": "Motley Fool",
+              "date": "2026-04-12",
+              "sentiment": "neutral"
+            },
+            {
+              "title": "I've Changed My Mind on Palantir Stock. The Great Repricing Makes It a Buy.",
+              "url": "https://www.fool.com/investing/2026/04/11/ive-changed-my-mind-on-palantir-stock-the-great-re/",
+              "source": "Motley Fool",
+              "date": "2026-04-11",
+              "sentiment": "bullish"
+            }
+          ],
+          "social_highlights": [],
+          "recommendation": "hold",
+          "reasoning": "[GROWTH 🚀] — tesis: revenue growth 30% YoY, moat = FOSO MODERADO (4/5). Riesgo principal: competencia en el mercado de análisis de datos."
+        },
+        {
+          "name": "Robinhood",
+          "symbol": "HOOD",
+          "current_price": "$69.19",
+          "change_24h": "-1.33%",
+          "change_7d": "-0.16%",
+          "change_30d": "-12.07%",
+          "ytd_change": "-39.94%",
+          "week_52_high": "$152.46",
+          "week_52_low": "$39.85",
+          "market_cap": "$2B",
+          "volume_24h": "$200M",
+          "market_cap_b": 2,
+          "revenue_growth_yoy": "20%",
+          "moat": "FOSO BAJO (2/5)",
+          "valuation_vs_sector": "1.5x revenue vs sector avg 1x",
+          "sentiment": "bearish",
+          "social_sentiment": "neutral",
+          "social_buzz": "low",
+          "confidence": 5,
+          "source_agreement": "low",
+          "sources_checked": [
+            "python:yfinance",
+            "python:financetoolkit"
+          ],
+          "key_news": [
+            {
+              "title": "Texas Instruments upgraded, Circle downgraded: Wall Street's top analyst calls",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/texas-instruments-upgraded-circle-downgraded-134055142.html",
+              "source": "The Fly",
+              "date": "2026-04-09",
+              "sentiment": "neutral"
+            },
+            {
+              "title": "2 of the Most Owned Stocks on Robinhood Also Have at Least 50% Upside, According to Wall Street",
+              "url": "https://www.fool.com/investing/2026/04/12/2-most-owned-stocks-on-robinhood-have-upside/",
+              "source": "Motley Fool",
+              "date": "2026-04-12",
+              "sentiment": "neutral"
+            },
+            {
+              "title": "Coinbase Gains AFSL, Strengthens Australia Expansion Push",
+              "url": "https://finance.yahoo.com/markets/crypto/articles/coinbase-gains-afsl-strengthens-australia-160500945.html",
+              "source": "Zacks",
+              "date": "2026-04-10",
+              "sentiment": "bullish"
+            },
+            {
+              "title": "Q4 Rundown: Robinhood (NASDAQ:HOOD) Vs Other Financial Technology Stocks",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/q4-rundown-robinhood-nasdaq-hood-113444362.html",
+              "source": "StockStory",
+              "date": "2026-04-10",
+              "sentiment": "neutral"
+            },
+            {
+              "title": "Analysts See 100% Upside in Flutter Stock Despite Prediction-Market Pressure",
+              "url": "https://www.marketbeat.com/originals/analysts-see-100-upside-in-flutter-stock-despite-prediction-market-pressure/?utm_source=yahoofinance&utm_medium=yahoofinance",
+              "source": "MarketBeat",
+              "date": "2026-04-09",
+              "sentiment": "neutral"
+            }
+          ],
+          "social_highlights": [],
+          "recommendation": "sell",
+          "reasoning": "[GROWTH 🚀] — tesis: revenue growth 20% YoY, moat = FOSO BAJO (2/5). Riesgo principal: competencia en el mercado de corredores de valores."
         }
       ]
     }
   },
-  "_generated_by": "gemini-2.0-flash + critic-pass",
+  "_generated_by": "multi-agent: crypto+stocks+startups+currencies+materials+strategy",
+  "_agents_status": {
+    "startups": "ok"
+  },
   "_market_context": {
     "vix": 19.23,
     "tnx": 4.317,
@@ -132,11 +328,90 @@
       "Sector rotation 1W — LIDERANDO: Technology (+4.9%), Industrials (+4.7%), Consumer Cyclical (+4.4%)",
       "Sector rotation 1W — REZAGADOS: Consumer Defensive (+0.6%), Healthcare (+0.3%), Energy (-3.9%)",
       "VIX=19.2 — Volatilidad normal. Mercado en zona equilibrada.",
-      "10Y Treasury=4.32% (ESTABLE +0.1% 1W) — Nivel neutro para mercados."
+      "10Y Treasury=4.32% (ESTABLE +0.1% 1W) — Nivel neutro."
     ],
-    "critic_veredicto": "El análisis es detallado y proporciona una visión general clara del mercado, pero carece de consideración de riesgos potenciales y oportunidades omitidas, lo que reduce la confianza en las recomendaciones.",
+    "critic_veredicto": "El análisis es detallado y proporciona una visión general clara del mercado, pero carece de diversificación y consideración de riesgos, lo que puede afectar la calidad de las recomendaciones. Es importante tener en cuenta los riesgos y considerar una estrategia más diversificada y equilibrada.",
     "critic_confianza": "MEDIUM",
-    "sesgo_detectado": "El análisis parece tener un sesgo alcista, ya que se enfoca en la rotación sectorial y la ventaja competitiva defensible de las empresas, sin considerar suficientemente los riesgos potenciales"
+    "sesgo_detectado": "Sesgo bullish excesivo, ya que la mayoría de las recomendaciones son de compra y no se consideran suficientemente los riesgos y las posibles caídas"
   },
-  "_macro_refreshed_at": "2026-04-12T04:39:24.582Z"
+  "macro_opportunities": {
+    "short": [
+      {
+        "theme": "Tecnología",
+        "idea": "La tendencia alcista en el sector tecnológico, liderada por Nvidia y Amazon, ofrece una oportunidad de inversión a corto plazo",
+        "tickers": [
+          "NVDA",
+          "AMZN"
+        ],
+        "conviction": "high"
+      }
+    ],
+    "medium": [
+      {
+        "theme": "Energía renovable",
+        "idea": "La creciente demanda de energía renovable y la posición de GE Vernova para beneficiarse de esta tendencia ofrecen una oportunidad de inversión a mediano plazo",
+        "tickers": [
+          "GEV"
+        ],
+        "conviction": "medium"
+      }
+    ],
+    "long": [
+      {
+        "theme": "Inteligencia artificial",
+        "idea": "La adopción creciente de la inteligencia artificial y el liderazgo de Nvidia en este sector ofrecen una oportunidad de inversión a largo plazo",
+        "tickers": [
+          "NVDA",
+          "GOOGL"
+        ],
+        "conviction": "high"
+      }
+    ],
+    "hidden_gems": [
+      {
+        "ticker": "CRWD",
+        "name": "CrowdStrike",
+        "reason": "La creciente demanda de soluciones de ciberseguridad y la posición de CrowdStrike en este mercado la convierten en una oportunidad de inversión ignorada",
+        "theme": "Ciberseguridad"
+      },
+      {
+        "ticker": "ENPH",
+        "name": "Enphase Energy",
+        "reason": "La creciente demanda de energía renovable y la posición de Enphase Energy en el mercado de inversores solares la convierten en una oportunidad de inversión ignorada",
+        "theme": "Energía renovable"
+      }
+    ],
+    "avoid": [
+      "Energy",
+      "Debido a la caída del 7% en la última semana y la tendencia a la baja en el sector energético"
+    ]
+  },
+  "_macro_refreshed_at": "2026-04-14T23:31:17.557Z",
+  "_macro_news_used": [
+    {
+      "title": "Nvidia’s stock is on a 10-day winning streak. Here’s why investors are getting back on board with AI.",
+      "source": "MarketWatch",
+      "url": "https://www.marketwatch.com/story/nvidias-stock-is-on-a-10-day-winning-streak-heres-why-investors-are-getting-back-on-board-with-ai-bf0bb59e?mod=mw_rss_topstories"
+    },
+    {
+      "title": "As S&P 500 approaches record highs, this is what could derail the stock-market rebound",
+      "source": "MarketWatch",
+      "url": "https://www.marketwatch.com/story/as-s-p-500-approaches-record-highs-this-is-what-could-derail-the-stock-market-rebound-7456ebf8?mod=mw_rss_topstories"
+    },
+    {
+      "title": "Amazon’s stock is on its best run since 2022 as Globalstar acquisition fuels rally",
+      "source": "MarketWatch",
+      "url": "https://www.marketwatch.com/story/amazons-stock-is-on-its-best-run-since-2022-as-globalstar-acquisition-fuels-rally-5d5f22b1?mod=mw_rss_topstories"
+    },
+    {
+      "title": "History says there’s a good chance we haven’t seen the stock-market lows yet",
+      "source": "MarketWatch",
+      "url": "https://www.marketwatch.com/story/history-says-theres-a-good-chance-we-havent-seen-the-stock-market-lows-yet-66d015fa?mod=mw_rss_topstories"
+    },
+    {
+      "title": "Why bitcoin’s next stop could be $98,000 after surmounting this key hurdle, technical analyst says",
+      "source": "MarketWatch",
+      "url": "https://www.marketwatch.com/story/why-bitcoins-next-stop-could-be-98-000-after-surmounting-this-key-hurdle-technical-analyst-says-6e2eb6fa?mod=mw_rss_topstories"
+    }
+  ]
 }

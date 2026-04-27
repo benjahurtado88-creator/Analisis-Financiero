@@ -8,6 +8,7 @@ import { ReportHeader } from "@/components/report/ReportHeader"
 import { ExecutiveSummary } from "@/components/report/ExecutiveSummary"
 import { MacroEnvironment } from "@/components/report/MacroEnvironment"
 import { PortfolioAllocation } from "@/components/report/PortfolioAllocation"
+import { MacroOpportunities } from "@/components/report/MacroOpportunities"
 import { CrossSectorInsights } from "@/components/report/CrossSectorInsights"
 import { Warnings } from "@/components/report/Warnings"
 import { TopPicksGrid } from "@/components/report/TopPicksGrid"
@@ -76,6 +77,12 @@ function ReportContent() {
             <MacroEnvironment macro={data.macro_environment} refreshing={macroRefreshing} />
             <PortfolioAllocation allocation={data.portfolio_allocation} />
           </div>
+          {data.macro_opportunities && (
+            <MacroOpportunities
+              opportunities={data.macro_opportunities}
+              refreshing={macroRefreshing}
+            />
+          )}
           <CrossSectorInsights insights={data.cross_sector_insights} />
           <Warnings warnings={data.warnings} />
           <TopPicksGrid

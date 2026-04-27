@@ -3,20 +3,16 @@
   "creator": "@soyenriquerocha",
   "generated_at": "2026-04-11T22:36:39.283990",
   "risk_profile": "moderate",
-  "executive_summary": "Para un perfil de riesgo moderado, recomendamos un portafolio con sesgo defensivo que capitalice las dislocaciones del mercado por la guerra con Irán. La plata (XAG) es la mejor elección general — sexto año de déficit estructural de oferta con demanda solar/EV/IA, 30% por debajo del máximo histórico. Broadcom (AVGO) lidera las acciones con un crecimiento de 106% en ingresos de chips de IA y una guía excepcional. Chainlink (LINK) es la mejor opción cripto, 70% por debajo de máximos con 90% de dominio del mercado de oráculos. La posición larga en AUD/USD captura el giro restrictivo del RBA. El café arábica es una rara oportunidad de venta por la cosecha récord de Brasil. El descubrimiento dinámico de activos revela oportunidades que el mercado está pasando por alto — desde el avance de IA de Bittensor hasta la cobertura petrolera de Devon Energy y la crisis de la lira turca.",
+  "executive_summary": "El mercado de valores sigue en una tendencia alcista, con el S&P 500 alcanzando máximos récord y el Nasdaq subiendo un 7.36% en la última semana. La noticia de Nvidia sobre su racha de 10 días de ganancias ha impulsado la confianza en el sector tecnológico. Además, la adquisición de Globalstar por parte de Amazon ha generado un rally en su acción. El VIX se mantiene en un nivel de volatilidad normal del 18.36, lo que sugiere un mercado equilibrado.",
   "macro_environment": {
-    "summary": "El entorno macroeconómico está dominado por la guerra con Irán (Operación Epic Fury, semana 3), que ha empujado el petróleo por encima de $98/barril, el oro más allá de $5,000/oz, y desencadenó la mayor liberación de reservas de la AIE en la historia (400M de barriles). Siete decisiones de bancos centrales están programadas del 16 al 19 de marzo (RBA, BoC, FOMC, BoJ, BCE, BoE, BNS) — creando una histórica 'súper-semana' para el mercado de divisas. La probabilidad de recesión está en 30-35% mientras aumentan las preocupaciones de estanflación por la inflación impulsada por la energía.",
-    "interest_rate_outlook": "falling",
-    "inflation_outlook": "rising",
-    "geopolitical_risk": "high",
+    "summary": "El mercado actual se caracteriza por una tendencia alcista en el S&P 500 y el Nasdaq, con un VIX en 18.36 y una tasa de rendimiento del Tesoro a 10 años en 4.256%. La rotación sectorial muestra que los sectores de Consumer Cyclical, Technology y Industrials están liderando el mercado, mientras que Healthcare y Consumer Defensive están rezagados.",
+    "interest_rate_outlook": "stable",
+    "inflation_outlook": "stable",
+    "geopolitical_risk": "medium",
     "key_factors": [
-      "Guerra con Irán semana 3 — bloqueo del Estrecho de Ormuz interrumpiendo el 20% del suministro global de petróleo/GNL",
-      "7 decisiones de bancos centrales del 16 al 19 de marzo — histórica 'súper-semana' incluyendo FOMC, BoJ, BCE",
-      "Se espera que la Fed recorte 25pb en la reunión del 26 de marzo (60% de probabilidad) a pesar de la inflación",
-      "La AIE liberó un récord de 400M de barriles de reservas de emergencia — la mayor liberación de la historia",
-      "La instalación de GNL Ras Laffan de Qatar cerrada tras ataque con drones iraníes — gas europeo +46%",
-      "El Índice de Miedo y Codicia se recuperó de 8 a 45 — la recuperación más rápida en más de un año",
-      "Los datos COT muestran posiciones cortas en USD en extremo de 5 años — riesgo de short-squeeze"
+      "S&P 500 en máximos récord",
+      "VIX en 18.36",
+      "Tasa de rendimiento del Tesoro a 10 años en 4.256%"
     ]
   },
   "portfolio_allocation": {
@@ -116,7 +112,7 @@
       "sector": "stocks",
       "confidence": 7,
       "risk_score": 6,
-      "risk_adjusted_score": 7.0,
+      "risk_adjusted_score": 7,
       "recommendation": "buy",
       "reasoning": "Beneficiario directo del aumento del petróleo por Irán. Calificación de 4 estrellas de Morningstar, 30% infravalorado. Piper Sandler elevó el objetivo a $67. La producción de bajo costo en la Cuenca Pérmica significa que el alza del petróleo fluye directamente al flujo de caja libre. Cobertura geopolítica para el portafolio.",
       "position_size": "5-6% of portfolio"
@@ -594,7 +590,7 @@
           "change_7d": "+14.46%",
           "change_30d": "+12.10%",
           "ytd_change": "+5.25%",
-          "week_52_high": 254.0,
+          "week_52_high": 254,
           "week_52_low": 167.32,
           "market_cap": 2563598712832,
           "volume_24h": "$13.55B",
@@ -1271,5 +1267,58 @@
       "top_pick_reasoning": "La plata ofrece la mejor relación riesgo/recompensa: sexto año de déficit estructural de oferta por demanda solar/EV/IA, descuento de 30% desde el máximo histórico, pronóstico de J.P. Morgan de $81/oz, y los datos COT muestran margen para más alza."
     }
   },
-  "_prices_updated": "2026-04-11T22:36:39.283990"
+  "_prices_updated": "2026-04-11T22:36:39.283990",
+  "macro_opportunities": {
+    "short": [
+      {
+        "theme": "Tecnología",
+        "idea": "La tendencia alcista en el sector tecnológico, liderada por Nvidia y Amazon, ofrece una oportunidad de inversión a corto plazo",
+        "tickers": [
+          "NVDA",
+          "AMZN"
+        ],
+        "conviction": "high"
+      }
+    ],
+    "medium": [
+      {
+        "theme": "Energía renovable",
+        "idea": "La creciente demanda de energía renovable y la posición de GE Vernova para beneficiarse de esta tendencia ofrecen una oportunidad de inversión a mediano plazo",
+        "tickers": [
+          "GEV"
+        ],
+        "conviction": "medium"
+      }
+    ],
+    "long": [
+      {
+        "theme": "Inteligencia artificial",
+        "idea": "La adopción creciente de la inteligencia artificial y el liderazgo de Nvidia en este sector ofrecen una oportunidad de inversión a largo plazo",
+        "tickers": [
+          "NVDA",
+          "GOOGL"
+        ],
+        "conviction": "high"
+      }
+    ],
+    "hidden_gems": [
+      {
+        "ticker": "CRWD",
+        "name": "CrowdStrike",
+        "reason": "La creciente demanda de soluciones de ciberseguridad y la posición de CrowdStrike en este mercado la convierten en una oportunidad de inversión ignorada",
+        "theme": "Ciberseguridad"
+      },
+      {
+        "ticker": "ENPH",
+        "name": "Enphase Energy",
+        "reason": "La creciente demanda de energía renovable y la posición de Enphase Energy en el mercado de inversores solares la convierten en una oportunidad de inversión ignorada",
+        "theme": "Energía renovable"
+      }
+    ],
+    "avoid": [
+      "Energy",
+      "Debido a la caída del 7% en la última semana y la tendencia a la baja en el sector energético"
+    ]
+  },
+  "_macro_refreshed_at": "2026-04-14T23:31:17.557Z"
 }
