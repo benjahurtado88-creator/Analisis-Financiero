@@ -1,10 +1,11 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import type { ReportData } from "@/types/report"
+import type { ReportData, MacroOpportunities } from "@/types/report"
 import type { Language } from "@/lib/translations"
 
 const MACRO_REFRESH_INTERVAL_MS = 15 * 60 * 1000 // 15 minutos
+const AUTO_REFRESH_STALE_MS     =  4 * 60 * 60 * 1000 // 4 horas
 
 export function useReportData(lang: Language = "en") {
   const [data, setData]           = useState<ReportData | null>(null)
@@ -24,14 +25,13 @@ export function useReportData(lang: Language = "en") {
       })
       .then((d) => {
         setData(d)
-        // Si el reporte ya tiene timestamp de refresh, usarlo
         if (d._macro_refreshed_at) setMacroRefreshedAt(d._macro_refreshed_at as string)
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
   }, [lang])
 
-  // Llama a /api/refresh-macro y actualiza solo executive_summary + macro_environment en el estado
+  // Llama a /api/refresh-macro y actualiza macro en el estado
   const refreshMacro = useCallback(async () => {
     if (macroRefreshing) return
     setMacroRefreshing(true)
@@ -43,14 +43,16 @@ export function useReportData(lang: Language = "en") {
         refreshedAt?: string
         executive_summary?: string
         macro_environment?: ReportData["macro_environment"]
+        macro_opportunities?: MacroOpportunities
       }
       if (json.ok && json.executive_summary) {
         setData((prev) =>
           prev
             ? {
                 ...prev,
-                executive_summary: json.executive_summary!,
-                macro_environment: json.macro_environment ?? prev.macro_environment,
+                executive_summary:   json.executive_summary!,
+                macro_environment:   json.macro_environment   ?? prev.macro_environment,
+                macro_opportunities: json.macro_opportunities ?? prev.macro_opportunities,
               }
             : prev
         )
@@ -60,6 +62,21 @@ export function useReportData(lang: Language = "en") {
       setMacroRefreshing(false)
     }
   }, [macroRefreshing])
+
+  // Auto-refresh si el análisis macro es más viejo que 4 horas (solo una vez por carga)
+  const autoRefreshedRef = useRef(false)
+  useEffect(() => {
+    if (!data || macroRefreshing || autoRefreshedRef.current) return
+    const refreshedAt = data._macro_refreshed_at
+    const ageMs = refreshedAt
+      ? Date.now() - new Date(refreshedAt).getTime()
+      : Infinity
+    if (ageMs > AUTO_REFRESH_STALE_MS) {
+      autoRefreshedRef.current = true
+      refreshMacro()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data])
 
   // Auto-refresh de macro cada 15 min (solo cuando el tab está activo y ya hay datos)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)

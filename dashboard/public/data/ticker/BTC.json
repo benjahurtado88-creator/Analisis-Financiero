@@ -1,34 +1,34 @@
 {
   "ticker": "BTC",
-  "fecha": "2026-04-12T00:10:05.641681",
+  "fecha": "2026-04-14T19:32:41.119313",
   "es_cripto": true,
   "veredicto": "PRECAUCION",
-  "score": 0,
+  "score": 2,
   "precio": {
-    "precio_actual": 71677.7734,
-    "cambio_24h": -1.78,
-    "cambio_7d": 6.52,
-    "cambio_30d": 4.32,
+    "precio_actual": 74212.5234,
+    "cambio_24h": -0.37,
+    "cambio_7d": 3.16,
+    "cambio_30d": 5.24,
     "high_52w": 124752.5312,
     "low_52w": 62702.0977,
-    "vol_hoy": 26178254848,
-    "vol_20d_avg": 35130123482,
-    "vol_relativo": 0.75,
-    "cambio_ytd": -19.22,
-    "sma_20": 69079.5578,
-    "sma_50": 69060.0505,
-    "sma_200": 88078.228,
+    "vol_hoy": 54135087104,
+    "vol_20d_avg": 35445367220,
+    "vol_relativo": 1.53,
+    "cambio_ytd": -16.36,
+    "sma_20": 69483.7812,
+    "sma_50": 69470.994,
+    "sma_200": 87521.9096,
     "soporte": 64080.043,
     "resistencia": 74861.0859,
     "tendencia_sma": "MIXTA",
-    "rsi": 70.21,
-    "macd_line": 563.7505,
-    "macd_signal": -23.0348,
+    "rsi": 69.05,
+    "macd_line": 1089.3324,
+    "macd_signal": 445.7015,
     "macd_bullish": true
   },
   "info": {
-    "market_cap": 1434601521152.0,
-    "circulating": 20014592.0
+    "market_cap": 1483498848256.0,
+    "circulating": 20015936.0
   },
   "fundamentales": {},
   "fair_value": {},
@@ -40,16 +40,16 @@
   "sector_contexto": {},
   "sentimiento": {
     "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
-    "score": 0,
+    "score": 1,
     "max": 10,
     "label": "NEUTRAL",
     "señales": [
       {
-        "factor": "RSI Sobrecompra",
-        "valor": "70",
-        "señal": "BEARISH",
-        "peso": "-2",
-        "desc": "Zona de sobrecompra — riesgo de corrección"
+        "factor": "RSI Alto",
+        "valor": "69",
+        "señal": "NEUTRAL",
+        "peso": "-1",
+        "desc": "Momentum positivo pero acercándose a sobrecompra"
       },
       {
         "factor": "Tendencia SMA",
@@ -67,24 +67,84 @@
       },
       {
         "factor": "Posición 52s",
-        "valor": "14%",
+        "valor": "19%",
         "señal": "BULLISH",
         "peso": "+1",
         "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
       }
-    ]
+    ],
+    "fear_greed": {
+      "value": 21,
+      "classification": "Extreme Fear"
+    },
+    "social_cripto": {
+      "sentiment_bullish_pct": 86.49,
+      "sentiment_bearish_pct": 13.51,
+      "watchlist_users": 2369462,
+      "market_cap_rank": 1
+    }
   },
   "noticias_ticker": [
-    "[2026-04-11] 24/7 Wall St. (score:6): Bitcoin News: Morgan Stanley Just Launched the Cheapest Bitcoin ETF on the Market — Morgan Stanley once called Bitcoin (CRYPTO: BTC) worthless. In 2017, the bank’s analysts published a research note arguing that Bitcoin’s true value c",
-    "[2026-04-11] 24/7 Wall St. (score:5): Bitcoin (BTC) Hits $73K After CPI Surges to 3.3%: Here’s Why the Market is Rallying — Inflation just hit a two-year high, but Bitcoin (CRYPTO: BTC) rallied instead of crashing. The March CPI report came in at 3.3%, almost entirely drive",
-    "[2026-04-11] Motley Fool (score:4): 2 Ways to Invest in the Soaring Tokenization Market — Cryptocurrencies and companies that power on-chain assets could soar in the coming years.",
-    "[2026-04-11] BeInCrypto (score:3): Bitcoin Almost Hit $74K as US–Iran in Islamabad Showed Early Progress But No Deal — Bitcoin surged near $74k on optimism around US–Iran talks, but pulled back after negotiations ended without a deal, keeping markets volatile.",
-    "[2026-04-11] Motley Fool (score:3): Forget Bitcoin ETFs; This Is How Crypto Is Really Going Mainstream — Everyone's talking about Bitcoin ETFs. Almost nobody is talking about this bigger shift in how money moves on digital rails."
+    {
+      "title": "Robinhood and Strategy Stocks Jump. Why Bitcoin May Finally Be Back.",
+      "url": "https://www.barrons.com/articles/robinhood-stock-strategy-bitcoin-xrp-cryptos-7ad89476?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-04-14",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Goldman Sachs files for its first bitcoin ETF product",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/goldman-sachs-files-first-bitcoin-202144308.html",
+      "source": "Reuters",
+      "date": "2026-04-14",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Big Banks still moving at 'full throttle' as earnings roll out",
+      "url": "https://finance.yahoo.com/video/big-banks-still-moving-at-full-throttle-as-earnings-roll-out-135000679.html",
+      "source": "Yahoo Finance Video",
+      "date": "2026-04-14",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Fed Chair Nominee Kevin Warsh Owns Crypto",
+      "url": "https://www.cryptoprowl.com/releases/fed-chair-nominee-kevin-warsh-owns-crypto-4159",
+      "source": "CryptoProwl",
+      "date": "2026-04-14",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Investors remain 'cautious' of crypto's bear market rally",
+      "url": "https://finance.yahoo.com/video/investors-remain-cautious-of-cryptos-bear-market-rally-200907556.html",
+      "source": "Yahoo Finance Video",
+      "date": "2026-04-14",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Nvidia’s stock is on a 10-day winning streak. Here’s why investors are getting back on board with AI.",
+      "url": "https://www.marketwatch.com/story/nvidias-stock-is-on-a-10-day-winning-streak-heres-why-investors-are-getting-back-on-board-with-ai-bf0bb59e?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "As S&P 500 approaches record highs, this is what could derail the stock-market rebound",
+      "url": "https://www.marketwatch.com/story/as-s-p-500-approaches-record-highs-this-is-what-could-derail-the-stock-market-rebound-7456ebf8?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Amazon’s stock is on its best run since 2022 as Globalstar acquisition fuels rally",
+      "url": "https://www.marketwatch.com/story/amazons-stock-is-on-its-best-run-since-2022-as-globalstar-acquisition-fuels-rally-5d5f22b1?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Why one analyst believes Microsoft’s stock may be bottoming out",
+      "url": "https://www.marketwatch.com/story/why-one-analyst-believes-microsofts-stock-may-be-bottoming-out-560a3478?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
   ]
 }

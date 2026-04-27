@@ -1,0 +1,106 @@
+{
+  "ticker": "UNI",
+  "fecha": "2026-04-13T15:00:21.079407",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {},
+  "info": {
+    "market_cap": null,
+    "sector": null,
+    "sector_key": null,
+    "industria": null,
+    "analyst_target": null,
+    "analyst_low": null,
+    "analyst_high": null,
+    "analyst_rec": null,
+    "analyst_count": null,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": null,
+    "ev_ebitda": null,
+    "beta": null,
+    "forward_eps": null,
+    "forward_pe": null,
+    "short_ratio": null
+  },
+  "fundamentales": {},
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {},
+  "sector_contexto": {},
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": -1,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Neutral",
+        "valor": "50",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Sin señal clara de momentum"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Bajista",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "MACD por debajo de señal — momentum de corto plazo negativo"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "European Dividend Stocks To Watch In April 2026",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/european-dividend-stocks-watch-april-053145425.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-06",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Here's Why We Think Universal Store Holdings (ASX:UNI) Might Deserve Your Attention Today",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/heres-why-think-universal-store-220034641.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-05",
+      "sentiment": "neutral"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Is OpenAI outgrowing Microsoft? A new Amazon alliance raises the stakes.",
+      "url": "https://www.marketwatch.com/story/is-openai-outgrowing-microsoft-a-new-amazon-alliance-raises-the-stakes-8c44b9d0?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "These stocks are taking big hits from worries about higher gasoline prices",
+      "url": "https://www.marketwatch.com/story/these-stocks-are-taking-big-hits-from-worries-about-higher-gasoline-prices-4334f870?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Trump’s blockade of Iranian ports takes effect. Stocks are shrugging off escalation concerns.",
+      "url": "https://www.marketwatch.com/story/trumps-blockade-is-starting-heres-why-stocks-are-only-off-modestly-for-now-bcbb67d8?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "This is the real reason behind the U.S. dollar’s climb as the Iran conflict drags on",
+      "url": "https://www.marketwatch.com/story/this-is-the-real-reason-behind-the-u-s-dollars-climb-as-the-iran-conflict-drags-on-e258b807?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
+  ]
+}

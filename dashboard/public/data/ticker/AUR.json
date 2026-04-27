@@ -1,0 +1,194 @@
+{
+  "ticker": "AUR",
+  "fecha": "2026-04-12T22:02:32.636756",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 4.15,
+    "cambio_24h": 2.98,
+    "cambio_7d": 0.73,
+    "cambio_30d": -6.74,
+    "high_52w": 8.14,
+    "low_52w": 3.77,
+    "vol_hoy": 14227700,
+    "vol_20d_avg": 17869200,
+    "vol_relativo": 0.8,
+    "cambio_ytd": 7.24,
+    "sma_20": 4.1595,
+    "sma_50": 4.3496,
+    "sma_200": 4.9423,
+    "soporte": 3.78,
+    "resistencia": 4.88,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 50.53,
+    "macd_line": -0.0744,
+    "macd_signal": -0.0813,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 8134699008.0,
+    "sector": "Technology",
+    "sector_key": "technology",
+    "industria": "Information Technology Services",
+    "analyst_target": 10.4625,
+    "analyst_low": 4.0,
+    "analyst_high": 15.0,
+    "analyst_rec": "BUY",
+    "analyst_count": 8,
+    "revenue_growth": null,
+    "earnings_growth": null,
+    "ev": 6895575040.0,
+    "ev_ebitda": null,
+    "beta": 2.451,
+    "forward_eps": -0.45,
+    "forward_pe": null,
+    "short_ratio": 8.89
+  },
+  "fundamentales": {
+    "yield": 0.0,
+    "payout": 0.0,
+    "pe": -13.6275,
+    "pb": 5.4367,
+    "pfcf": -15.8037,
+    "fcf_yield": null,
+    "margin": -272.0,
+    "gross": -4.6667,
+    "roe": -0.4065,
+    "de": 0.0393,
+    "int_cov": null,
+    "eps": null,
+    "graham": 0
+  },
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {
+    "earnings_fecha": "2026-05-06",
+    "earnings_eps_est": null,
+    "earnings_eps_low": null,
+    "earnings_eps_high": null,
+    "earnings_rev_est": 966800.0
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLK",
+    "etf_precio": 142.62,
+    "etf_ytd": -1.04,
+    "sector_nombre": "Technology"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 2,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Neutral",
+        "valor": "51",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Sin señal clara de momentum"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "BUY (8)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "8 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "8.9d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "9%",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "Big efficiency gains seen from autonomous trucking",
+      "url": "https://www.just-auto.com/news/big-efficiency-gains-seen-from-autonomous-trucking/",
+      "source": "Just Auto",
+      "date": "2026-03-19",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Aurora Innovation (AUR) Presented at 2nd Annual CG Virtual Sustainability Summit, Here’s What You Should Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/aurora-innovation-aur-presented-2nd-212019005.html",
+      "source": "Insider Monkey",
+      "date": "2026-03-27",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Does Aurora Innovation’s (AUR) New Board Voice Reframe Its R&D-Heavy Path to Commercial Scale?",
+      "url": "https://finance.yahoo.com/news/does-aurora-innovation-aur-board-010819317.html",
+      "source": "Simply Wall St.",
+      "date": "2026-03-15",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Driverless Vehicles Are Coming and These Stocks Should Soar",
+      "url": "https://www.fool.com/investing/2026/04/01/driverless-vehicles-are-coming-and-these-stocks-sh/",
+      "source": "Motley Fool",
+      "date": "2026-04-01",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Aurora Innovation (AUR) Valuation Check After Recent Share Price Weakness And Long Term Gains",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/aurora-innovation-aur-valuation-check-100349185.html",
+      "source": "Simply Wall St.",
+      "date": "2026-03-31",
+      "sentiment": "neutral"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Move now to seize this potential stock-market crisis and opportunity",
+      "url": "https://www.marketwatch.com/story/move-now-to-seize-this-potential-stock-market-crisis-and-opportunity-3c61dea9?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
+  ]
+}

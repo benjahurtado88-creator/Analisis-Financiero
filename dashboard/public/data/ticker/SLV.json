@@ -1,33 +1,33 @@
 {
-  "ticker": "GLD",
-  "fecha": "2026-04-12T20:51:36.071847",
+  "ticker": "SLV",
+  "fecha": "2026-04-12T20:47:06.775664",
   "es_cripto": false,
   "veredicto": "VER NOTICIAS Y TECNICO",
   "score": 0,
   "precio": {
-    "precio_actual": 437.13,
-    "cambio_24h": -0.18,
-    "cambio_7d": 1.59,
-    "cambio_30d": -8.21,
-    "high_52w": 495.9,
-    "low_52w": 285.38,
-    "vol_hoy": 6175600,
-    "vol_20d_avg": 14720025,
-    "vol_relativo": 0.42,
-    "cambio_ytd": 9.75,
-    "sma_20": 429.3,
-    "sma_50": 451.1788,
-    "sma_200": 382.0566,
-    "soporte": 400.64,
-    "resistencia": 495.9,
+    "precio_actual": 69.08,
+    "cambio_24h": 1.01,
+    "cambio_7d": 1.38,
+    "cambio_30d": -11.33,
+    "high_52w": 105.6,
+    "low_52w": 28.06,
+    "vol_hoy": 20752000,
+    "vol_20d_avg": 42995800,
+    "vol_relativo": 0.48,
+    "cambio_ytd": 5.06,
+    "sma_20": 66.5435,
+    "sma_50": 72.4912,
+    "sma_200": 53.699,
+    "soporte": 60.77,
+    "resistencia": 105.6,
     "tendencia_sma": "MIXTA",
-    "rsi": 62.39,
-    "macd_line": -5.101,
-    "macd_signal": -7.924,
+    "rsi": 67.63,
+    "macd_line": -1.5892,
+    "macd_signal": -2.3556,
     "macd_bullish": true
   },
   "info": {
-    "market_cap": 113784938496.0,
+    "market_cap": 23587364864.0,
     "sector": null,
     "sector_key": null,
     "industria": null,
@@ -61,7 +61,7 @@
     "señales": [
       {
         "factor": "RSI Alto",
-        "valor": "62",
+        "valor": "68",
         "señal": "NEUTRAL",
         "peso": "-1",
         "desc": "Momentum positivo pero acercándose a sobrecompra"
@@ -82,7 +82,7 @@
       },
       {
         "factor": "Posición 52s",
-        "valor": "72%",
+        "valor": "53%",
         "señal": "NEUTRAL",
         "peso": "0",
         "desc": "En zona media del rango anual"
@@ -91,38 +91,38 @@
   },
   "noticias_ticker": [
     {
-      "title": "Gold Falls Nearly 10% As Banks Maintain $5,800 Price Outlook",
-      "url": "https://finance.yahoo.com/markets/commodities/articles/gold-falls-nearly-10-banks-185354431.html",
-      "source": "GuruFocus.com",
-      "date": "2026-04-10",
-      "sentiment": "bearish"
-    },
-    {
-      "title": "Golden Ceasefires: Forget Fear, It's About the Global Reset",
-      "url": "https://www.marketbeat.com/originals/golden-ceasefires-forget-fear-its-about-the-global-reset/?utm_source=yahoofinance&utm_medium=yahoofinance",
-      "source": "MarketBeat",
-      "date": "2026-04-10",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Update: Gold Trading Lower as U.S. Inflation Surged in March on Higher Gasoline Prices",
-      "url": "https://finance.yahoo.com/markets/commodities/articles/gold-trading-lower-u-inflation-180010081.html",
-      "source": "MT Newswires",
-      "date": "2026-04-10",
-      "sentiment": "bullish"
-    },
-    {
-      "title": "Gold Trading Lower as U.S. Inflation Surged in March on Higher Gasoline Prices",
-      "url": "https://finance.yahoo.com/markets/commodities/articles/gold-trading-lower-u-inflation-132459552.html",
-      "source": "MT Newswires",
-      "date": "2026-04-10",
-      "sentiment": "bullish"
-    },
-    {
       "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Amid Lingering Geopolitical Uncertainty, CPI Focus",
       "url": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-higher-equity-131518323.html",
       "source": "MT Newswires",
       "date": "2026-04-10",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Wednesday as Iran War De-Escalation Hopes Drive Sentiment",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-equity-futures-130639197.html",
+      "source": "MT Newswires",
+      "date": "2026-04-01",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "SLV Is Up 122% in a Year and Still Has a Serious Portfolio Problem",
+      "url": "https://247wallst.com/investing/2026/04/02/slv-is-up-122-in-a-year-and-still-has-a-serious-portfolio-problem/",
+      "source": "24/7 Wall St.",
+      "date": "2026-04-03",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "There Are Only 2 Main Ways To Protect Money From Trump's Iran War",
+      "url": "https://www.investors.com/etfs-and-funds/sectors/sp500-are-only-two-places-to-protect-money-from-trumps-iran-war/?src=A00220&yptr=yahoo",
+      "source": "Investor's Business Daily",
+      "date": "2026-03-31",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday as Fragile Middle East Ceasefire Lifts Oil Prices",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-equity-futures-131633339.html",
+      "source": "MT Newswires",
+      "date": "2026-04-09",
       "sentiment": "neutral"
     }
   ],

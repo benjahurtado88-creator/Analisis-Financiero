@@ -1,6 +1,6 @@
 {
   "ticker": "MELI",
-  "fecha": "2026-04-12T00:26:23.444798",
+  "fecha": "2026-04-12T21:21:25.230356",
   "es_cripto": false,
   "veredicto": "MANTENER / ESPERAR",
   "score": 3,
@@ -213,44 +213,44 @@
       "sentiment": "bullish"
     },
     {
+      "title": "Analysts Optimistic About MercadoLibre’s (MELI) New Growth Initiatives",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/analysts-optimistic-mercadolibre-meli-growth-103551969.html",
+      "source": "Insider Monkey",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
       "title": "Market Crash: 2 Stocks I'd Buy Without Hesitation",
       "url": "https://www.fool.com/investing/2026/04/08/market-crash-2-stocks-id-buy-without-hesitation/",
       "source": "Motley Fool",
       "date": "2026-04-08",
       "sentiment": "bullish"
-    },
-    {
-      "title": "MercadoLibre (MELI) Beats Stock Market Upswing: What Investors Need to Know",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/mercadolibre-meli-beats-stock-market-215003486.html",
-      "source": "Zacks",
-      "date": "2026-04-07",
-      "sentiment": "bullish"
     }
   ],
   "noticias_macro": [
     {
-      "title": "Here are some bargain bank stocks heading into earnings season",
-      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "bearish"
-    },
-    {
-      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
-      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
       "source": "MarketWatch",
       "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Move now to seize this potential stock-market crisis and opportunity",
+      "url": "https://www.marketwatch.com/story/move-now-to-seize-this-potential-stock-market-crisis-and-opportunity-3c61dea9?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
     }
   ]
 }

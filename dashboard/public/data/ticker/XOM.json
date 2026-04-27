@@ -1,0 +1,242 @@
+{
+  "ticker": "XOM",
+  "fecha": "2026-04-12T20:47:30.618564",
+  "es_cripto": false,
+  "veredicto": "COMPRA",
+  "score": 4,
+  "precio": {
+    "precio_actual": 152.51,
+    "cambio_24h": -1.63,
+    "cambio_7d": -10.11,
+    "cambio_30d": 0.61,
+    "high_52w": 171.47,
+    "low_52w": 96.6105,
+    "vol_hoy": 21059600,
+    "vol_20d_avg": 26452960,
+    "vol_relativo": 0.8,
+    "cambio_ytd": 25.17,
+    "sma_20": 161.371,
+    "sma_50": 153.7596,
+    "sma_200": 123.6545,
+    "soporte": 128.275,
+    "resistencia": 171.47,
+    "tendencia_sma": "MIXTA",
+    "rsi": 41.36,
+    "macd_line": 1.4887,
+    "macd_signal": 3.4304,
+    "macd_bullish": false
+  },
+  "info": {
+    "market_cap": 633916817408.0,
+    "sector": "Energy",
+    "sector_key": "energy",
+    "industria": "Oil & Gas Integrated",
+    "analyst_target": 162.70833,
+    "analyst_low": 123.0,
+    "analyst_high": 195.0,
+    "analyst_rec": "BUY",
+    "analyst_count": 24,
+    "revenue_growth": -0.013,
+    "earnings_growth": -0.11,
+    "ev": 682519101440.0,
+    "ev_ebitda": 11.493,
+    "beta": 0.288,
+    "forward_eps": 9.84695,
+    "forward_pe": 15.488045,
+    "short_ratio": 2.13
+  },
+  "fundamentales": {
+    "yield": 0.026490066225165566,
+    "payout": 0.5974,
+    "pe": 17.9609,
+    "pb": 1.9973,
+    "pfcf": 21.9407,
+    "fcf_yield": 0.0456,
+    "margin": 0.0891,
+    "gross": 0.2168,
+    "roe": 0.1074,
+    "de": 0.1633,
+    "int_cov": 99.3881,
+    "eps": 6.7001,
+    "graham": 95.31
+  },
+  "fair_value": {
+    "tipo_empresa": "value",
+    "pe_benchmark": 20,
+    "fair_value_pe": 169.82,
+    "fair_ev": 132.7,
+    "nota": "P/E benchmark x20 (valor/dividendo)",
+    "graham": 0.0
+  },
+  "dcf": {
+    "metodo": "DDM (Dividend Discount Model)",
+    "base": 68.01,
+    "bear": 58.29,
+    "bull": 81.61,
+    "base_upside": -55.4,
+    "bear_upside": -61.8,
+    "bull_upside": -46.5,
+    "wacc": 7.0,
+    "div_g": 1.0,
+    "div_anual": 4.04,
+    "sensibilidad": "Bear=tasas +1% | Bull=tasas -1%"
+  },
+  "escenarios": {
+    "base": 162.71,
+    "base_fuente": "Consenso analistas (target medio)",
+    "bear": 123.0,
+    "bear_fuente": "Target mínimo analistas",
+    "bull": 195.0,
+    "bull_fuente": "Target máximo analistas",
+    "bear_upside": -19.3,
+    "base_upside": 6.7,
+    "bull_upside": 27.9
+  },
+  "moat": {
+    "score": 1,
+    "max": 5,
+    "nivel": "FOSO ESTRECHO",
+    "factores": [
+      "[-] Margen bruto 22% — sin ventaja clara de precio",
+      "[~] ROE 11% — adecuado pero no diferenciador",
+      "[+] Cobertura intereses 99.4x — fortaleza de balance",
+      "[-] Margen neto DETERIORANDO — presión competitiva",
+      "[-] Retrasado vs sector YTD en -0.4%"
+    ]
+  },
+  "riesgos": [
+    {
+      "tipo": "CRECIMIENTO",
+      "nivel": "HIGH",
+      "desc": "Earnings YoY -11% — contracción de ganancias, cuestionable valoración actual"
+    }
+  ],
+  "eventos": {
+    "earnings_fecha": "2026-05-01",
+    "earnings_eps_est": 1.4236,
+    "earnings_eps_low": 0.7774,
+    "earnings_eps_high": 2.54,
+    "earnings_rev_est": 85694750100.0,
+    "ex_dividendo": "2026-02-11",
+    "pago_dividendo": "2026-03-09"
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLE",
+    "etf_precio": 56.94,
+    "etf_ytd": 25.55,
+    "sector_nombre": "Energy"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 2,
+    "max": 10,
+    "label": "BULLISH",
+    "señales": [
+      {
+        "factor": "RSI Bajo",
+        "valor": "41",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Por debajo de zona neutral — presión vendedora moderada"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "MIXTA",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Señales técnicas contradictorias"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Bajista",
+        "señal": "BEARISH",
+        "peso": "-1",
+        "desc": "MACD por debajo de señal — momentum de corto plazo negativo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "BUY (24)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "24 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "2.1d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "75%",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "En zona media del rango anual"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "This is Why Chevron Stock Remains a Buy After Its Q1 Outlook",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-chevron-stock-remains-buy-124900528.html",
+      "source": "Zacks",
+      "date": "2026-04-10",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Hormuz Naval standoff shadows JD Vance’s \"long-shot\" peace talks in Islamabad",
+      "url": "https://www.yahoo.com/news/articles/hormuz-naval-standoff-shadows-jd-005328358.html",
+      "source": "Investing.com",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Here’s a List of Gulf Energy Infrastructure Damaged in Iran War",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/list-gulf-energy-infrastructure-damaged-110602813.html",
+      "source": "Bloomberg",
+      "date": "2026-04-11",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "2 Reasons to Like XOM (and 1 Not So Much)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-xom-1-not-131844489.html",
+      "source": "StockStory",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Oil Surges 7% on Hormuz Blockade, U.S. Gulf Tanker Rush — 3 Stocks to Buy Now",
+      "url": "https://247wallst.com/investing/2026/04/12/oil-surges-7-on-hormuz-blockade-u-s-gulf-tanker-rush-3-stocks-to-buy-now/",
+      "source": "24/7 Wall St.",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "‘I feel pressured’: My husband has early Alzheimer’s and wants to visit Europe, but I’m terrified of flying. What should I do?",
+      "url": "https://www.marketwatch.com/story/i-feel-pressured-my-husband-has-early-alzheimers-and-wants-to-visit-europe-but-im-terrified-of-flying-what-should-i-do-c5cc01bf?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
+  ]
+}

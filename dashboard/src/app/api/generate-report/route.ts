@@ -7,276 +7,591 @@ import Groq from "groq-sdk"
 const execAsync = promisify(exec)
 export const maxDuration = 300
 
-// Tickers por sector para análisis profundo — se eligen 3 según los sectores seleccionados
-const TICKERS_BY_SECTOR: Record<string, string[]> = {
+// ── Tickers por sector — cada agente recibe datos Python de su especialidad ──
+const SECTOR_TICKERS: Record<string, string[]> = {
   crypto:    ["BTC", "ETH", "SOL"],
-  stocks:    ["NVDA", "AAPL", "AMZN"],
-  startups:  ["AVGO", "MELI", "PLTR"],
-  materials: ["GLD", "KO", "XOM"],
-  currencies: [],   // Gemini maneja divisas sin datos Python
+  stocks:    ["NVDA", "AAPL", "AMZN", "KO"],
+  startups:  ["MELI", "PLTR", "HOOD"],
+  materials: ["GLD", "SLV", "XOM"],
+  currencies: [],
 }
 
-function pickTickers(sectors: string[], excluded: string[]): string[] {
-  const candidates: string[] = []
+// ── Todos los tickers únicos que hay que correr con Python ───────────────────
+function getAllTickers(sectors: string[]): string[] {
+  const all: string[] = []
   for (const s of sectors) {
-    for (const t of TICKERS_BY_SECTOR[s] ?? []) {
-      if (!candidates.includes(t) && !excluded.includes(t)) candidates.push(t)
+    for (const t of SECTOR_TICKERS[s] ?? []) {
+      if (!all.includes(t)) all.push(t)
     }
   }
-  return candidates.slice(0, 3)
+  return all
 }
 
-const SECTOR_INSTRUCTIONS: Record<string, string> = {
-  crypto:    "CRYPTO (3-4 activos): prioriza los que tienen catalizadores técnicos HOY (RSI < 45 + MACD alcista, o sobreventa con volumen creciente). No copies los más grandes por default — busca el momentum real.",
-  stocks:    "ACCIONES (3-4 activos): acciones con earnings beats recientes (<30 días), sector tailwinds claros confirmados por rotación sectorial, o señal técnica fuerte (por encima de SMA50, MACD alcista). Evita acciones donde el upside de analistas ya está descontado.",
-  startups:  "GROWTH / STARTUPS (3-4 activos): empresas <$10B market cap, revenue growth >40% YoY, ventaja competitiva defensible. Cita el múltiplo de valoración actual vs histórico del sector.",
-  currencies: "DIVISAS (3-4 pares): pares con divergencia de política monetaria clara o volatilidad técnica. Cita el diferencial de tasas y la dirección del par las últimas 4 semanas.",
-  materials: "MATERIAS PRIMAS (3-4 activos): commodities con disrupciones de oferta/demanda activas. Cita precio spot HOY y comparación con promedio 6 meses.",
-}
+// ── Resumen compacto de datos Python por ticker (para prompt del agente) ─────
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function summarizeTicker(ticker: string, data: any): string {
+  const p   = data.precio       ?? {}
+  const s   = data.sentimiento  ?? {}
+  const f   = data.fundamentales ?? {}
+  const fv  = data.fair_value   ?? {}
+  const esc = data.escenarios   ?? {}
+  const ev  = data.eventos      ?? {}
+  const m   = data.moat         ?? {}
+  const info = data.info        ?? {}
 
-function summarizeTicker(ticker: string, data: Record<string, unknown>): string {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const p = data.precio as any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const s = data.sentimiento as any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const f = data.fundamentales as any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const fv = data.fair_value as any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const esc = data.escenarios as any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const eventos = data.eventos as any
-
-  const lines = [`[${ticker}] — datos verificados yfinance`]
-
-  if (p) {
-    lines.push(`Precio: $${p.precio_actual} | 24h: ${p.cambio_24h}% | 7d: ${p.cambio_7d}% | 30d: ${p.cambio_30d}% | YTD: ${p.cambio_ytd}%`)
-    lines.push(`RSI: ${p.rsi} | Tendencia SMA: ${p.tendencia_sma} | MACD: ${p.macd_bullish ? "ALCISTA" : "BAJISTA"} | Vol relativo: ${p.vol_relativo}x`)
-    lines.push(`Soporte: $${p.soporte} | Resistencia: $${p.resistencia} | 52w High: $${p.high_52w} | 52w Low: $${p.low_52w}`)
+  const lines = [`▸ ${ticker} — datos Python/yfinance verificados`]
+  if (p.precio_actual) {
+    lines.push(`  Precio: $${p.precio_actual} | 24h: ${p.cambio_24h}% | 7d: ${p.cambio_7d}% | 30d: ${p.cambio_30d}% | YTD: ${p.cambio_ytd}%`)
+    lines.push(`  RSI: ${p.rsi} | SMA trend: ${p.tendencia_sma} | MACD: ${p.macd_bullish ? "ALCISTA ↑" : "BAJISTA ↓"} | Vol rel: ${p.vol_relativo}x`)
+    lines.push(`  Soporte: $${p.soporte} | Resistencia: $${p.resistencia} | 52w: $${p.low_52w}–$${p.high_52w}`)
   }
-
-  if (s && !s._error) {
-    const señales = (s.señales ?? []).filter((x: {señal: string}) => x.señal !== "NEUTRAL").map((x: {factor: string, señal: string, peso: string}) => `${x.factor}(${x.señal} ${x.peso})`).join(", ")
-    lines.push(`Sentimiento cuantitativo: ${s.label} ${s.score}/10${señales ? ` | Señales: ${señales}` : ""}`)
-  }
-
   if (f && Object.keys(f).length > 0) {
-    const roe  = f.roe  != null ? `ROE: ${(f.roe * 100).toFixed(1)}%` : ""
-    const pe   = f.pe   != null ? `P/E: ${f.pe}` : ""
-    const mg   = f.margin != null ? `Margen neto: ${(f.margin * 100).toFixed(1)}%` : ""
-    const fcf  = f.fcf_yield != null ? `FCF Yield: ${(f.fcf_yield * 100).toFixed(1)}%` : ""
-    lines.push([pe, roe, mg, fcf].filter(Boolean).join(" | "))
+    const parts = [
+      f.pe        != null ? `P/E: ${f.pe}` : "",
+      f.roe       != null ? `ROE: ${(f.roe * 100).toFixed(1)}%` : "",
+      f.net_margin != null ? `Margen neto: ${f.net_margin}%` : f.margin != null ? `Margen neto: ${(f.margin * 100).toFixed(1)}%` : "",
+      f.fcf_yield != null ? `FCF Yield: ${f.fcf_yield != null && f.fcf_yield < 1 ? (f.fcf_yield * 100).toFixed(1) + "%" : f.fcf_yield + "%"}` : "",
+      f.de        != null ? `D/E: ${f.de}` : "",
+    ].filter(Boolean)
+    if (parts.length) lines.push(`  Fundamentales: ${parts.join(" | ")}`)
   }
-
-  if (fv && (fv.fair_value_pe > 0 || fv.fair_ev > 0)) {
-    const fvPe = fv.fair_value_pe > 0 ? `FV P/E: $${fv.fair_value_pe}` : ""
-    const margen = fv.margen_seguridad != null ? ` (${fv.margen_seguridad}% margen)` : ""
-    lines.push(`${fvPe}${margen} | Zona compra: $${fv.zona_compra_agresiva}–$${fv.zona_compra_conservadora}`)
+  if (info.analyst_target) {
+    lines.push(`  Analistas: target $${info.analyst_target} | rec: ${info.analyst_rec} | ${info.analyst_count} analistas`)
   }
-
-  if (esc && (esc.bull || esc.bear)) {
-    lines.push(`Escenarios — Bull: $${esc.bull?.precio} | Base: $${esc.base?.precio} | Bear: $${esc.bear?.precio}`)
+  if (fv.fair_value_pe && fv.fair_value_pe > 0) {
+    lines.push(`  Fair Value P/E: $${fv.fair_value_pe} | Margen seguridad: ${fv.safety_margin_pct ?? fv.margen_seguridad}% | Compra agresiva: $${fv.buy_zone_aggressive ?? fv.zona_compra_agresiva}`)
   }
-
-  if (eventos?.earnings_fecha) {
-    lines.push(`Próximo earnings: ${eventos.earnings_fecha} | EPS est: $${eventos.earnings_eps_est}`)
+  if (esc.base) {
+    lines.push(`  Escenarios — Bull: $${esc.bull} (+${esc.bull_upside}%) | Base: $${esc.base} (${esc.base_upside}%) | Bear: $${esc.bear} (${esc.bear_upside}%)`)
   }
-
-  lines.push(`Veredicto Python: ${data.veredicto} (score: ${data.score}/10)`)
+  if (m.nivel) {
+    lines.push(`  Moat: ${m.nivel} (${m.score}/${m.max})`)
+  }
+  if (s.label && !s._error) {
+    lines.push(`  Sentimiento técnico: ${s.label} (${s.score}/10)`)
+  }
+  if (s.fear_greed && !s._error) {
+    const fg = s.fear_greed as { value: number; classification: string }
+    lines.push(`  Fear & Greed Index: ${fg.value}/100 (${fg.classification})`)
+  }
+  if (s.social_cripto && !s._error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const sc = s.social_cripto as any
+    if (sc.sentiment_bullish_pct != null) lines.push(`  CoinGecko sentiment: ${sc.sentiment_bullish_pct?.toFixed(1)}% bullish / ${sc.sentiment_bearish_pct?.toFixed(1)}% bearish`)
+    if (sc.watchlist_users)               lines.push(`  Watchlists: ${sc.watchlist_users?.toLocaleString()} usuarios | Rank #${sc.market_cap_rank}`)
+  }
+  if (ev.earnings_fecha) {
+    lines.push(`  Próximo earnings: ${ev.earnings_fecha} | EPS est: $${ev.earnings_eps_est}`)
+  }
+  lines.push(`  Veredicto Python: ${data.veredicto} (score: ${data.score}/10)`)
   return lines.join("\n")
 }
 
-function buildMainPrompt(
-  tickerDeep: Record<string, unknown>,
-  marketCtx: Record<string, unknown>,
-  riskProfile: string,
-  sectors: string[],
-  excluded: string[] = []
-): string {
-  const today = new Date().toISOString().split("T")[0]
+// ── Carga JSONs de tickers desde disco ───────────────────────────────────────
+function loadTickerData(tickers: string[], tickerDir: string): Record<string, unknown> {
+  const result: Record<string, unknown> = {}
+  for (const t of tickers) {
+    const p = path.join(tickerDir, `${t}.json`)
+    if (fs.existsSync(p)) {
+      try { result[t] = JSON.parse(fs.readFileSync(p, "utf-8")) } catch { /* skip */ }
+    }
+  }
+  return result
+}
 
-  const deepLines = Object.entries(tickerDeep)
-    .map(([t, d]) => summarizeTicker(t, d as Record<string, unknown>))
+// ── Construye el contexto de datos para un agente ────────────────────────────
+function buildDataContext(
+  sectorTickers: string[],
+  allTickerData: Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  marketCtx: any
+): string {
+  const tickerLines = sectorTickers
+    .filter(t => allTickerData[t])
+    .map(t => summarizeTicker(t, allTickerData[t]))
     .join("\n\n")
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const insights: string[] = (marketCtx as any).insights ?? []
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const macro = marketCtx as any
-
+  const fg = marketCtx?.fear_greed as any
   const macroLines = [
-    ...insights,
-    macro.macro?.["S&P 500"] ? `S&P 500: $${macro.macro["S&P 500"].price} (1W: ${macro.macro["S&P 500"].w1}%)` : "",
-    macro.macro?.["Nasdaq"] ? `Nasdaq: $${macro.macro["Nasdaq"].price} (1W: ${macro.macro["Nasdaq"].w1}%)` : "",
+    ...(marketCtx?.insights ?? []),
+    marketCtx?.macro?.["S&P 500"]  ? `S&P 500: $${marketCtx.macro["S&P 500"].price} (1W: ${marketCtx.macro["S&P 500"].w1}%)` : "",
+    marketCtx?.macro?.["Nasdaq"]   ? `Nasdaq: $${marketCtx.macro["Nasdaq"].price} (1W: ${marketCtx.macro["Nasdaq"].w1}%)` : "",
+    marketCtx?.macro?.["VIX (Fear Index)"] ? `VIX: ${marketCtx.macro["VIX (Fear Index)"].price}` : "",
+    marketCtx?.macro?.["10Y Treasury Yield"] ? `10Y Treasury: ${marketCtx.macro["10Y Treasury Yield"].price}%` : "",
+    fg?.value != null ? `Fear & Greed Index (Crypto): ${fg.value}/100 — ${fg.classification}` : "",
   ].filter(Boolean).join("\n")
 
-  const sectorRotation = macro.sectors
-    ? Object.entries(macro.sectors)
-        .sort((a: [string, unknown], b: [string, unknown]) => ((b[1] as {w1: number}).w1 ?? 0) - ((a[1] as {w1: number}).w1 ?? 0))
-        .map(([name, d]) => `${name}: ${(d as {w1: number}).w1 > 0 ? "+" : ""}${(d as {w1: number}).w1}% 1W`)
+  const sectorRot = marketCtx?.sectors
+    ? Object.entries(marketCtx.sectors)
+        .sort((a: [string, unknown], b: [string, unknown]) => ((b[1] as {w1:number}).w1 ?? 0) - ((a[1] as {w1:number}).w1 ?? 0))
+        .map(([n, d]) => `${n}: ${(d as {w1:number}).w1 > 0 ? "+" : ""}${(d as {w1:number}).w1}% 1W`)
         .join(" | ")
     : ""
 
-  const sectorInstructions = sectors
-    .map((s, i) => `${i + 1}. ${SECTOR_INSTRUCTIONS[s] ?? s}`)
-    .join("\n")
+  return [
+    tickerLines ? `══ DATOS PYTHON/YFINANCE (verificados) ══\n${tickerLines}` : "",
+    macroLines  ? `══ CONTEXTO MACRO ══\n${macroLines}` : "",
+    sectorRot   ? `Rotación sectorial 1W: ${sectorRot}` : "",
+  ].filter(Boolean).join("\n\n")
+}
 
-  const outputSectors = sectors
-    .map(s => s === "startups" ? "stocks" : s)
-    .filter((s, i, arr) => arr.indexOf(s) === i)
+// ── Prompts especializados por agente ─────────────────────────────────────────
 
-  const sectorJsonTemplate = outputSectors.map(s => `
-    "${s}": {
-      "sector": "${s}", "timestamp": "${new Date().toISOString()}",
-      "sector_summary": "2-3 oraciones con contexto actual del sector. Cita datos concretos.",
-      "sector_outlook": "bullish|bearish|neutral",
-      "top_pick": "SYMBOL", "top_pick_reasoning": "Por qué este y no otro en el sector",
-      "assets": [
-        {
-          "name": "Nombre completo", "symbol": "TICKER",
-          "current_price": "precio actual (toma de datos Python si disponible, sino investiga)",
-          "change_24h": "+0.00%", "change_7d": "+0.00%", "change_30d": "+0.00%", "ytd_change": "+0.00%",
-          "week_52_high": "0", "week_52_low": "0", "market_cap": "$0B", "volume_24h": "$0B",
-          "sentiment": "bullish|bearish|neutral",
-          "social_sentiment": "bullish|bearish|neutral|mixed",
-          "social_buzz": "high|medium|low",
-          "confidence": 8,
-          "source_agreement": "high|medium|low",
-          "sources_checked": ["yfinance/Python", "conocimiento de mercado"],
-          "key_news": [{"title": "Noticia real o catalizador conocido", "url": "", "source": "fuente", "date": "YYYY-MM-DD", "sentiment": "bullish|bearish|neutral"}],
-          "social_highlights": [],
-          "recommendation": "buy|hold|sell",
-          "reasoning": "OBLIGATORIO: cita al menos 2 métricas específicas (ej: RSI=42 sobreventa, MACD alcista, P/E=18x vs sector 25x). Incluye el catalizador principal y el riesgo más importante."
-        }
-      ]
-    }`).join(",")
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildCryptoAgentPrompt(dataCtx: string, today: string): string {
+  return `Eres el Agente Crypto de Finance.ia — especialista en criptomonedas, ciclos de mercado on-chain y momentum técnico. Fecha: ${today}.
 
-  return `Eres un analista cuantitativo senior de hedge fund. Tu ventaja es combinar datos duros con contexto de mercado para encontrar oportunidades antes que el consenso. Fecha de análisis: ${today}.
+PERFIL INVERSOR: AGRESIVO — 65% Growth / 35% Dividend. Todos los picks cripto son [GROWTH 🚀].
 
-PERFIL DEL INVERSOR: ${riskProfile.toUpperCase()}
-${riskProfile === "aggressive" ? "→ Buscar asimetría: alto upside, aceptar volatilidad. Evitar activos ya con precio perfecto." : ""}
-${riskProfile === "conservative" ? "→ Priorizar calidad sobre precio. P/E razonable, dividendo sostenible, balance sólido." : ""}
-${riskProfile === "moderate" ? "→ Balance riesgo/retorno. Quality at a reasonable price. Diversificación real entre sectores." : ""}
+${dataCtx}
 
-══ DATOS DUROS — VERIFICADOS POR PYTHON/YFINANCE ══
-Estos números son reales. Úsalos directamente. NO los inventes ni redondees de forma diferente.
+TU MISIÓN:
+Analiza los activos crypto con los datos Python anteriores. Para cada uno:
+1. Interpreta RSI, MACD, SMA trend: ¿hay señal técnica real?
+2. Evalúa el momentum de precio (24h/7d/30d/YTD)
+3. Usa el Fear & Greed Index (si aparece arriba) — es dato real de hoy, no estimado
+4. Usa los datos de Reddit/Twitter (si aparecen arriba) — actividad real de la comunidad
+5. Decide COMPRAR / MANTENER / VENDER con criterio cuantitativo
 
-${deepLines}
+REGLAS DE DATOS:
+- Los datos marcados "Python/yfinance" son verificados y reales → cítalos con números exactos
+- El Fear & Greed Index y datos de Reddit/Twitter son reales de hoy → úsalos como evidencia directa
+- Si el Fear & Greed NO aparece en los datos: no inventes un valor, di "F&G no disponible hoy"
+- Si datos sociales NO aparecen: no inventes actividad de Reddit/Twitter, di que no hay datos en tiempo real
 
-══ CONTEXTO MACRO REAL — HOY ══
-${macroLines}
+CALIBRACIÓN DE CONFIDENCE (MUY IMPORTANTE):
+- Si tienes Fear & Greed + datos sociales + técnico: confidence puede llegar a 8-9
+- Si solo tienes datos técnicos/precio (sin F&G ni social): confidence MÁXIMO 6
+- Si RSI > 70: reduce confidence en 1 punto (sobrecompra)
+- Si MACD bajista + SMA bearish: no recomendes BUY sin argumento técnico muy sólido
+- Sé honesto en el reasoning: menciona explícitamente qué datos tienes y cuáles faltan
 
-Rotación sectorial 1 semana (datos reales):
-${sectorRotation}
-
-══ TAREA: ENCONTRAR LAS MEJORES OPORTUNIDADES ══
-Analiza estos sectores con ojo crítico:
-${sectorInstructions}
-
-REGLAS DE CALIDAD — OBLIGATORIAS:
-1. CITA DATOS: En cada reasoning, nombra mínimo 2 métricas específicas de los datos Python o del mercado real.
-2. BEAR CASE: Para cada BUY, el reasoning debe incluir "Riesgo principal: [X]".
-3. SÉ SELECTIVO: Si un sector no tiene oportunidades claras HOY, dilo en sector_summary. No fuerces recomendaciones.
-4. CONFIDENCE HONESTO: Si no tienes datos Python del activo, max confidence = 6. Si tienes datos Python, puede ser 7-9.
-5. SIN PRECIO INVENTADO: Si no sabes el precio exacto, escribe "ver mercado" no un número inventado.
-6. ANTI-SESGO: Primero busca razones para NO comprar. Solo recomienda BUY si supera ese filtro.
-7. TOP 3 PICKS: risk_adjusted_picks debe contener EXACTAMENTE 3 picks — los mejores entre todos los sectores.
-8. EXCLUIR TICKERS: NO incluyas en risk_adjusted_picks ni en assets estos tickers ya mostrados: ${excluded.length > 0 ? excluded.join(", ") : "ninguno"}. Busca activos diferentes.
-
-══ FORMATO DE SALIDA — JSON PURO ══
-Responde SOLO con JSON válido, sin markdown, sin comentarios:
+RESPONDE SOLO con este JSON (sin markdown, sin texto extra):
 {
-  "brand": "Financial Intelligence",
-  "creator": "Benjamin Hurtado",
-  "generated_at": "${new Date().toISOString()}",
-  "risk_profile": "${riskProfile}",
-  "executive_summary": "3-4 oraciones. Empieza con el dato más importante del mercado HOY. Sé directo, no uses eufemismos.",
+  "sector": "crypto",
+  "timestamp": "${new Date().toISOString()}",
+  "sector_summary": "2-3 oraciones con estado actual del mercado crypto basado en los datos",
+  "sector_outlook": "bullish|bearish|neutral",
+  "top_pick": "TICKER",
+  "top_pick_reasoning": "Por qué este activo es el mejor pick crypto ahora",
+  "assets": [
+    {
+      "name": "Nombre completo", "symbol": "TICKER",
+      "current_price": "$X (de Python)", "change_24h": "+X%", "change_7d": "+X%",
+      "change_30d": "+X%", "ytd_change": "+X%",
+      "week_52_high": "$X", "week_52_low": "$X",
+      "market_cap": "$XB", "volume_24h": "$XB",
+      "sentiment": "bullish|bearish|neutral",
+      "social_sentiment": "bullish|bearish|neutral|mixed",
+      "social_buzz": "high|medium|low",
+      "confidence": 7,
+      "source_agreement": "high|medium|low",
+      "sources_checked": ["python:yfinance", "python:alternative.me/fng", "python:cryptocompare"],
+      "key_news": [],
+      "social_highlights": [],
+      "recommendation": "buy|hold|sell",
+      "reasoning": "Tesis con métricas específicas. Ej: RSI=42 sobreventa + MACD alcista + F&G=28(Fear) + Reddit 45k activos. Riesgo: ..."
+    }
+  ]
+}`
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildStocksAgentPrompt(dataCtx: string, today: string): string {
+  return `Eres el Agente Acciones de Finance.ia — especialista en análisis fundamental, valoración DCF, earnings y rotación sectorial. Fecha: ${today}.
+
+PERFIL INVERSOR: AGRESIVO — 65% Growth [GROWTH 🚀] / 35% Dividend [DIVIDENDO 💰].
+→ Growth: revenue >15% YoY, TAM grande, ventaja competitiva. Tag: [GROWTH 🚀]
+→ Dividend: payout <70%, FCF yield positivo, dividendo creciente. Tag: [DIVIDENDO 💰]
+
+${dataCtx}
+
+TU MISIÓN:
+Analiza cada acción con los datos Python. Para cada una:
+1. Fundamentales: P/E vs sector, FCF yield, ROE, márgenes
+2. Valoración: ¿está cara o barata vs Fair Value Python?
+3. Técnico: RSI, MACD, tendencia SMA
+4. Catalizador: ¿hay earnings próximos, guidance, sector tailwind?
+5. Asigna bucket: [GROWTH 🚀] o [DIVIDENDO 💰]
+
+REGLAS:
+- KO es candidata natural a [DIVIDENDO 💰] — verifica payout ratio y yield
+- Para NVDA/AAPL/AMZN: foco en fundamentales y valoración, no en nombre
+- Si P/E está muy por encima del Fair Value Python: reduce confidence o recomienda HOLD
+- Cita mínimo 2 métricas en reasoning
+- confidence máximo 8 sin datos web en tiempo real
+
+RESPONDE SOLO con este JSON:
+{
+  "sector": "stocks",
+  "timestamp": "${new Date().toISOString()}",
+  "sector_summary": "2-3 oraciones sobre el estado del mercado de acciones",
+  "sector_outlook": "bullish|bearish|neutral",
+  "top_pick": "TICKER",
+  "top_pick_reasoning": "Por qué este es el mejor pick en acciones ahora",
+  "assets": [
+    {
+      "name": "Nombre", "symbol": "TICKER",
+      "current_price": "$X", "change_24h": "+X%", "change_7d": "+X%",
+      "change_30d": "+X%", "ytd_change": "+X%",
+      "week_52_high": "$X", "week_52_low": "$X",
+      "market_cap": "$XB", "volume_24h": "$XB",
+      "sentiment": "bullish|bearish|neutral",
+      "social_sentiment": "bullish|bearish|neutral|mixed",
+      "social_buzz": "high|medium|low",
+      "confidence": 7,
+      "source_agreement": "high",
+      "sources_checked": ["python:yfinance", "python:financetoolkit", "python:finnhub"],
+      "key_news": [],
+      "social_highlights": [],
+      "recommendation": "buy|hold|sell",
+      "reasoning": "[GROWTH 🚀] o [DIVIDENDO 💰] — tesis con métricas. Riesgo principal: ..."
+    }
+  ]
+}`
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildStartupsAgentPrompt(dataCtx: string, today: string): string {
+  return `Eres el Agente Startups/Growth de Finance.ia — especialista en small/mid caps (<$10B), empresas de alto crecimiento (revenue >40% YoY) y análisis de moat competitivo. Fecha: ${today}.
+
+PERFIL INVERSOR: AGRESIVO. Todos los picks son [GROWTH 🚀] — buscar asimetría x5-x10.
+
+${dataCtx}
+
+TU MISIÓN:
+Analiza cada empresa growth con los datos Python. Para cada una:
+1. Crecimiento: ¿revenue growth justifica el múltiplo de valoración?
+2. Moat: ¿tiene ventaja competitiva defensible? (red de efectos, switching costs, tech propietaria)
+3. Tamaño: ¿sigue siendo small/mid cap con runway largo?
+4. Técnico: ¿el precio está en zona de entrada favorable?
+5. Evalúa múltiplo actual vs histórico del sector
+
+REGLAS:
+- Si market cap ya supera $10B, ajusta el tagging (puede ser mid/large)
+- Revenue growth >40% YoY es el filtro mínimo para BUY agresivo
+- Cita múltiplo actual (P/E o P/S si no hay earnings) en reasoning
+- Menciona el riesgo de dilución o competencia en cada pick
+- confidence máximo 8 sin datos web en tiempo real
+
+RESPONDE SOLO con este JSON:
+{
+  "sector": "startups",
+  "timestamp": "${new Date().toISOString()}",
+  "sector_summary": "2-3 oraciones sobre el entorno de startups/growth",
+  "sector_outlook": "bullish|bearish|neutral",
+  "top_pick": "TICKER",
+  "top_pick_reasoning": "Por qué es la mejor oportunidad growth ahora",
+  "assets": [
+    {
+      "name": "Nombre", "symbol": "TICKER",
+      "current_price": "$X", "change_24h": "+X%", "change_7d": "+X%",
+      "change_30d": "+X%", "ytd_change": "+X%",
+      "week_52_high": "$X", "week_52_low": "$X",
+      "market_cap": "$XB", "volume_24h": "$XB",
+      "market_cap_b": 0,
+      "revenue_growth_yoy": "+X%",
+      "moat": "descripción 1 línea de la ventaja competitiva",
+      "valuation_vs_sector": "Xx revenue vs sector avg Xx",
+      "sentiment": "bullish|bearish|neutral",
+      "social_sentiment": "bullish|bearish|neutral|mixed",
+      "social_buzz": "high|medium|low",
+      "confidence": 7,
+      "source_agreement": "medium",
+      "sources_checked": ["python:yfinance", "python:financetoolkit"],
+      "key_news": [],
+      "social_highlights": [],
+      "recommendation": "buy|hold|sell",
+      "reasoning": "[GROWTH 🚀] — tesis: revenue growth X%, moat = X. Riesgo principal: ..."
+    }
+  ]
+}`
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildMaterialsAgentPrompt(dataCtx: string, today: string): string {
+  return `Eres el Agente Materias Primas de Finance.ia — especialista en commodities, metales preciosos, energía y análisis de oferta/demanda. Fecha: ${today}.
+
+PERFIL INVERSOR: AGRESIVO — materias primas sirven como hedge y oportunidad táctica.
+
+NOTA IMPORTANTE: Los datos Python son de ETFs proxy (GLD=Gold, SLV=Silver, XOM=Oil/Energy).
+Los precios son del ETF, no del spot del commodity. El análisis técnico es válido para el vehículo de inversión.
+
+${dataCtx}
+
+TU MISIÓN:
+Analiza cada commodity/ETF con los datos Python. Para cada uno:
+1. Técnico: RSI, MACD, SMA trend del ETF
+2. Contexto macro: ¿qué dice el VIX, DXY y 10Y sobre la demanda de commodities?
+3. Rol en cartera: ¿es hedge inflacionario, cobertura geopolítica, o apuesta cíclica?
+4. Gold/Silver: correlación inversa con USD y tasas
+5. Energy (XOM): ciclo de petróleo, capex, dividend yield
+
+REGLAS:
+- GLD/SLV: si VIX > 20 o tasas bajan → suele ser bullish para metales
+- XOM: evalúa FCF yield y dividend como [DIVIDENDO 💰] candidato
+- Cita datos macro del contexto en reasoning
+- confidence máximo 8 sin datos de spot price en tiempo real
+
+RESPONDE SOLO con este JSON:
+{
+  "sector": "materials",
+  "timestamp": "${new Date().toISOString()}",
+  "sector_summary": "2-3 oraciones sobre el mercado de materias primas",
+  "sector_outlook": "bullish|bearish|neutral",
+  "top_pick": "TICKER",
+  "top_pick_reasoning": "Por qué este commodity/ETF es el mejor pick ahora",
+  "assets": [
+    {
+      "name": "Nombre (ETF)", "symbol": "TICKER",
+      "current_price": "$X (ETF)", "change_24h": "+X%", "change_7d": "+X%",
+      "change_30d": "+X%", "ytd_change": "+X%",
+      "week_52_high": "$X", "week_52_low": "$X",
+      "market_cap": "$XB", "volume_24h": "$XB",
+      "sentiment": "bullish|bearish|neutral",
+      "social_sentiment": "bullish|bearish|neutral|mixed",
+      "social_buzz": "medium",
+      "confidence": 7,
+      "source_agreement": "high",
+      "sources_checked": ["python:yfinance"],
+      "key_news": [],
+      "social_highlights": [],
+      "recommendation": "buy|hold|sell",
+      "reasoning": "Tesis basada en técnico + macro. Riesgo principal: ..."
+    }
+  ]
+}`
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildCurrenciesAgentPrompt(marketCtx: any, today: string): string {
+  const macroStr = [
+    ...(marketCtx?.insights ?? []),
+    marketCtx?.macro?.["10Y Treasury Yield"] ? `US 10Y: ${marketCtx.macro["10Y Treasury Yield"].price}%` : "",
+    marketCtx?.macro?.["VIX (Fear Index)"]   ? `VIX: ${marketCtx.macro["VIX (Fear Index)"].price}` : "",
+    marketCtx?.macro?.["DXY (USD Index)"]    ? `DXY: ${marketCtx.macro["DXY (USD Index)"].price}` : "",
+  ].filter(Boolean).join("\n")
+
+  return `Eres el Agente Divisas de Finance.ia — especialista en forex, política monetaria de bancos centrales y macro global. Fecha: ${today}.
+
+PERFIL INVERSOR: AGRESIVO — divisas como cobertura táctica o especulación macro.
+
+CONTEXTO MACRO DISPONIBLE:
+${macroStr || "Contexto macro no disponible — usa tu conocimiento actualizado"}
+
+TU MISIÓN:
+Selecciona 3 pares de divisas relevantes HOY basándote en:
+1. Divergencia de política monetaria (Fed vs ECB, BoJ, etc.)
+2. Datos macro recientes (inflación, empleo, PIB)
+3. Pares técnicamente interesantes (tendencia clara, soporte/resistencia)
+4. USD/CLP u otras divisas EM si son relevantes para un inversor latinoamericano
+
+REGLAS:
+- Cita el diferencial de tasas o política monetaria en reasoning
+- social_buzz para divisas generalmente es "medium" o "low"
+- No inventes precios exactos que no conoces — usa rangos aproximados si es necesario
+- confidence máximo 6 para divisas (sin datos en tiempo real)
+- Menciona el riesgo de volatilidad por eventos macro próximos
+
+RESPONDE SOLO con este JSON:
+{
+  "sector": "currencies",
+  "timestamp": "${new Date().toISOString()}",
+  "sector_summary": "2-3 oraciones sobre el mercado forex y política monetaria actual",
+  "sector_outlook": "bullish|bearish|neutral",
+  "top_pick": "EUR/USD o similar",
+  "top_pick_reasoning": "Por qué este par es el más interesante ahora",
+  "assets": [
+    {
+      "name": "EUR/USD", "symbol": "EURUSD",
+      "current_price": "X.XXXX (aprox)", "change_24h": "+X%", "change_7d": "+X%",
+      "change_30d": "+X%", "ytd_change": "+X%",
+      "week_52_high": "X.XXXX", "week_52_low": "X.XXXX",
+      "market_cap": "N/A", "volume_24h": "$XB",
+      "sentiment": "bullish|bearish|neutral",
+      "social_sentiment": "neutral",
+      "social_buzz": "medium",
+      "confidence": 5,
+      "source_agreement": "medium",
+      "sources_checked": ["conocimiento-entrenamiento", "contexto-macro"],
+      "key_news": [],
+      "social_highlights": [],
+      "recommendation": "buy|hold|sell",
+      "reasoning": "Tesis: diferencial de tasas X vs Y, tendencia en las últimas semanas. Riesgo: ..."
+    }
+  ]
+}`
+}
+
+function buildStrategyAgentPrompt(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sectorOutputs: Record<string, any>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  marketCtx: any,
+  riskProfile: string,
+  today: string
+): string {
+  const sectorSummaries = Object.entries(sectorOutputs)
+    .map(([sector, data]) => {
+      if (!data) return `${sector}: sin datos`
+      const assets = (data.assets ?? [])
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .map((a: any) => `  ${a.symbol}: ${a.recommendation?.toUpperCase()} (conf: ${a.confidence}) — ${a.reasoning?.slice(0, 120)}`)
+        .join("\n")
+      return `── ${sector.toUpperCase()} ──\nOutlook: ${data.sector_outlook} | Top pick: ${data.top_pick}\n${data.sector_summary}\n${assets}`
+    })
+    .join("\n\n")
+
+  const macroStr = [
+    ...(marketCtx?.insights ?? []),
+    marketCtx?.macro?.["VIX (Fear Index)"]       ? `VIX: ${marketCtx.macro["VIX (Fear Index)"].price}` : "",
+    marketCtx?.macro?.["10Y Treasury Yield"]      ? `10Y Treasury: ${marketCtx.macro["10Y Treasury Yield"].price}%` : "",
+    marketCtx?.macro?.["S&P 500"]                 ? `S&P 500: ${marketCtx.macro["S&P 500"].price} (1W: ${marketCtx.macro["S&P 500"].w1}%)` : "",
+  ].filter(Boolean).join("\n")
+
+  return `Eres el Agente Estratega (Chief Investment Strategist) de Finance.ia. Fecha: ${today}.
+
+Recibes los análisis de 5 agentes especializados y debes sintetizar todo en una estrategia coherente.
+
+PERFIL: ${riskProfile.toUpperCase()} — 65% Growth [GROWTH 🚀] / 35% Dividend [DIVIDENDO 💰]
+El inversor es joven, horizonte largo, busca asimetría x5-x10 en growth y cash flow en dividendos.
+
+══ CONTEXTO MACRO ══
+${macroStr || "No disponible"}
+
+══ OUTPUTS DE LOS 5 AGENTES SECTORIALES ══
+${sectorSummaries}
+
+TU MISIÓN:
+1. Analiza correlaciones cross-sector (¿Gold y Crypto subiendo juntos? ¿Acciones tech cayendo mientras materials sube?)
+2. Detecta el régimen de mercado actual (risk-on, risk-off, rotación sectorial)
+3. Rankea los mejores picks de todos los sectores en orden de convicción ajustada por riesgo
+4. Define la allocación óptima de portfolio para el perfil agresivo
+5. Identifica los warnings más importantes
+6. Escribe el executive_summary del reporte
+
+REGLAS:
+- risk_adjusted_picks: EXACTAMENTE 5-8 picks, los mejores entre todos los sectores
+- Cada pick incluye: rank, sector, confidence, risk_score (1-10), risk_adjusted_score, recommendation, reasoning, position_size
+- portfolio_allocation: números enteros que sumen exactamente 100
+- warnings: 2-4 advertencias CONCRETAS basadas en los datos, no genéricas
+- executive_summary: 3-4 oraciones, empieza con el dato macro más importante HOY
+
+RESPONDE SOLO con este JSON:
+{
+  "executive_summary": "...",
   "macro_environment": {
-    "summary": "2-3 oraciones basadas en los datos macro reales provistos. Cita VIX, yields o rotación sectorial.",
+    "summary": "2-3 oraciones con datos concretos (VIX, yields, rotación)",
     "interest_rate_outlook": "rising|stable|falling",
     "inflation_outlook": "rising|stable|falling",
     "geopolitical_risk": "high|medium|low",
     "key_factors": ["factor concreto 1", "factor concreto 2", "factor concreto 3"]
   },
-  "portfolio_allocation": { ${outputSectors.map(s => `"${s}": 0`).join(", ")}, "cash": 0 },
+  "portfolio_allocation": {
+    "crypto": 0, "stocks": 0, "startups": 0, "currencies": 0, "materials": 0, "cash": 0
+  },
   "cross_sector_insights": [
     { "insight": "Observación no obvia entre sectores", "implication": "Qué hacer con esto" }
   ],
   "risk_adjusted_picks": [
     {
       "rank": 1, "name": "Nombre", "symbol": "TICKER", "sector": "sector",
-      "confidence": 8, "risk_score": 5, "risk_adjusted_score": 7,
-      "recommendation": "buy|hold|sell",
-      "reasoning": "Tesis específica con métricas. Riesgo principal: X",
-      "position_size": "X-Y%"
+      "confidence": 8, "risk_score": 5, "risk_adjusted_score": 7.5,
+      "recommendation": "buy",
+      "reasoning": "Por qué este es el mejor pick ajustado por riesgo para perfil agresivo",
+      "position_size": "X-Y% del portfolio"
     }
   ],
-  "excluded_tickers": ${JSON.stringify(excluded)},
-  "historical_accuracy": { "previous_date": null, "calls_made": 0, "calls_correct": 0, "accuracy_pct": 0, "notable": "Análisis cuantitativo — ${today}" },
-  "warnings": ["Advertencia real basada en datos (no genérica)"],
-  "sectors": { ${sectorJsonTemplate} }
-}
-
-portfolio_allocation suma exactamente 100. risk_adjusted_picks: 5-8 mejores entre todos los sectores. SOLO JSON.`
+  "warnings": ["Advertencia concreta 1", "Advertencia concreta 2"],
+  "strategy_summary": "3-4 oraciones de resumen estratégico para el perfil agresivo"
+}`
 }
 
 function buildCriticPrompt(reportJson: string): string {
-  return `Eres el "abogado del diablo" de inversiones. Te acaban de dar un reporte de análisis de mercado.
-Tu trabajo es identificar EXACTAMENTE qué está mal, qué falta y qué podría fallar.
+  return `Eres el "abogado del diablo" de inversiones. Revisa este reporte multi-agente.
 
-REPORTE A REVISAR:
-${reportJson.substring(0, 6000)}
+REPORTE:
+${reportJson.substring(0, 5000)}
 
-Responde con un JSON con esta estructura EXACTA:
+Responde SOLO con JSON:
 {
   "warnings_adicionales": ["advertencia específica 1", "advertencia específica 2"],
   "picks_cuestionables": [
-    { "symbol": "TICKER", "razon": "Por qué esta recomendación tiene problemas o asunciones débiles" }
+    { "symbol": "TICKER", "razon": "Por qué esta recomendación tiene problemas" }
   ],
-  "sesgo_detectado": "descripción de si el análisis está sesgado en alguna dirección",
-  "oportunidades_omitidas": ["sector o activo que debería haberse considerado y no está"],
+  "sesgo_detectado": "¿hay sesgo bullish excesivo u otro?",
   "nivel_confianza_general": "LOW|MEDIUM|HIGH",
-  "veredicto": "1-2 oraciones sobre la calidad general del análisis"
-}
-Solo JSON, sin texto adicional.`
+  "veredicto": "1-2 oraciones sobre calidad del análisis"
+}`
 }
 
-/**
- * Extrae el primer objeto JSON válido del texto del modelo.
- * Usa tracking de llaves para manejar texto antes/después del JSON,
- * markdown, trailing commas y otros defectos comunes de LLMs.
- */
+// ── extractJson — robusto contra trailing commas y comentarios ────────────────
 function extractJson(text: string): Record<string, unknown> {
-  // 1. Buscar el primer { y rastrear profundidad de llaves
   const start = text.indexOf("{")
-  if (start === -1) throw new Error(`No se encontró JSON en la respuesta. Preview: ${text.slice(0, 200)}`)
+  if (start === -1) throw new Error(`No se encontró JSON. Preview: ${text.slice(0, 200)}`)
 
-  let depth = 0
-  let inString = false
-  let escape = false
+  let depth = 0, inString = false, escape = false
 
   for (let i = start; i < text.length; i++) {
     const ch = text[i]
-    if (escape)            { escape = false; continue }
+    if (escape)                 { escape = false; continue }
     if (ch === "\\" && inString) { escape = true;  continue }
-    if (ch === '"')        { inString = !inString; continue }
-    if (inString)          continue
-    if (ch === "{")        depth++
-    if (ch === "}") { depth--; if (depth === 0) {
-      const candidate = text.slice(start, i + 1)
-      // 2. Primer intento: JSON estricto
-      try { return JSON.parse(candidate) } catch { /* sigue */ }
-      // 3. Segundo intento: eliminar trailing commas
-      const fixed = candidate.replace(/,\s*([}\]])/g, "$1")
-      try { return JSON.parse(fixed) } catch { /* sigue */ }
-      // 4. Tercer intento: eliminar comentarios // y trailing commas
-      const noComments = fixed.replace(/\/\/[^\n]*/g, "")
-      return JSON.parse(noComments)
-    }}
+    if (ch === '"')              { inString = !inString; continue }
+    if (inString)                continue
+    if (ch === "{")              depth++
+    if (ch === "}") {
+      depth--
+      if (depth === 0) {
+        const candidate = text.slice(start, i + 1)
+        try { return JSON.parse(candidate) } catch { /* sigue */ }
+        const fixed = candidate.replace(/,\s*([}\]])/g, "$1")
+        try { return JSON.parse(fixed) } catch { /* sigue */ }
+        const noComments = fixed.replace(/\/\/[^\n]*/g, "")
+        return JSON.parse(noComments)
+      }
+    }
   }
-  throw new Error(`JSON incompleto en la respuesta. Preview: ${text.slice(start, start + 300)}`)
+  throw new Error(`JSON incompleto. Preview: ${text.slice(start, start + 300)}`)
 }
+
+// ── Llama a un agente Groq con reintentos en rate limit ─────────────────────
+async function callAgent(
+  groq: Groq,
+  systemMsg: string,
+  userMsg: string,
+  maxTokens = 2500,
+  retries = 2
+): Promise<Record<string, unknown>> {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const result = await groq.chat.completions.create({
+        model: "llama-3.3-70b-versatile",
+        messages: [
+          { role: "system", content: systemMsg },
+          { role: "user",   content: userMsg },
+        ],
+        temperature: 0.3,
+        max_tokens: maxTokens,
+      })
+      return extractJson(result.choices[0]?.message?.content ?? "")
+    } catch (err: unknown) {
+      const msg = String(err)
+      const isRateLimit = msg.includes("429") || msg.includes("rate_limit") || msg.includes("Rate limit")
+      if (isRateLimit && attempt < retries) {
+        // Esperar antes de reintentar (backoff)
+        await new Promise(r => setTimeout(r, 8000 * (attempt + 1)))
+        continue
+      }
+      throw err
+    }
+  }
+  throw new Error("Max retries reached")
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// POST handler — SSE streaming
+// ════════════════════════════════════════════════════════════════════════════
 
 export async function POST(request: Request) {
   const encoder = new TextEncoder()
@@ -288,146 +603,206 @@ export async function POST(request: Request) {
       }
 
       try {
-        const body = await request.json().catch(() => ({}))
-        const riskProfile: string  = (body as Record<string, string>).risk_profile ?? "moderate"
+        const body        = await request.json().catch(() => ({}))
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const sectors: string[]    = (body as any).sectors   ?? ["crypto", "stocks", "currencies", "materials"]
+        const riskProfile = (body as any).risk_profile ?? "aggressive"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const excluded: string[]   = (body as any).excluded  ?? []   // tickers ya mostrados (para "siguientes 3")
-        const rootDir   = path.join(process.cwd(), "..")
+        const sectors: string[] = (body as any).sectors ?? ["crypto", "stocks", "startups", "currencies", "materials"]
+        const rootDir    = path.join(process.cwd(), "..")
         const reportPath = path.join(rootDir, "dashboard", "public", "data", "report.json")
         const tickerDir  = path.join(rootDir, "dashboard", "public", "data", "ticker")
+        const today      = new Date().toISOString().split("T")[0]
+        const groq       = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
-        const macroTickers = pickTickers(sectors, excluded)
-
-        const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
-
-        // ── PASO 1: Contexto macro real (VIX, yields, sector rotation) ─────────
-        send("macro", "Obteniendo VIX, yields y rotación sectorial...")
+        // ── PASO 1: Contexto macro ─────────────────────────────────────────
+        send("macro", "Obteniendo VIX, yields, S&P 500 y rotación sectorial...")
         let marketCtx: Record<string, unknown> = {}
         try {
           const { stdout } = await execAsync("python market_context.py", {
-            cwd: rootDir,
-            env: { ...process.env, PYTHONUTF8: "1" },
-            timeout: 30000,
+            cwd: rootDir, env: { ...process.env, PYTHONUTF8: "1" }, timeout: 30000,
           })
           marketCtx = JSON.parse(stdout)
         } catch {
           send("macro", "Contexto macro parcial, continuando...")
         }
 
-        // ── PASO 2: Análisis profundo de 3 tickers seleccionados ────────────────
-        send("deep", `Análisis profundo de ${macroTickers.length} tickers: ${macroTickers.join(", ")}...`)
+        // ── PASO 2: Análisis Python para todos los tickers de los sectores ──
+        const allTickers = getAllTickers(sectors)
+        send("deep", `Python analizando ${allTickers.length} tickers: ${allTickers.join(", ")}...`)
         try {
-          await execAsync(`python analisis_maia.py ${macroTickers.join(" ")}`, {
-            cwd: rootDir,
-            env: { ...process.env, PYTHONUTF8: "1" },
-            timeout: 240000,
+          await execAsync(`python analisis_maia.py ${allTickers.join(" ")}`, {
+            cwd: rootDir, env: { ...process.env, PYTHONUTF8: "1" }, timeout: 240000,
           })
         } catch {
-          send("deep", "Análisis parcial, continuando con datos disponibles...")
+          send("deep", "Análisis Python parcial, continuando con datos disponibles...")
         }
 
-        // ── PASO 3: Leer JSONs generados ───────────────────────────────────────
-        send("reading", "Preparando contexto para el análisis...")
-        const tickerDeep: Record<string, unknown> = {}
-        for (const ticker of macroTickers) {
-          const p = path.join(tickerDir, `${ticker}.json`)
-          if (fs.existsSync(p)) {
-            try { tickerDeep[ticker] = JSON.parse(fs.readFileSync(p, "utf-8")) } catch { /* skip */ }
+        // ── PASO 3: Cargar JSONs generados ────────────────────────────────
+        const allTickerData = loadTickerData(allTickers, tickerDir)
+
+        // ── PASO 4: Ejecutar agentes secuencialmente (evitar rate limit Groq) ──
+        const agentSystem = "You are a specialized financial analysis agent. Respond ONLY with a valid JSON object. No markdown, no code blocks, no text outside the JSON. Start with { and end with }."
+        const sectorOutputs: Record<string, Record<string, unknown>> = {}
+
+        type AgentDef = { key: string; label: string; prompt: string; maxTokens: number }
+        const agentQueue: AgentDef[] = []
+
+        if (sectors.includes("crypto")) {
+          agentQueue.push({ key: "crypto", label: "Crypto (BTC, ETH, SOL)",
+            prompt: buildCryptoAgentPrompt(buildDataContext(SECTOR_TICKERS.crypto, allTickerData, marketCtx), today),
+            maxTokens: 2500 })
+        }
+        if (sectors.includes("stocks")) {
+          agentQueue.push({ key: "stocks", label: "Acciones (NVDA, AAPL, AMZN, KO)",
+            prompt: buildStocksAgentPrompt(buildDataContext(SECTOR_TICKERS.stocks, allTickerData, marketCtx), today),
+            maxTokens: 2500 })
+        }
+        if (sectors.includes("startups")) {
+          agentQueue.push({ key: "startups", label: "Growth/Startups (MELI, PLTR, HOOD)",
+            prompt: buildStartupsAgentPrompt(buildDataContext(SECTOR_TICKERS.startups, allTickerData, marketCtx), today),
+            maxTokens: 2500 })
+        }
+        if (sectors.includes("materials")) {
+          agentQueue.push({ key: "materials", label: "Materias Primas (GLD, SLV, XOM)",
+            prompt: buildMaterialsAgentPrompt(buildDataContext(SECTOR_TICKERS.materials, allTickerData, marketCtx), today),
+            maxTokens: 2500 })
+        }
+        if (sectors.includes("currencies")) {
+          agentQueue.push({ key: "currencies", label: "Divisas (EUR/USD, DXY...)",
+            prompt: buildCurrenciesAgentPrompt(marketCtx, today),
+            maxTokens: 2000 })
+        }
+
+        send("agents", `Ejecutando ${agentQueue.length} agentes especializados...`)
+
+        for (const agent of agentQueue) {
+          send("agents", `▶ Agente ${agent.label}...`)
+          try {
+            const result = await callAgent(groq, agentSystem, agent.prompt, agent.maxTokens)
+            sectorOutputs[agent.key] = result
+            const n = Array.isArray(result.assets) ? result.assets.length : 0
+            send("agents", `✓ ${agent.label} — ${n} activos analizados`)
+          } catch (err) {
+            console.error(`[agent:${agent.key}]`, err)
+            sectorOutputs[agent.key] = {
+              sector: agent.key, assets: [], sector_summary: "Error al contactar agente",
+              sector_outlook: "neutral", top_pick: "", top_pick_reasoning: "", _error: true,
+            }
+            send("agents", `⚠ ${agent.label} — error, continuando...`)
           }
         }
 
-        // ── PASO 4: Groq — generación principal ───────────────────────────────
-        send("gemini", "Buscando oportunidades con Groq (llama-3.3-70b)...")
-        const mainPrompt = buildMainPrompt(tickerDeep, marketCtx, riskProfile, sectors, excluded)
-        const mainResult = await groq.chat.completions.create({
-          model: "llama-3.3-70b-versatile",
-          messages: [
-            { role: "system", content: "You are a financial analyst API. You MUST respond with ONLY a valid JSON object. No markdown, no code blocks, no explanations, no text before or after the JSON. Start your response with { and end with }." },
-            { role: "user", content: mainPrompt },
-          ],
-          temperature: 0.3,
-          max_tokens: 8000,
-        })
-        const mainText   = mainResult.choices[0]?.message?.content ?? ""
-        const reportJson = extractJson(mainText) as Record<string, unknown>
+        const agentSummary = Object.entries(sectorOutputs).map(([k, v]) => {
+          const n = Array.isArray(v.assets) ? v.assets.length : 0
+          return `${k.toUpperCase()}(${(v as {_error?: boolean})._error ? "⚠" : n + " activos"})`
+        }).join(", ")
+        send("agents", `Completados: ${agentSummary}`)
 
-        // ── PASO 5: Groq — crítico (abogado del diablo) ───────────────────────
-        send("critic", "Pasada crítica — verificando sesgos y advertencias...")
+        // ── PASO 5: Agente Estratega — síntesis cross-sector ──────────────
+        send("strategy", "Agente Estratega sintetizando los 5 sectores...")
+        let strategyOutput: Record<string, unknown> = {}
+        try {
+          strategyOutput = await callAgent(
+            groq,
+            agentSystem,
+            buildStrategyAgentPrompt(sectorOutputs, marketCtx, riskProfile, today),
+            4000
+          )
+        } catch (e) {
+          send("strategy", "Error en agente estratega, usando fallback...")
+          console.error("[strategy agent]", e)
+        }
+
+        // ── PASO 6: Pasada crítica ─────────────────────────────────────────
+        send("critic", "Agente crítico verificando sesgos y advertencias...")
         let criticOutput: Record<string, unknown> = {}
         try {
-          const criticResult = await groq.chat.completions.create({
-            model: "llama-3.3-70b-versatile",
-            messages: [
-              { role: "system", content: "You are a financial risk analyst API. Respond with ONLY a valid JSON object. No markdown, no text outside the JSON." },
-              { role: "user", content: buildCriticPrompt(mainText) },
-            ],
-            temperature: 0.2,
-            max_tokens: 1000,
-          })
-          criticOutput = extractJson(criticResult.choices[0]?.message?.content ?? "")
-        } catch {
-          /* crítico falla silenciosamente — no bloquea el reporte */
-        }
+          const previewStr = JSON.stringify({ strategy: strategyOutput, sectors: sectorOutputs }).slice(0, 4000)
+          criticOutput = await callAgent(
+            groq,
+            "You are a financial risk analyst. Respond ONLY with valid JSON.",
+            buildCriticPrompt(previewStr),
+            800
+          )
+        } catch { /* falla silenciosamente */ }
 
-        // ── PASO 5b: Reemplazar key_news con noticias reales de Python ────────
-        // Nunca usar noticias inventadas por el modelo. Si el ticker JSON tiene
-        // noticias reales (yfinance), las usamos. Si no, key_news queda vacío.
-        const reportSectors = reportJson.sectors as Record<string, { assets?: { symbol?: string; key_news?: unknown[] }[] }> | undefined
-        if (reportSectors) {
-          for (const sectorData of Object.values(reportSectors)) {
-            for (const asset of sectorData.assets ?? []) {
-              const symbol = (asset.symbol ?? "").toUpperCase()
-              const tickerPath = path.join(tickerDir, `${symbol}.json`)
-              if (fs.existsSync(tickerPath)) {
-                try {
-                  const td = JSON.parse(fs.readFileSync(tickerPath, "utf-8"))
-                  asset.key_news = td.noticias_ticker ?? []
-                } catch {
-                  asset.key_news = []
-                }
-              } else {
-                asset.key_news = []
-              }
+        // ── PASO 7: Reemplazar key_news con noticias reales de Python ────
+        for (const sectorData of Object.values(sectorOutputs)) {
+          const assets = (sectorData as {assets?: {symbol?: string; key_news?: unknown[]}[]}).assets ?? []
+          for (const asset of assets) {
+            const symbol = (asset.symbol ?? "").toUpperCase()
+            const tp = path.join(tickerDir, `${symbol}.json`)
+            if (fs.existsSync(tp)) {
+              try {
+                const td = JSON.parse(fs.readFileSync(tp, "utf-8"))
+                asset.key_news = td.noticias_ticker ?? []
+              } catch { asset.key_news = [] }
+            } else {
+              asset.key_news = []
             }
           }
         }
 
-        // ── PASO 6: Merge — incorporar feedback del crítico ────────────────────
-        const warningsExistentes: string[] = (reportJson.warnings as string[]) ?? []
-        const warningsAdicionales: string[] = (criticOutput.warnings_adicionales as string[]) ?? []
-        const picksProblematicos: {symbol: string, razon: string}[] = (criticOutput.picks_cuestionables as {symbol: string, razon: string}[]) ?? []
+        // ── PASO 8: Merge — construir report.json final ───────────────────
+        send("saving", "Guardando reporte verificado...")
 
-        // Marcar picks cuestionables en risk_adjusted_picks
-        if (picksProblematicos.length > 0 && Array.isArray(reportJson.risk_adjusted_picks)) {
-          reportJson.risk_adjusted_picks = (reportJson.risk_adjusted_picks as Record<string, unknown>[]).map(pick => {
-            const critica = picksProblematicos.find(p => p.symbol === pick.symbol)
-            if (critica) {
-              return { ...pick, _critic_note: critica.razon }
-            }
-            return pick
+        const warningsBase: string[]  = (strategyOutput.warnings as string[])  ?? []
+        const warningsExtra: string[] = (criticOutput.warnings_adicionales as string[]) ?? []
+
+        // Marcar picks cuestionables del crítico
+        if (Array.isArray(strategyOutput.risk_adjusted_picks)) {
+          const badPicks = (criticOutput.picks_cuestionables as {symbol: string, razon: string}[]) ?? []
+          strategyOutput.risk_adjusted_picks = (strategyOutput.risk_adjusted_picks as Record<string, unknown>[]).map(pick => {
+            const issue = badPicks.find(p => p.symbol === pick.symbol)
+            return issue ? { ...pick, _critic_note: issue.razon } : pick
           })
         }
 
-        reportJson.warnings = [...new Set([...warningsExistentes, ...warningsAdicionales])]
-        reportJson.generated_at = new Date().toISOString()
-        reportJson._generated_by = "gemini-2.0-flash + critic-pass"
-        reportJson._market_context = {
-          vix: (marketCtx as {macro?: {[k: string]: {price: number}}})?.macro?.["VIX (Fear Index)"]?.price,
-          tnx: (marketCtx as {macro?: {[k: string]: {price: number}}})?.macro?.["10Y Treasury Yield"]?.price,
-          insights: (marketCtx as {insights?: string[]})?.insights ?? [],
-          critic_veredicto: criticOutput.veredicto ?? null,
-          critic_confianza: criticOutput.nivel_confianza_general ?? null,
-          sesgo_detectado: criticOutput.sesgo_detectado ?? null,
+        const reportJson: Record<string, unknown> = {
+          brand:         "Finance.ia",
+          creator:       "Benjamin Hurtado",
+          generated_at:  new Date().toISOString(),
+          risk_profile:  riskProfile,
+
+          // De la capa Strategy Agent
+          executive_summary:    strategyOutput.executive_summary    ?? "Análisis multi-agente completado.",
+          macro_environment:    strategyOutput.macro_environment    ?? {},
+          portfolio_allocation: strategyOutput.portfolio_allocation ?? {},
+          cross_sector_insights: strategyOutput.cross_sector_insights ?? [],
+          risk_adjusted_picks:  strategyOutput.risk_adjusted_picks  ?? [],
+          warnings:             [...new Set([...warningsBase, ...warningsExtra])],
+          strategy_summary:     strategyOutput.strategy_summary     ?? "",
+
+          historical_accuracy: {
+            previous_date: null, calls_made: 0, calls_correct: 0,
+            accuracy_pct: 0, notable: `Análisis multi-agente — ${today}`,
+          },
+
+          // Los 5 sectores
+          sectors: sectorOutputs,
+
+          // Metadatos de generación
+          _generated_by: "multi-agent: crypto+stocks+startups+currencies+materials+strategy",
+          _agents_status: Object.fromEntries(
+            Object.keys(sectorOutputs).map(k => [k, (sectorOutputs[k] as {_error?: boolean})._error ? "error" : "ok"])
+          ),
+          _market_context: {
+            vix:             (marketCtx as {macro?: Record<string, {price: number}>})?.macro?.["VIX (Fear Index)"]?.price,
+            tnx:             (marketCtx as {macro?: Record<string, {price: number}>})?.macro?.["10Y Treasury Yield"]?.price,
+            insights:        (marketCtx as {insights?: string[]})?.insights ?? [],
+            critic_veredicto: criticOutput.veredicto ?? null,
+            critic_confianza: criticOutput.nivel_confianza_general ?? null,
+            sesgo_detectado:  criticOutput.sesgo_detectado ?? null,
+          },
         }
 
-        // ── PASO 7: Guardar ────────────────────────────────────────────────────
-        send("saving", "Guardando reporte verificado...")
         fs.writeFileSync(reportPath, JSON.stringify(reportJson, null, 2), "utf-8")
 
-        send("done", `Listo. Confianza del crítico: ${criticOutput.nivel_confianza_general ?? "N/D"}. Recargando...`)
+        const confianza = criticOutput.nivel_confianza_general ?? "N/D"
+        const nAgents   = Object.keys(sectorOutputs).filter(k => !(sectorOutputs[k] as {_error?: boolean})._error).length
+        send("done", `¡Listo! ${nAgents}/${agentQueue.length} agentes exitosos. Confianza del crítico: ${confianza}. Recargando...`)
         controller.close()
+
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e)
         send("error", msg)

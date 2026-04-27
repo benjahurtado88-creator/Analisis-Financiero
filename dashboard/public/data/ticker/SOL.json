@@ -1,34 +1,34 @@
 {
   "ticker": "SOL",
-  "fecha": "2026-04-12T00:10:10.563093",
+  "fecha": "2026-04-12T20:48:01.243492",
   "es_cripto": true,
   "veredicto": "PRECAUCION",
   "score": 0,
   "precio": {
-    "precio_actual": 82.448,
-    "cambio_24h": -2.81,
-    "cambio_7d": 2.03,
-    "cambio_30d": -5.74,
+    "precio_actual": 81.8857,
+    "cambio_24h": -3.61,
+    "cambio_7d": 0.04,
+    "cambio_30d": -4.93,
     "high_52w": 247.6371,
     "low_52w": 77.7533,
-    "vol_hoy": 14505496576,
-    "vol_20d_avg": 4886992740,
-    "vol_relativo": 2.97,
-    "cambio_ytd": -34.96,
-    "sma_20": 83.727,
-    "sma_50": 85.4352,
-    "sma_200": 131.2061,
+    "vol_hoy": 3899946496,
+    "vol_20d_avg": 4663807290,
+    "vol_relativo": 0.84,
+    "cambio_ytd": -35.4,
+    "sma_20": 83.3751,
+    "sma_50": 85.4187,
+    "sma_200": 130.5692,
     "soporte": 77.7533,
     "resistencia": 96.2237,
     "tendencia_sma": "BAJISTA",
-    "rsi": 50.89,
-    "macd_line": -1.2045,
-    "macd_signal": -1.5214,
+    "rsi": 50.95,
+    "macd_line": -1.0566,
+    "macd_signal": -1.3965,
     "macd_bullish": true
   },
   "info": {
-    "market_cap": 47368163328.0,
-    "circulating": 574521728.0
+    "market_cap": 47045021696.0,
+    "circulating": 574520448.0
   },
   "fundamentales": {},
   "fair_value": {},
@@ -67,7 +67,7 @@
       },
       {
         "factor": "Posición 52s",
-        "valor": "3%",
+        "valor": "2%",
         "señal": "BULLISH",
         "peso": "+1",
         "desc": "Cerca del mínimo anual — posible valor en zona baja histórica"
@@ -75,16 +75,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-04-10] BeInCrypto (score:7): Bitget Offers Retail Synthetic SpaceX Exposure, but Risks Lurk in the Details — Bitget launches IPO Prime with preSPAX, a synthetic token tracking SpaceX upside. No equity, no endorsement.",
-    "[2026-04-10] TheStreet (score:5): Alchemy launches $20 million fund for Solana builders — The momentum behind the Solana blockchain is reaching new heights. With billions of transactions processed every month and a stablecoin market cap sur",
-    "[2026-04-11] Benzinga (score:3): Bitcoin, Solana, XRP, Dogecoin Show Signs Of Bottoming: Watch This 'Golden Zone' — Bitcoin, Ethereum, XRP, Solana, and Dogecoin may be forming a structural bottom after months of decline, according to crypto analyst Ali Martinez, who",
-    "[2026-04-10] 24/7 Wall St. (score:2): XRP Led Global Crypto Fund Inflows Last Week With $119.6 Million: What’s Driving the Demand for XRP? — More money flowed into XRP (CRYPTO: XRP) investment products last week than into Bitcoin, Solana, and every other crypto asset combined. CoinShares re",
-    "[2026-04-10] 24/7 Wall St. (score:2): Every Major Altcoin Dipped in Q1: Can XRP, Solana, and Ethereum Bounce Back in Q2? — If you held XRP (CRYPTO: XRP), Ethereum (CRYPTO: ETH), or Solana (CRYPTO: SOL) through Q1 2026, you already know how bad it was. XRP had its worst qua"
+    {
+      "title": "Bitget Offers Retail Synthetic SpaceX Exposure, but Risks Lurk in the Details",
+      "url": "https://beincrypto.com/bitget-ipo-prime-prespax-spacex-2/",
+      "source": "BeInCrypto",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Alchemy launches $20 million fund for Solana builders",
+      "url": "https://www.thestreet.com/crypto/markets/alchemy-launches-20-million-fund-for-solana-builders",
+      "source": "TheStreet",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Solana Crypto Lost 68% From Its All-Time High and Validators Are Disappearing at the Same Rate",
+      "url": "https://99bitcoins.com/news/altcoins/solana-down-68-percent-buying-opportunity-warning-sign/",
+      "source": "99bitcoins",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Bitcoin, Solana, XRP, Dogecoin Show Signs Of Bottoming: Watch This 'Golden Zone'",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/bitcoin-solana-xrp-dogecoin-show-104613664.html",
+      "source": "Benzinga",
+      "date": "2026-04-11",
+      "sentiment": "bearish"
+    },
+    {
+      "title": "XRP Led Global Crypto Fund Inflows Last Week With $119.6 Million: What’s Driving the Demand for XRP?",
+      "url": "https://247wallst.com/investing/2026/04/10/xrp-led-global-crypto-fund-inflows-last-week-with-119-6-million-whats-driving-the-demand-for-xrp/",
+      "source": "24/7 Wall St.",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "‘I feel pressured’: My husband has early Alzheimer’s and wants to visit Europe, but I’m terrified of flying. What should I do?",
+      "url": "https://www.marketwatch.com/story/i-feel-pressured-my-husband-has-early-alzheimers-and-wants-to-visit-europe-but-im-terrified-of-flying-what-should-i-do-c5cc01bf?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
   ]
 }

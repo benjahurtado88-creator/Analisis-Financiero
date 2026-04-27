@@ -1,6 +1,6 @@
 {
   "ticker": "AAPL",
-  "fecha": "2026-04-12T00:21:52.779061",
+  "fecha": "2026-04-12T20:48:41.792580",
   "es_cripto": false,
   "veredicto": "MANTENER / ESPERAR",
   "score": 3,
@@ -48,14 +48,14 @@
   "fundamentales": {
     "yield": 0.003992628992628993,
     "payout": 0.1377,
-    "pe": 36.3839,
-    "pb": 55.2718,
-    "pfcf": 41.2624,
+    "pe": 36.418,
+    "pb": 55.3236,
+    "pfcf": 41.301,
     "fcf_yield": 0.0242,
     "margin": 0.2692,
     "gross": 0.4691,
     "roe": 1.7142,
-    "de": 1.338,
+    "de": 1.5241,
     "int_cov": null,
     "eps": 7.465,
     "graham": 28.73
@@ -63,7 +63,7 @@
   "fair_value": {
     "tipo_empresa": "growth",
     "pe_benchmark": 35,
-    "fair_value_pe": 250.57,
+    "fair_value_pe": 250.34,
     "fair_ev": 207.02,
     "nota": "P/E benchmark x35 (growth)",
     "graham": 0.0
@@ -103,7 +103,13 @@
       "[-] Retrasado vs sector YTD en -2.8%"
     ]
   },
-  "riesgos": [],
+  "riesgos": [
+    {
+      "tipo": "FINANCIERO",
+      "nivel": "MEDIUM",
+      "desc": "Deuda/Equity 1.5x moderada — monitorear refinanciamiento"
+    }
+  ],
   "eventos": {
     "earnings_fecha": "2026-04-30",
     "earnings_eps_est": 1.9426,
@@ -171,65 +177,65 @@
   },
   "noticias_ticker": [
     {
-      "title": "Anthropic’s New AI Model Triggered an Emergency Banking Meeting. It’s a Reason to Buy Cybersecurity Stocks.",
-      "url": "https://www.barrons.com/articles/bessent-powell-anthropic-mythos-cybersecurity-crowdstrike-stock-25ae1cb7?siteid=yhoof2&yptr=yahoo",
-      "source": "Barrons.com",
-      "date": "2026-04-10",
+      "title": "TSMC’s Record Q1 AI Revenue Puts Capex And Growth In Focus",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-record-q1-ai-revenue-070857272.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "EGYM to merge with Playlist: CEO talks new $7.5 billion evaluation",
+      "url": "https://finance.yahoo.com/video/egym-to-merge-with-playlist-ceo-talks-new-75-billion-evaluation-120000414.html",
+      "source": "Yahoo Finance Video",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Apple Joins Project Glasswing As Mythos AI Raises New Valuation Questions",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apple-joins-project-glasswing-mythos-230751003.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-12",
       "sentiment": "neutral"
     },
     {
-      "title": "Apple Hires Uber’s Asia-Pacific Government Relations Chief",
-      "url": "https://finance.yahoo.com/sectors/technology/articles/apple-hires-uber-asia-pacific-000000401.html",
-      "source": "Bloomberg",
-      "date": "2026-04-11",
+      "title": "Magnificent 7 stocks are splitting again: Chart of the Day",
+      "url": "https://finance.yahoo.com/news/magnificent-7-stocks-are-splitting-again-chart-of-the-day-173828916.html",
+      "source": "Yahoo Finance",
+      "date": "2026-04-12",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Why a $70,000 Dividend Income Goal Requires Millions, and Which ETF Gets You There Fastest",
+      "url": "https://247wallst.com/investing/2026/04/12/why-a-70000-dividend-income-goal-requires-millions-and-which-etf-gets-you-there-fastest/",
+      "source": "24/7 Wall St.",
+      "date": "2026-04-12",
       "sentiment": "neutral"
-    },
-    {
-      "title": "Japan Bets $16 Billion to Propel Rapidus in Global AI Chip Race",
-      "url": "https://finance.yahoo.com/sectors/technology/articles/japan-bets-16-billion-propel-112506649.html",
-      "source": "Bloomberg",
-      "date": "2026-04-11",
-      "sentiment": "bullish"
-    },
-    {
-      "title": "Apple, Levi’s, and 5 More Stocks Get Analyst Attention",
-      "url": "https://www.barrons.com/articles/apple-levis-and-5-more-stocks-get-analyst-attention-ad9fadf3?siteid=yhoof2&yptr=yahoo",
-      "source": "Barrons.com",
-      "date": "2026-04-10",
-      "sentiment": "bullish"
-    },
-    {
-      "title": "2.5 Billion Reasons Apple Might Be the Best Artificial Intelligence (AI) Stock to Buy Today",
-      "url": "https://www.fool.com/investing/2026/04/11/25-billion-reasons-apple-might-be-the-best-ai-buy/",
-      "source": "Motley Fool",
-      "date": "2026-04-11",
-      "sentiment": "bullish"
     }
   ],
   "noticias_macro": [
     {
-      "title": "Here are some bargain bank stocks heading into earnings season",
-      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "bearish"
-    },
-    {
-      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
-      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
       "source": "MarketWatch",
       "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "‘I feel pressured’: My husband has early Alzheimer’s and wants to visit Europe, but I’m terrified of flying. What should I do?",
+      "url": "https://www.marketwatch.com/story/i-feel-pressured-my-husband-has-early-alzheimers-and-wants-to-visit-europe-but-im-terrified-of-flying-what-should-i-do-c5cc01bf?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
     }
   ]
 }

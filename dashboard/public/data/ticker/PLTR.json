@@ -1,6 +1,6 @@
 {
   "ticker": "PLTR",
-  "fecha": "2026-04-12T00:26:38.552970",
+  "fecha": "2026-04-12T21:21:38.856098",
   "es_cripto": false,
   "veredicto": "COMPRA",
   "score": 5,
@@ -185,13 +185,6 @@
   },
   "noticias_ticker": [
     {
-      "title": "Michael Burry Saying Anthropic Eating Palantir's Lunch Is 'The Wrong Take And Fictional Narrative,' Says Top Analyst",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/michael-burry-saying-anthropic-eating-150115784.html",
-      "source": "Benzinga",
-      "date": "2026-04-11",
-      "sentiment": "bearish"
-    },
-    {
       "title": "2 AI Stocks I Don't Like (Including Palantir) and 1 I Love",
       "url": "https://www.fool.com/investing/2026/04/11/2-ai-stocks-i-dont-like-and-1-i-love/",
       "source": "Motley Fool",
@@ -199,18 +192,11 @@
       "sentiment": "bullish"
     },
     {
-      "title": "Stock Market Today, April 10: Palantir Falls as AI Competition Pressures Valuation",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/04/10/stock-market-today-april-10-palantir-falls-as-ai-competition-pressures-valuation/",
-      "source": "Motley Fool",
-      "date": "2026-04-10",
+      "title": "Wall Street strategists say it's time to 'jump in' with tech stocks amid Iran ceasefire",
+      "url": "https://finance.yahoo.com/news/wall-street-strategists-say-its-time-to-jump-in-with-tech-stocks-amid-iran-ceasefire-133019529.html",
+      "source": "Yahoo Finance",
+      "date": "2026-04-12",
       "sentiment": "neutral"
-    },
-    {
-      "title": "Palantir stock caught in a battle over pension billions",
-      "url": "https://www.thestreet.com/investing/palantir-stock-caught-in-a-battle-over-pension-billions",
-      "source": "TheStreet",
-      "date": "2026-04-11",
-      "sentiment": "bullish"
     },
     {
       "title": "Trump name-drops Palantir by ticker symbol, 1st president to hype a stock. It surged $10B in minutes amid a 16% freefall",
@@ -218,32 +204,46 @@
       "source": "Moneywise",
       "date": "2026-04-11",
       "sentiment": "bullish"
+    },
+    {
+      "title": "Is Palantir a Millionaire-Maker Stock?",
+      "url": "https://www.fool.com/investing/2026/04/12/is-palantir-a-millionaire-maker-stock/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "I've Changed My Mind on Palantir Stock. The Great Repricing Makes It a Buy.",
+      "url": "https://www.fool.com/investing/2026/04/11/ive-changed-my-mind-on-palantir-stock-the-great-re/",
+      "source": "Motley Fool",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
     }
   ],
   "noticias_macro": [
     {
-      "title": "Here are some bargain bank stocks heading into earnings season",
-      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "bearish"
-    },
-    {
-      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
-      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
       "source": "MarketWatch",
       "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Move now to seize this potential stock-market crisis and opportunity",
+      "url": "https://www.marketwatch.com/story/move-now-to-seize-this-potential-stock-market-crisis-and-opportunity-3c61dea9?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
     }
   ]
 }

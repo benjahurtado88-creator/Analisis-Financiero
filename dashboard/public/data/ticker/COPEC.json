@@ -1,6 +1,6 @@
 {
   "ticker": "COPEC",
-  "fecha": "2026-04-12T00:34:19.264255",
+  "fecha": "2026-04-14T19:34:03.603264",
   "es_cripto": false,
   "veredicto": "VER NOTICIAS Y TECNICO",
   "score": 0,
@@ -64,28 +64,28 @@
   "noticias_ticker": [],
   "noticias_macro": [
     {
-      "title": "Here are some bargain bank stocks heading into earnings season",
-      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
+      "title": "Nvidia’s stock is on a 10-day winning streak. Here’s why investors are getting back on board with AI.",
+      "url": "https://www.marketwatch.com/story/nvidias-stock-is-on-a-10-day-winning-streak-heres-why-investors-are-getting-back-on-board-with-ai-bf0bb59e?mod=mw_rss_topstories",
       "source": "MarketWatch",
       "sentiment": "neutral"
     },
     {
-      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "bearish"
-    },
-    {
-      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
-      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "title": "As S&P 500 approaches record highs, this is what could derail the stock-market rebound",
+      "url": "https://www.marketwatch.com/story/as-s-p-500-approaches-record-highs-this-is-what-could-derail-the-stock-market-rebound-7456ebf8?mod=mw_rss_topstories",
       "source": "MarketWatch",
       "sentiment": "bullish"
+    },
+    {
+      "title": "Amazon’s stock is on its best run since 2022 as Globalstar acquisition fuels rally",
+      "url": "https://www.marketwatch.com/story/amazons-stock-is-on-its-best-run-since-2022-as-globalstar-acquisition-fuels-rally-5d5f22b1?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Why one analyst believes Microsoft’s stock may be bottoming out",
+      "url": "https://www.marketwatch.com/story/why-one-analyst-believes-microsofts-stock-may-be-bottoming-out-560a3478?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
     }
   ]
 }

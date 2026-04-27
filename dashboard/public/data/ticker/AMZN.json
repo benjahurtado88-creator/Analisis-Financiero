@@ -1,6 +1,6 @@
 {
   "ticker": "AMZN",
-  "fecha": "2026-04-12T00:22:07.684858",
+  "fecha": "2026-04-12T20:48:57.230428",
   "es_cripto": false,
   "veredicto": "MANTENER / ESPERAR",
   "score": 3,
@@ -185,65 +185,65 @@
   },
   "noticias_ticker": [
     {
-      "title": "Nvidia Just Posted Its Longest Winning Streak Since 2023. Is This Time for Real?",
-      "url": "https://247wallst.com/investing/2026/04/11/nvidia-just-posted-its-longest-winning-streak-since-2023-is-this-time-for-real/",
-      "source": "24/7 Wall St.",
-      "date": "2026-04-11",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Amazon vs. Walmart: The Retail War Just Picked a Winner",
-      "url": "https://247wallst.com/investing/2026/04/11/amazon-vs-walmart-the-retail-war-just-picked-a-winner/",
-      "source": "24/7 Wall St.",
-      "date": "2026-04-11",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Rigetti’s 108 Qubit Launch Tests Quantum Ambitions And Valuation Gap",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/rigetti-108-qubit-launch-tests-121224543.html",
+      "title": "Amazon AI Chips Move From AWS Engine To Potential New Profit Stream",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-ai-chips-move-aws-170745452.html",
       "source": "Simply Wall St.",
-      "date": "2026-04-11",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "OpenAI Reportedly Eyes $100 Billion Ad Empire By 2030 And Plans Limited Rollout of New Cybersecurity Model",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/openai-reportedly-eyes-100-billion-180118612.html",
+      "source": "Benzinga",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "As a Direct Challenge to Starlink, Amazon and Delta Are Teaming Up to Offer In-Flight Wi-Fi. Which Stock Will Benefit the Most?",
+      "url": "https://www.fool.com/investing/2026/04/12/as-a-direct-challenge-to-starlink-amazon-and-delta/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
       "sentiment": "bullish"
     },
     {
-      "title": "AI Juggernaut Rumbles on Even as Markets Whipsaw",
-      "url": "https://finance.yahoo.com/sectors/technology/articles/ai-juggernaut-rumbles-even-markets-190000638.html",
-      "source": "Bloomberg",
-      "date": "2026-04-11",
+      "title": "Trump's Tariff Turmoil Topples Ultra-Rich's Wealth — $174B Wiped Out From Fortunes Of World's Top 10 Billionaires, Including Elon Musk, Warren Buffett And Mark Zuckerberg",
+      "url": "https://finance.yahoo.com/economy/policy/articles/trumps-tariff-turmoil-topples-ultra-150125985.html",
+      "source": "Benzinga",
+      "date": "2026-04-12",
       "sentiment": "neutral"
     },
     {
-      "title": "U.S.-Iran Talks End With No Deal; How Will Dow Jones Futures, Oil Prices React?",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-us-iran-talks-no-deal-vp-jd-vance/?src=A00220&yptr=yahoo",
-      "source": "Investor's Business Daily",
+      "title": "2 Stocks to Buy on Overdone AI Infrastructure Spending Fears That Could Rise 30% and 50%, According to One Wall Street Analyst",
+      "url": "https://www.fool.com/investing/2026/04/12/2-stocks-to-buy-on-overdone-ai-infrastructure-spen/",
+      "source": "Motley Fool",
       "date": "2026-04-12",
       "sentiment": "bullish"
     }
   ],
   "noticias_macro": [
     {
-      "title": "Here are some bargain bank stocks heading into earnings season",
-      "url": "https://www.marketwatch.com/story/here-are-some-bargain-bank-stocks-heading-into-earnings-season-d0e6b3da?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-      "url": "https://www.marketwatch.com/story/mortgage-rates-dip-following-iran-cease-fire-why-thats-great-timing-for-people-selling-a-home-be81ad97?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "bearish"
-    },
-    {
-      "title": "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-      "url": "https://www.marketwatch.com/story/my-wife-and-i-want-to-move-to-malaysia-will-we-receive-social-security-benefits-there-cb38f98e?mod=mw_rss_topstories",
-      "source": "MarketWatch",
-      "sentiment": "neutral"
-    },
-    {
-      "title": "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment",
-      "url": "https://www.marketwatch.com/story/corporate-tax-cuts-from-the-big-beautiful-bill-arent-giveaways-the-new-laws-actually-fuel-investment-b998da78?mod=mw_rss_topstories",
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
       "source": "MarketWatch",
       "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "‘I feel pressured’: My husband has early Alzheimer’s and wants to visit Europe, but I’m terrified of flying. What should I do?",
+      "url": "https://www.marketwatch.com/story/i-feel-pressured-my-husband-has-early-alzheimers-and-wants-to-visit-europe-but-im-terrified-of-flying-what-should-i-do-c5cc01bf?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
     }
   ]
 }

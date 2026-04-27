@@ -1,0 +1,194 @@
+{
+  "ticker": "HOOD",
+  "fecha": "2026-04-12T21:21:52.994558",
+  "es_cripto": false,
+  "veredicto": "VER NOTICIAS Y TECNICO",
+  "score": 0,
+  "precio": {
+    "precio_actual": 69.19,
+    "cambio_24h": -1.33,
+    "cambio_7d": -0.16,
+    "cambio_30d": -12.07,
+    "high_52w": 152.46,
+    "low_52w": 39.85,
+    "vol_hoy": 23094900,
+    "vol_20d_avg": 26506045,
+    "vol_relativo": 0.87,
+    "cambio_ytd": -39.94,
+    "sma_20": 71.026,
+    "sma_50": 76.3874,
+    "sma_200": 107.4536,
+    "soporte": 65.16,
+    "resistencia": 119.67,
+    "tendencia_sma": "BAJISTA",
+    "rsi": 46.95,
+    "macd_line": -2.5716,
+    "macd_signal": -3.1538,
+    "macd_bullish": true
+  },
+  "info": {
+    "market_cap": 62292340736.0,
+    "sector": "Financial Services",
+    "sector_key": "financial-services",
+    "industria": "Capital Markets",
+    "analyst_target": 103.77125,
+    "analyst_low": 50.0,
+    "analyst_high": 155.0,
+    "analyst_rec": "BUY",
+    "analyst_count": 24,
+    "revenue_growth": 0.265,
+    "earnings_growth": -0.345,
+    "ev": 62106337280.0,
+    "ev_ebitda": null,
+    "beta": 2.464,
+    "forward_eps": 2.69291,
+    "forward_pe": 25.693396,
+    "short_ratio": 1.07
+  },
+  "fundamentales": {
+    "yield": 0.0,
+    "payout": 0.0,
+    "pe": 55.1842,
+    "pb": 11.3691,
+    "pfcf": 65.6024,
+    "fcf_yield": 0.0152,
+    "margin": 0.421,
+    "gross": 0.8334,
+    "roe": 0.2199,
+    "de": 1.2705,
+    "int_cov": null,
+    "eps": 2.0495,
+    "graham": 21.42
+  },
+  "fair_value": {},
+  "dcf": {},
+  "escenarios": {},
+  "moat": {},
+  "riesgos": [],
+  "eventos": {
+    "earnings_fecha": "2026-04-28",
+    "earnings_eps_est": 0.43,
+    "earnings_eps_low": 0.39,
+    "earnings_eps_high": 0.47,
+    "earnings_rev_est": 1159260380.0
+  },
+  "sector_contexto": {
+    "etf_ticker": "XLF",
+    "etf_precio": 50.77,
+    "etf_ytd": -7.1,
+    "sector_nombre": "Financial Services"
+  },
+  "sentimiento": {
+    "fuente": "Análisis cuantitativo (precio + técnico + analistas)",
+    "score": 1,
+    "max": 10,
+    "label": "NEUTRAL",
+    "señales": [
+      {
+        "factor": "RSI Neutral",
+        "valor": "47",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Sin señal clara de momentum"
+      },
+      {
+        "factor": "Tendencia SMA",
+        "valor": "BAJISTA",
+        "señal": "BEARISH",
+        "peso": "-2",
+        "desc": "Precio bajo SMA50 y SMA200 — presión vendedora institucional"
+      },
+      {
+        "factor": "MACD",
+        "valor": "Alcista",
+        "señal": "BULLISH",
+        "peso": "+1",
+        "desc": "Cruce MACD alcista — momentum de corto plazo positivo"
+      },
+      {
+        "factor": "Analistas",
+        "valor": "BUY (24)",
+        "señal": "BULLISH",
+        "peso": "+2",
+        "desc": "24 analistas recomiendan compra — consenso profesional positivo"
+      },
+      {
+        "factor": "Short Interest",
+        "valor": "1.1d",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "Short interest moderado — sin alarma"
+      },
+      {
+        "factor": "Posición 52s",
+        "valor": "26%",
+        "señal": "NEUTRAL",
+        "peso": "0",
+        "desc": "En zona media del rango anual"
+      }
+    ]
+  },
+  "noticias_ticker": [
+    {
+      "title": "Texas Instruments upgraded, Circle downgraded: Wall Street's top analyst calls",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/texas-instruments-upgraded-circle-downgraded-134055142.html",
+      "source": "The Fly",
+      "date": "2026-04-09",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "2 of the Most Owned Stocks on Robinhood Also Have at Least 50% Upside, According to Wall Street",
+      "url": "https://www.fool.com/investing/2026/04/12/2-most-owned-stocks-on-robinhood-have-upside/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Coinbase Gains AFSL, Strengthens Australia Expansion Push",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/coinbase-gains-afsl-strengthens-australia-160500945.html",
+      "source": "Zacks",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Q4 Rundown: Robinhood (NASDAQ:HOOD) Vs Other Financial Technology Stocks",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/q4-rundown-robinhood-nasdaq-hood-113444362.html",
+      "source": "StockStory",
+      "date": "2026-04-10",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Analysts See 100% Upside in Flutter Stock Despite Prediction-Market Pressure",
+      "url": "https://www.marketbeat.com/originals/analysts-see-100-upside-in-flutter-stock-despite-prediction-market-pressure/?utm_source=yahoofinance&utm_medium=yahoofinance",
+      "source": "MarketBeat",
+      "date": "2026-04-09",
+      "sentiment": "neutral"
+    }
+  ],
+  "noticias_macro": [
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Move now to seize this potential stock-market crisis and opportunity",
+      "url": "https://www.marketwatch.com/story/move-now-to-seize-this-potential-stock-market-crisis-and-opportunity-3c61dea9?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
+  ]
+}

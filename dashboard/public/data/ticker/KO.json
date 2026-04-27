@@ -1,6 +1,6 @@
 {
   "ticker": "KO",
-  "fecha": "2026-04-11T23:27:37.121739",
+  "fecha": "2026-04-12T20:49:13.930405",
   "es_cripto": false,
   "veredicto": "MANTENER / ESPERAR",
   "score": 3,
@@ -48,22 +48,22 @@
   "fundamentales": {
     "yield": 0.026590938427778495,
     "payout": 0.6698,
-    "pe": 22.8472,
-    "pb": 9.3091,
-    "pfcf": 56.5451,
-    "fcf_yield": 0.0177,
+    "pe": 23.0043,
+    "pb": 9.3731,
+    "pfcf": 56.9339,
+    "fcf_yield": 0.0176,
     "margin": 0.2734,
     "gross": 0.6163,
     "roe": 0.4322,
     "de": 1.3273,
-    "int_cov": 9.6499,
+    "int_cov": 8.9553,
     "eps": 3.039,
     "graham": 22.58
   },
   "fair_value": {
     "tipo_empresa": "value",
     "pe_benchmark": 20,
-    "fair_value_pe": 67.82,
+    "fair_value_pe": 67.35,
     "fair_ev": 33.9,
     "nota": "P/E benchmark x20 (valor/dividendo)",
     "graham": 0.0
@@ -99,7 +99,7 @@
     "factores": [
       "[+] Margen bruto 62% > 40% — pricing power",
       "[+] ROE 43% > 20% — eficiencia de capital superior",
-      "[+] Cobertura intereses 9.6x — fortaleza de balance",
+      "[+] Cobertura intereses 9.0x — fortaleza de balance",
       "[+] Margen neto en tendencia CRECIENTE — ventaja creciente",
       "[+] Supera sector YTD en +6.2% — ejecución superior"
     ]
@@ -108,7 +108,7 @@
     {
       "tipo": "VALORACION",
       "nivel": "MEDIUM",
-      "desc": "Precio +14% sobre Fair Value P/E — premium elevado, exige ejecución perfecta"
+      "desc": "Precio +15% sobre Fair Value P/E — premium elevado, exige ejecución perfecta"
     },
     {
       "tipo": "DIVIDENDO",
@@ -182,16 +182,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-04-11] Simply Wall St. (score:8): How The Coca-Cola (KO) Investment Story Is Shifting With New Targets And Protein Exposure — Coca-Cola’s updated fair value estimate has shifted slightly, from US$83.49 to US$83.67 per share, putting a finer point on where analysts see the sto",
-    "[2026-04-11] Motley Fool (score:8): What Is One of the Best Dividend Stocks to Buy With $5,000 Right Now? — Companies that have a strong focus on returning capital to shareholders are popular among certain investors.",
-    "[2026-04-11] Barchart (score:8): Coca-Cola’s Quarterly Earnings Preview: What You Need to Know — The Coca-Cola Company is set to report its fiscal first-quarter results by the end of this month, and analysts are anticipating a low double-digit gro",
-    "[2026-04-10] Simply Wall St. (score:6): Coca-Cola’s America250 Push Links Brand Story To Investor Questions — Coca-Cola (NYSE:KO) has launched a yearlong America250 campaign tied to the United States' 250th anniversary. The initiative includes unique collectib",
-    "[2026-04-09] Motley Fool (score:5): Should You Buy Beloved Warren Buffett Stock Coca-Cola Before April 28? — Interested investors may not want to wait around to get involved with the stock."
+    {
+      "title": "3 Dividend Stocks Warren Buffett Would Buy in a Market Crash",
+      "url": "https://www.fool.com/investing/2026/04/12/3-dividend-stocks-warren-buffett-would-buy-in-a-ma/",
+      "source": "Motley Fool",
+      "date": "2026-04-12",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "How The Coca-Cola (KO) Investment Story Is Shifting With New Targets And Protein Exposure",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-ko-investment-story-200736616.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-11",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "What Is One of the Best Dividend Stocks to Buy With $5,000 Right Now?",
+      "url": "https://www.fool.com/investing/2026/04/11/one-best-dividend-stocks-buy-with-5000-right-now/",
+      "source": "Motley Fool",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Coca-Cola’s Quarterly Earnings Preview: What You Need to Know",
+      "url": "https://www.barchart.com/story/news/1254539/coca-colas-quarterly-earnings-preview-what-you-need-to-know",
+      "source": "Barchart",
+      "date": "2026-04-11",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Coca-Cola’s America250 Push Links Brand Story To Investor Questions",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-america250-push-links-190817119.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "Trump says he’s closing the Strait of Hormuz. Has he been reading MarketWatch?",
+      "url": "https://www.marketwatch.com/story/trump-says-hes-closing-the-strait-of-hormuz-has-he-been-reading-marketwatch-e059dd07?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "‘I feel pressured’: My husband has early Alzheimer’s and wants to visit Europe, but I’m terrified of flying. What should I do?",
+      "url": "https://www.marketwatch.com/story/i-feel-pressured-my-husband-has-early-alzheimers-and-wants-to-visit-europe-but-im-terrified-of-flying-what-should-i-do-c5cc01bf?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
   ]
 }

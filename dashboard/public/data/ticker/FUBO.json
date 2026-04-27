@@ -1,6 +1,6 @@
 {
   "ticker": "FUBO",
-  "fecha": "2026-04-11T23:52:44.700655",
+  "fecha": "2026-04-12T20:01:18.786055",
   "es_cripto": false,
   "veredicto": "VER NOTICIAS Y TECNICO",
   "score": 0,
@@ -41,24 +41,24 @@
     "ev": 2680561408.0,
     "ev_ebitda": null,
     "beta": 2.379,
-    "forward_eps": 1.43883,
-    "forward_pe": 8.131607,
+    "forward_eps": 1.96,
+    "forward_pe": 5.9693875,
     "short_ratio": 3.62
   },
   "fundamentales": {
     "yield": 0.0,
     "payout": 0.0,
-    "pe": -2.3382,
-    "pb": 2.051,
-    "pfcf": -4.2257,
-    "fcf_yield": -0.2366,
-    "margin": -0.1061,
-    "gross": 0.1257,
-    "roe": -0.7415,
-    "de": 2.0933,
-    "int_cov": -7.1778,
-    "eps": -6.4665,
-    "graham": 0
+    "pe": 5.653,
+    "pb": 3.1933,
+    "pfcf": -5.2882,
+    "fcf_yield": -0.1891,
+    "margin": 0.0572,
+    "gross": 0.1112,
+    "roe": 0.1099,
+    "de": 0.2529,
+    "int_cov": -4.702,
+    "eps": 5.3494,
+    "graham": 33.76
   },
   "fair_value": {},
   "dcf": {},
@@ -130,16 +130,66 @@
     ]
   },
   "noticias_ticker": [
-    "[2026-03-31] StockStory (score:9): Norwegian Cruise Line, Offerpad, fuboTV, Somnigroup, and Ralph Lauren Shares Are Soaring, What You Need To Know — A number of stocks jumped in the morning session after investors priced in a potential de-escalation of the conflict in Iran alongside reassuring comm",
-    "[2026-03-27] The Fly (score:6): Wix downgraded, TripAdvisor upgraded: Wall Street's top analyst calls — Wix downgraded, TripAdvisor upgraded: Wall Street's top analyst calls",
-    "[2026-04-07] The Fly (score:6): Arm downgraded, Arista Networks upgraded: Wall Street's top analyst calls — Arm downgraded, Arista Networks upgraded: Wall Street's top analyst calls",
-    "[2026-04-06] StockStory (score:5): fuboTV (FUBO) Shares Skyrocket, What You Need To Know — Shares of live sports and TV streaming service fuboTV (NYSE:FUBO) jumped 24.7% in the afternoon session after the company released an optimistic finan",
-    "[2026-04-08] Simply Wall St. (score:5): FuboTV (FUBO) Is Up 31.7% After Profit Targets, Reverse Split and Disney Integration Shift Narrative — In early April 2026, FuboTV outlined long-term financial targets, including adjusted EBITDA goals for 2026 and 2028 and an expectation of turning free"
+    {
+      "title": "Norwegian Cruise Line, Offerpad, fuboTV, Somnigroup, and Ralph Lauren Shares Are Soaring, What You Need To Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/norwegian-cruise-line-offerpad-fubotv-232519367.html",
+      "source": "StockStory",
+      "date": "2026-03-31",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Arm downgraded, Arista Networks upgraded: Wall Street's top analyst calls",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/arm-downgraded-arista-networks-upgraded-134709919.html",
+      "source": "The Fly",
+      "date": "2026-04-07",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Wix downgraded, TripAdvisor upgraded: Wall Street's top analyst calls",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wix-downgraded-tripadvisor-upgraded-wall-134625306.html",
+      "source": "The Fly",
+      "date": "2026-03-27",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Apple, Levi’s, and 5 More Stocks Get Analyst Attention",
+      "url": "https://www.barrons.com/articles/apple-levis-and-5-more-stocks-get-analyst-attention-ad9fadf3?siteid=yhoof2&yptr=yahoo",
+      "source": "Barrons.com",
+      "date": "2026-04-10",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "FuboTV (FUBO) Is Up 31.7% After Profit Targets, Reverse Split and Disney Integration Shift Narrative",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/fubotv-fubo-31-7-profit-031238276.html",
+      "source": "Simply Wall St.",
+      "date": "2026-04-08",
+      "sentiment": "bullish"
+    }
   ],
   "noticias_macro": [
-    "Here are some bargain bank stocks heading into earnings season",
-    "Mortgage rates dip following Iran cease-fire. Why that’s great timing for people selling a home.",
-    "My wife and I want to move to Malaysia. Will we receive Social Security benefits there?",
-    "Corporate tax cuts from the ‘Big Beautiful Bill’ aren’t giveaways — the new law actually fuels investment"
+    {
+      "title": "Trump announces blockade of Strait of Hormuz as Vance leaves Pakistan talks with no deal. How financial markets are reacting.",
+      "url": "https://www.marketwatch.com/story/vance-leaves-pakistan-talks-with-no-deal-how-financial-markets-are-reacting-ef6916b3?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "April’s stock-market rebound is about to face its first major test as earnings season swings into gear",
+      "url": "https://www.marketwatch.com/story/aprils-stock-market-rebound-is-about-to-face-its-first-major-test-as-earnings-season-swings-into-gear-1210b246?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "Stock-market futures drop, oil surges back above $100 after failed talks between U.S. and Iran over the weekend",
+      "url": "https://www.marketwatch.com/story/stock-market-futures-drop-oil-surges-above-100-after-failed-talks-between-u-s-and-iran-over-the-weekend-7b741637?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "bullish"
+    },
+    {
+      "title": "‘I feel pressured’: My husband has early Alzheimer’s and wants to visit Europe, but I’m terrified of flying. What should I do?",
+      "url": "https://www.marketwatch.com/story/i-feel-pressured-my-husband-has-early-alzheimers-and-wants-to-visit-europe-but-im-terrified-of-flying-what-should-i-do-c5cc01bf?mod=mw_rss_topstories",
+      "source": "MarketWatch",
+      "sentiment": "neutral"
+    }
   ]
 }

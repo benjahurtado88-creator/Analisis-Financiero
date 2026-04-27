@@ -16,13 +16,18 @@ const profileStyles: Record<string, string> = {
 }
 
 const STEPS: Record<string, string> = {
-  prices: "Actualizando precios con yfinance...",
-  deep:   "Análisis profundo (Python + FinanceToolkit)...",
-  reading:"Preparando datos...",
-  gemini: "Generando análisis con Gemini Flash...",
-  saving: "Guardando reporte...",
-  done:   "¡Listo! Recargando...",
-  error:  "Error",
+  prices:    "Actualizando precios con yfinance...",
+  macro:     "Obteniendo VIX, yields y rotación sectorial...",
+  deep:      "Python analizando tickers con FinanceToolkit...",
+  reading:   "Preparando datos para los agentes...",
+  agents:    "Lanzando 5 agentes especializados en paralelo...",
+  strategy:  "Agente Estratega sintetizando todos los sectores...",
+  critic:    "Agente Crítico verificando sesgos y advertencias...",
+  saving:    "Guardando reporte verificado...",
+  done:      "¡Listo! Recargando...",
+  error:     "Error",
+  // legacy
+  gemini:    "Generando análisis...",
 }
 
 type GenStatus = { step: string; msg: string } | null
@@ -66,7 +71,7 @@ export function ReportHeader({ data }: { data: ReportData }) {
     }
   }
 
-  // ── Generar reporte con Gemini (SSE) — acepta lista de excluidos ────────
+  // ── Generar reporte con 5 agentes especializados (SSE) ──────────────────
   async function runGenerate(excluded: string[] = []) {
     setGenDone(false)
     setGenStatus({ step: "start", msg: "Iniciando..." })
@@ -108,7 +113,9 @@ export function ReportHeader({ data }: { data: ReportData }) {
 
   function handleGenerate() {
     setShowRiskModal(false)
-    setExcludedTickers([])    // análisis fresco — resetear excluidos
+    // Siempre usar los 5 sectores — perfil agresivo hardcodeado
+    setSectors(["crypto", "stocks", "startups", "currencies", "materials"])
+    setExcludedTickers([])
     runGenerate([])
   }
 
@@ -142,14 +149,14 @@ export function ReportHeader({ data }: { data: ReportData }) {
             {refreshing ? "Actualizando..." : "Actualizar precios"}
           </button>
 
-          {/* Generar nuevo análisis */}
+          {/* Generar nuevo análisis — siempre 5 agentes, perfil agresivo */}
           <button
-            onClick={() => setShowRiskModal(true)}
+            onClick={handleGenerate}
             disabled={genRunning}
             className="flex items-center gap-1.5 rounded-xl bg-violet-600 px-3 py-2 text-sm font-semibold text-white hover:bg-violet-700 transition-colors disabled:opacity-50"
           >
             <Sparkles size={13} />
-            {genRunning ? "Generando..." : "Nuevo análisis Gemini"}
+            {genRunning ? "Analizando..." : "Nuevo análisis (5 agentes)"}
           </button>
 
           {/* Siguientes 3 — visible solo si ya hay picks en el reporte */}
