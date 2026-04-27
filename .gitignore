@@ -3,6 +3,9 @@ output/
 dashboard/node_modules/
 dashboard/.next/
 
+# Output del polling de YouTube — se regenera con `python youtube_signals.py`
+youtube_signals.json
+
 # Variables de entorno — NUNCA subir al repo
 .env
 .env.local
