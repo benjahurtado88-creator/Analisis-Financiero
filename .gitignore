@@ -2,6 +2,8 @@ output/
 .DS_Store
 dashboard/node_modules/
 dashboard/.next/
+__pycache__/
+*.pyc
 
 # Output del polling de YouTube — se regenera con `python youtube_signals.py`
 youtube_signals.json
