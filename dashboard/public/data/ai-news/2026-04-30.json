@@ -1,0 +1,62 @@
+{
+  "fecha": "2026-04-30",
+  "titular_del_dia": "IBM lanza Granite 4.1, un modelo de 8B que rivaliza con modelos de 32B",
+  "puntos_clave": [
+    {
+      "titulo": "IBM Granite 4.1",
+      "resumen": "IBM ha lanzado Granite 4.1, un modelo de inteligencia artificial de 8B que puede rivalizar con modelos de 32B. Esto podría ser un avance significativo en la eficiencia y el rendimiento de los modelos de IA.",
+      "fuente": "Hacker News",
+      "url": "https://firethering.com/granite-4-1-ibm-open-source-model-family/"
+    },
+    {
+      "titulo": "Malware en PyTorch Lightning",
+      "resumen": "Se ha descubierto un malware en la biblioteca PyTorch Lightning, que se utiliza para el entrenamiento de modelos de IA. Esto destaca la importancia de la seguridad en el desarrollo de IA.",
+      "fuente": "Hacker News",
+      "url": "https://semgrep.dev/blog/2026/malicious-dependency-in-pytorch-lightning-used-for-ai-training/"
+    },
+    {
+      "titulo": "Mike, IA legal de código abierto",
+      "resumen": "Se ha lanzado Mike, una herramienta de IA legal de código abierto. Esto podría ser un avance significativo en la aplicación de la IA en el ámbito legal.",
+      "fuente": "Hacker News",
+      "url": "https://mikeoss.com/"
+    },
+    {
+      "titulo": "Claude Code y OpenClaw",
+      "resumen": "Claude Code ha generado controversia al negarse a procesar solicitudes que mencionen 'OpenClaw'. Esto destaca la importancia de la transparencia y la neutralidad en el desarrollo de IA.",
+      "fuente": "Hacker News",
+      "url": "https://twitter.com/theo/status/2049645973350363168"
+    },
+    {
+      "titulo": "Zig y su política anti-IA",
+      "resumen": "El proyecto Zig ha explicado su política anti-IA, que busca evitar el uso de IA en el desarrollo de software. Esto destaca la importancia de la responsabilidad y la ética en el desarrollo de IA.",
+      "fuente": "Hacker News",
+      "url": "https://simonwillison.net/2026/Apr/30/zig-anti-ai/"
+    }
+  ],
+  "herramientas_destacadas": [
+    {
+      "nombre": "Granite 4.1",
+      "que_es": "Un modelo de IA de 8B que rivaliza con modelos de 32B",
+      "por_que_importa": "Puede ser un avance significativo en la eficiencia y el rendimiento de los modelos de IA"
+    },
+    {
+      "nombre": "Mike",
+      "que_es": "Una herramienta de IA legal de código abierto",
+      "por_que_importa": "Puede ser un avance significativo en la aplicación de la IA en el ámbito legal"
+    }
+  ],
+  "aplicacion_practica": "Los modelos de IA como Granite 4.1 pueden ser utilizados para mejorar la eficiencia y el rendimiento en diversas industrias, como la salud y la finanza. Además, herramientas como Mike pueden ser utilizadas para automatizar tareas legales y mejorar la productividad.",
+  "veredicto": "El día ha tenido algunos anuncios significativos en el ámbito de la IA, como el lanzamiento de Granite 4.1 y la herramienta de IA legal Mike. Sin embargo, también se han destacado algunos desafíos y controversias en el desarrollo de IA.",
+  "_meta": {
+    "generated_at": "2026-04-30T19:35:52.776670+00:00",
+    "transcript_used": false,
+    "transcript_chars": 0,
+    "sources_collected": {
+      "everyday_ai": true,
+      "tldr_ai": true,
+      "bens_bites": true,
+      "latent_space_count": 3,
+      "hacker_news_count": 8
+    }
+  }
+}
