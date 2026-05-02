@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import ChatPanel from "@/components/ChatPanel";
 
 type KeyPoint = { titulo: string; resumen: string; fuente: string; url: string };
 type Tool = { nombre: string; que_es: string; por_que_importa: string };
@@ -157,6 +158,17 @@ export default function AINewsPage() {
                 Generado: {report._meta.generated_at} · Transcripción: {report._meta.transcript_used ? "sí" : "no"}
               </footer>
             )}
+
+            <ChatPanel
+              context={report}
+              topic="ai-news"
+              placeholder="Pregunta sobre las noticias de hoy..."
+              starterQuestions={[
+                "¿Cuál es la noticia más relevante para un builder?",
+                "Explícame la herramienta más importante mencionada",
+                "¿Qué impacto tiene esto para mis proyectos?",
+              ]}
+            />
           </article>
         )}
       </div>

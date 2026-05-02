@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import ChatPanel from "@/components/ChatPanel";
 
 type Indicador = { nombre: string; valor: string; movimiento: string };
 type Punto = { titulo: string; resumen: string; categoria: string };
@@ -160,6 +161,18 @@ export default function FinanzasChilePage() {
                 Generado: {report._meta.generated_at} · Transcripción: {report._meta.transcript_used ? "sí" : "no"}
               </footer>
             )}
+
+            <ChatPanel
+              context={report}
+              topic="finanzas-chile"
+              placeholder="Pregunta sobre el día financiero..."
+              starterQuestions={[
+                "¿Qué significa estanflación y cómo me afecta?",
+                "¿Por qué importa la decisión de Powell?",
+                "¿Cómo me afecta el alza del petróleo en Chile?",
+                "Resume en una frase qué pasó hoy",
+              ]}
+            />
           </article>
         )}
       </div>
