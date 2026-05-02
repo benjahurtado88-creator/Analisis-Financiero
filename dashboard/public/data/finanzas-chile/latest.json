@@ -1,0 +1,43 @@
+{
+  "fecha": "2026-05-01",
+  "titular_del_dia": "Aires de estanflación en la Eurozona",
+  "indicadores_clave": [
+    {
+      "nombre": "Petróleo",
+      "valor": "mayor nivel en cuatro años",
+      "movimiento": "al alza"
+    }
+  ],
+  "puntos_clave": [
+    {
+      "titulo": "Desaceleración de la Eurozona",
+      "resumen": "La Eurozona muestra signos de desaceleración económica. Esto puede tener un impacto en los mercados globales y en la economía chilena.",
+      "categoria": "Global"
+    },
+    {
+      "titulo": "Petróleo al alza",
+      "resumen": "El petróleo alcanza su mayor nivel en cuatro años, lo que puede influir en la inflación y en los costos de producción.",
+      "categoria": "Global"
+    },
+    {
+      "titulo": "Decisión de Powell",
+      "resumen": "La decisión del presidente de la Fed, Powell, es esperada con ansias por los mercados. Puede influir en las tasas de interés y en la economía global.",
+      "categoria": "Global"
+    },
+    {
+      "titulo": "Resultados de tecnológicas",
+      "resumen": "Los resultados de las grandes tecnológicas pueden influir en los mercados bursátiles y en la confianza de los inversores.",
+      "categoria": "Global"
+    }
+  ],
+  "contexto_global": "La desaceleración de la Eurozona y el alza del petróleo pueden tener un impacto en la economía chilena, especialmente en la inflación y en los costos de producción. La decisión de Powell también puede influir en las tasas de interés y en la economía global.",
+  "que_mirar_hoy": "Es importante seguir los resultados de las grandes tecnológicas y la decisión de Powell para entender cómo pueden influir en los mercados.",
+  "veredicto": "Día volátil debido a la incertidumbre global y a la espera de decisiones clave.",
+  "_meta": {
+    "generated_at": "2026-05-02T01:19:08.283048+00:00",
+    "transcript_used": false,
+    "transcript_chars": 0,
+    "episode_title": "Abril 30: Aires de estanflación",
+    "episode_url": "https://podcasters.spotify.com/pod/show/primer-click2/episodes/Abril-30-Aires-de-estanflacin-e3imis3"
+  }
+}
